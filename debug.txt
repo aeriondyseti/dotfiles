@@ -1,0 +1,562 @@
+
+[1m[38;2;191;207;240mVersion:[0m 29.7.1
+
+[1m[38;2;191;207;240mShell:[0m shell (5.9)
+[1m[38;2;191;207;240m
+Prompt:
+
+[0m[37m╭─[0m[34m ~/Development/dotfiles [0m[35m  master ≡  ?8 ~8 |  +30 [0m                                            [37m 15:15:56 [0m
+[37m╰─ [0m[1m[32maerion@Terra[22m[0m[37m ❯[0m]0;dotfiles [1m[38;2;191;207;240m
+
+Segments:
+
+[0mConsoleTitle([38;2;156;231;201mtrue[0m) -   0 ms
+Text([38;2;156;231;201mtrue[0m)         -   0 ms
+Path([38;2;156;231;201mtrue[0m)         -   1 ms
+Git([38;2;156;231;201mtrue[0m)          -   4 ms
+Git([38;2;204;137;214mfalse[0m)         -   0 ms
+Dotnet([38;2;204;137;214mfalse[0m)      -   0 ms
+Kotlin([38;2;204;137;214mfalse[0m)      -   1 ms
+Node([38;2;204;137;214mfalse[0m)        -   1 ms
+Python([38;2;204;137;214mfalse[0m)      -   1 ms
+Rust([38;2;204;137;214mfalse[0m)        -   0 ms
+Bun([38;2;204;137;214mfalse[0m)         -   0 ms
+Npm([38;2;204;137;214mfalse[0m)         -   1 ms
+React([38;2;204;137;214mfalse[0m)       -   1 ms
+Docker([38;2;204;137;214mfalse[0m)      -   0 ms
+Time([38;2;156;231;201mtrue[0m)         -   0 ms
+Text([38;2;156;231;201mtrue[0m)         -   0 ms
+Session([38;2;156;231;201mtrue[0m)      -   1 ms
+Text([38;2;156;231;201mtrue[0m)         -   0 ms
+Text([38;2;204;137;214mfalse[0m)        -   0 ms
+
+[1m[38;2;191;207;240mRun duration:[0m 9.668255ms
+
+[1m[38;2;191;207;240mCache path:[0m /home/aerion/.cache/oh-my-posh
+
+[1m[38;2;191;207;240mConfig path:[0m /home/aerion/.config/oh-my-posh/config.toml
+[1m[38;2;191;207;240m
+Logs:
+
+[0m[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.577 [0mdebug.go:39[38;2;156;231;201m →[0m logging enabled, raw mode: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.577 [0mstore.go:]:163[38;2;156;231;201m →[0m (session) key not found: prompt_count_cache
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.577 [0mstore.go:](session prompt_count_cache) - [38;2;191;207;240m23.965µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.577 [0mterminal.go:setPromptCount() - [38;2;191;207;240m27.581µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.577 [0mterminal.go:GOOS() - [38;2;191;207;240m40ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.577 [0mterminal.go:setPwd:102[38;2;156;231;201m →[0m /home/aerion/Development/dotfiles
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.577 [0mterminal.go:setPwd() - [38;2;191;207;240m13.805µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.577 [0mterminal.go:Init() - [38;2;191;207;240m46.357µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.577 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.577 [0mpath.go:Path() - [38;2;191;207;240m13.906µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:init:95[38;2;156;231;201m →[0m (device) loading is_wsl
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:init:95[38;2;156;231;201m →[0m (device) loading DSC_CONFIGURATION
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:init:95[38;2;156;231;201m →[0m (device) loading INITVERSIONZSH
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:init:95[38;2;156;231;201m →[0m (device) loading DSC_SHELL
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:init:95[38;2;156;231;201m →[0m (device) loading environment_platform
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:init(device omp.cache) - [38;2;191;207;240m229.027µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0minit.go:SessionID() - [38;2;191;207;240m320ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mpath.go:Path() - [38;2;191;207;240m40ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:init:95[38;2;156;231;201m →[0m (session) loading CONFIG_SOURCE
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:init:95[38;2;156;231;201m →[0m (session) loading prompt_count_cache
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:init:95[38;2;156;231;201m →[0m (session) loading CONFIG
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:init:95[38;2;156;231;201m →[0m (session) loading toggle_cache
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:init(session zsh.0c6e4b50-1a69-4f92-9d07-f226e33ed6f4.omp.cache) - [38;2;191;207;240m87.002µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:163[38;2;156;231;201m →[0m (device) key not found: reload
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](device reload) - [38;2;191;207;240m5.179µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: CONFIG - /gIHfwMBAQZDb25maWcB/4AAASABB1BhbGV0dGUB/4IAAQtEZWJ1Z1Byb21wdAH/hAABA1ZhcgH/jgABCFBhbGV0dGVzAf+QAAEJVmFsaWRMaW5lAf+EAAEPU2Vjb25kYXJ5UHJvbXB0Af+EAAEPVHJhbnNpZW50UHJvbXB0Af+EAAEJRXJyb3JMaW5lAf+EAAEETWFwcwH/lAABB1VwZ3JhZGUB/5gAAQdFeHRlbmRzAQwAAQtBY2NlbnRDb2xvcgEMAAEUQ29uc29sZVRpdGxlVGVtcGxhdGUBDAABA1BXRAEMAAEGU291cmNlAQwAAQZGb3JtYXQBDAABElRlcm1pbmFsQmFja2dyb3VuZAEMAAEOVG9vbFRpcHNBY3Rpb24BDAABBkJsb2NrcwH/ngABBUN5Y2xlAf+iAAENSVRlcm1GZWF0dXJlcwH/pAABCFRvb2x0aXBzAf+cAAEHVmVyc2lvbgEEAAENTWlncmF0ZUdseXBocwECAAEFQXN5bmMBAgABEFNoZWxsSW50ZWdyYXRpb24BAgABCkZpbmFsU3BhY2UBAgABDVVwZ3JhZGVOb3RpY2UBAgABDlBhdGNoUHdzaEJsZWVkAQIAAQtBdXRvVXBncmFkZQECAAEXRW5hYmxlQ3Vyc29yUG9zaXRpb25pbmcBAgABCVN0cmVhbWluZwEEAAAAF/+BBAEBB1BhbGV0dGUB/4IAAQwBDAAA/gIx/4MDAQEHU2VnbWVudAH/hAABJAEHT3B0aW9ucwH/hgABClByb3BlcnRpZXMB/4YAAQVDYWNoZQH/iAABBUFsaWFzAQwAAQ5MZWFkaW5nRGlhbW9uZAEMAAEPVHJhaWxpbmdEaWFtb25kAQwAAQhUZW1wbGF0ZQEMAAEKRm9yZWdyb3VuZAEMAAEOVGVtcGxhdGVzTG9naWMBDAABD1Bvd2VybGluZVN5bWJvbAEMAAEKQmFja2dyb3VuZAEMAAEGRmlsbGVyAQwAAQRUeXBlAQwAAQVTdHlsZQEMAAEWTGVhZGluZ1Bvd2VybGluZVN5bWJvbAEMAAELUGxhY2Vob2xkZXIBDAABBFRpcHMB/4oAARNCYWNrZ3JvdW5kVGVtcGxhdGVzAf+MAAEJVGVtcGxhdGVzAf+MAAEORXhjbHVkZUZvbGRlcnMB/4oAAQ5JbmNsdWRlRm9sZGVycwH/igABBU5lZWRzAf+KAAETRm9yZWdyb3VuZFRlbXBsYXRlcwH/jAABBUluZGV4AQQAAQhNaW5XaWR0aAEEAAEIRHVyYXRpb24BBAABCk5hbWVMZW5ndGgBBAABCE1heFdpZHRoAQQAAQdUaW1lb3V0AQQAAQdOZXdsaW5lAQIAAQdFbmFibGVkAQIAAQ9JbnZlcnRQb3dlcmxpbmUBAgABBUZvcmNlAQIAAQdUb2dnbGVkAQIAAQdQZW5kaW5nAQIAAQtJbnRlcmFjdGl2ZQECAAAAE/+FBAEBA01hcAH/hgABDAEQAAAt/4cDAQEFQ2FjaGUB/4gAAQIBCER1cmF0aW9uAQwAAQhTdHJhdGVneQEMAAAAFv+JAgEBCFtdc3RyaW5nAf+KAAEMAAAS/4sCAQEETGlzdAH/jAABDAAAJ/+NBAEBF21hcFtzdHJpbmddaW50ZXJmYWNlIHt9Af+OAAEMARAAAC3/jwMBAQhQYWxldHRlcwH/kAABAgEETGlzdAH/kgABCFRlbXBsYXRlAQwAAAAp/5EEAQEYbWFwW3N0cmluZ11jb2xvci5QYWxldHRlAf+SAAEMAf+CAAA//5MDAQEGQ29uZmlnAf+UAAEDAQhVc2VyTmFtZQH/lgABCEhvc3ROYW1lAf+WAAEJU2hlbGxOYW1lAf+WAAAAE/+VBAEBA01hcAH/lgABDAEMAABc/5cDAQEGQ29uZmlnAf+YAAEGAQZTb3VyY2UBDAABCEludGVydmFsAQwAAQZMYXRlc3QBDAABBEF1dG8BAgABDURpc3BsYXlOb3RpY2UBAgABBUZvcmNlAQIAAAAe/50CAQEPW10qY29uZmlnLkJsb2NrAf+eAAH/mgAA/5D/mQMBAv+aAAEKAQRUeXBlAQwAAQlBbGlnbm1lbnQBDAABBkZpbGxlcgEMAAEIT3ZlcmZsb3cBDAABDkxlYWRpbmdEaWFtb25kAQwAAQ9UcmFpbGluZ0RpYW1vbmQBDAABCFNlZ21lbnRzAf+cAAEHTmV3bGluZQECAAEFRm9yY2UBAgABBUluZGV4AQQAAAAg/5sCAQERW10qY29uZmlnLlNlZ21lbnQB/5wAAf+EAAAU/6ECAQEFQ3ljbGUB/6IAAf+gAAAq/58DAQL/oAABAgEKQmFja2dyb3VuZAEMAAEKRm9yZWdyb3VuZAEMAAAAG/+jAgEBDUlUZXJtRmVhdHVyZXMB/6QAAQwAAP4BDf+ACgEDY2RuAQQxNjhoAAIHI2ZmZmZmZgENe3sgLkZvbGRlciB9fQIrL2hvbWUvYWVyaW9uLy5jb25maWcvb2gtbXktcG9zaC9jb25maWcudG9tbAEEdG9tbAMEAQZwcm9tcHQBBGxlZnQFDQcG4pWt4pSAAQRncmF5BQR0ZXh0AQVwbGFpbgABAgVzdHlsZQZzdHJpbmcMBgAEZnVsbAh0ZW1wbGF0ZQZzdHJpbmcMFgAUOjxiPnt7IC5QYXRoIH19PC9iPiAHBGJsdWUFBHBhdGgBBXBsYWluAAEEFGZvcmVncm91bmRfdGVtcGxhdGVzDltdaW50ZXJmYWNlIHt9/6UCAQL/pgABEAAA/gZK/6ZdAAIGc3RyaW5nDCMAIXt7IGlmIGd0IC5BaGVhZCAwIH19Y3lhbnt7IGVuZCB9fQZzdHJpbmcMJgAke3sgaWYgZ3QgLkJlaGluZCAwIH19eWVsbG93e3sgZW5kIH19CHRlbXBsYXRlBnN0cmluZwz+ARgA/gEUe3sgLkhFQUQgfX17eyBpZiBvciAoZ3QgLkFkZGVkIDApIChndCAuRGVsZXRlZCAwKSB9fSAoe3sgaWYgZ3QgLkFkZGVkIDAgfX0re3sgLkFkZGVkIH19e3sgZW5kIH19e3sgaWYgYW5kIChndCAuQWRkZWQgMCkgKGd0IC5EZWxldGVkIDApIH19LHt7IGVuZCB9fXt7IGlmIGd0IC5EZWxldGVkIDAgfX0te3sgLkRlbGV0ZWQgfX17eyBlbmQgfX0pe3sgZW5kIH19e3sgaWYgLldvcmtpbmcuQ2hhbmdlZCB9fSAqe3sgZW5kIH19e3sgaWYgLlN0YWdpbmcuQ2hhbmdlZCB9fSAre3sgZW5kIH19C2JyYW5jaF9pY29uBnN0cmluZwwDAAEgDGZldGNoX3N0YXR1cwRib29sAgIAAQcHbWFnZW50YQUDZ2l0AQVwbGFpbgAHcXt7IGlmIC5SZWJhc2UgfX0gW3JlYmFzaW5nXXt7IGVuZCB9fXt7IGlmIC5DaGVycnlQaWNrIH19IFtjaGVycnktcGlja117eyBlbmQgfX17eyBpZiAuTWVyZ2UgfX0gW21lcmdpbmdde3sgZW5kIH19AQZ5ZWxsb3cFA2dpdAEFcGxhaW4ABzogLk5FVCB7eyBpZiAuVW5zdXBwb3J0ZWQgfX17eyBlbHNlIH19e3sgLkZ1bGwgfX17eyBlbmQgfX0gAQZ5ZWxsb3cFBmRvdG5ldAEFcGxhaW4ABw4gIHt7IC5GdWxsIH19IAEGeWVsbG93BQZrb3RsaW4BBXBsYWluAAdNICB7eyBpZiAuUGFja2FnZU1hbmFnZXJJY29uIH19e3sgLlBhY2thZ2VNYW5hZ2VySWNvbiB9fSB7eyBlbmQgfX17eyAuRnVsbCB9fSABBnllbGxvdwUEbm9kZQEFcGxhaW4AB18gIHt7IGlmIC5FcnJvciB9fXt7IC5FcnJvciB9fXt7IGVsc2UgfX17eyBpZiAuVmVudiB9fXt7IC5WZW52IH19IHt7IGVuZCB9fXt7IC5GdWxsIH19e3sgZW5kIH19IAEGeWVsbG93BQZweXRob24BBXBsYWluAAc6IHt7IGlmIC5FcnJvciB9fXt7IC5FcnJvciB9fXt7IGVsc2UgfX17eyAuRnVsbCB9fXt7IGVuZCB9fQEGeWVsbG93BQRydXN0AQVwbGFpbgAHDiAge3sgLkZ1bGwgfX0gAQZ5ZWxsb3cFA2J1bgEFcGxhaW4ABw4gIHt7IC5GdWxsIH19IAEGeWVsbG93BQNucG0BBXBsYWluAAcOICB7eyAuRnVsbCB9fSABBnllbGxvdwUFcmVhY3QBBXBsYWluAAcRICB7eyAuQ29udGV4dCB9fSABBnllbGxvdwUGZG9ja2VyAQVwbGFpbgAAAQZwcm9tcHQBBXJpZ2h0BQEBAgh0ZW1wbGF0ZQZzdHJpbmcMKgAoPGI+e3sgLkN1cnJlbnREYXRlIHwgZGF0ZSAuRm9ybWF0IH19PC9iPgt0aW1lX2Zvcm1hdAZzdHJpbmcMCgAIMTU6MDQ6MDUHBXdoaXRlBQR0aW1lAQVwbGFpbgAAAQZwcm9tcHQBBGxlZnQFAwcH4pWw4pSAIAEEZ3JheQUEdGV4dAEFcGxhaW4AByY8Yj57eyAuVXNlck5hbWUgfX1Ae3sgLkhvc3ROYW1lIH19PC9iPgEFZ3JlZW4FB3Nlc3Npb24BBXBsYWluAAcEIOKdrwEEZ3JheQUEdGV4dAEFcGxhaW4JAR97eyBpZiBndCAuQ29kZSAwIH19cmVke3sgZW5kIH19AAEBAAEHcnByb21wdAEFcmlnaHQFAQdIe3sgaWYgLkVudi5TUE9USUZZX05PV19QTEFZSU5HIH19e3sgLkVudi5TUE9USUZZX05PV19QTEFZSU5HIH19e3sgZW5kIH19AQVncmVlbgUEdGV4dAEFcGxhaW4AAAQEAgECAQA=
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](session CONFIG) - [38;2;191;207;240m25.798µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mgob.go:Restore() - [38;2;191;207;240m90.92µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mgob.go:Get() - [38;2;191;207;240m121.576µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Shell() - [38;2;191;207;240m70ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m50ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:163[38;2;156;231;201m →[0m (session) key not found: template_cache
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](session template_cache) - [38;2;191;207;240m3.887µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mcache.go:restoreCache() - [38;2;191;207;240m6.162µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal_unix.go:Root() - [38;2;191;207;240m511ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Shell() - [38;2;191;207;240m30ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:StatusCodes() - [38;2;191;207;240m30ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (device) found entry: is_wsl - false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](device is_wsl) - [38;2;191;207;240m2.695µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal_unix.go:IsWsl() - [38;2;191;207;240m4.719µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (device) found entry: is_wsl - false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](device is_wsl) - [38;2;191;207;240m1.974µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal_unix.go:IsWsl() - [38;2;191;207;240m3.687µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m21ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:User:236[38;2;156;231;201m →[0m aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:User() - [38;2;191;207;240m2.104µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Host:253[38;2;156;231;201m →[0m Terra
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Host() - [38;2;191;207;240m3.006µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (device) found entry: environment_platform - ubuntu
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](device environment_platform) - [38;2;191;207;240m2.775µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv:64[38;2;156;231;201m →[0m 1
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv(SHLVL) - [38;2;191;207;240m2.144µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mwriter.go:Init:107[38;2;156;231;201m →[0m terminal program: ghostty
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mwriter.go:Init:108[38;2;156;231;201m →[0m terminal shell: shell
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv(OMP_CACHE_DISABLED) - [38;2;191;207;240m2.375µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:163[38;2;156;231;201m →[0m (device) key not found: accent_color
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](device accent_color) - [38;2;191;207;240m6.342µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mcolors.go:SetAccentColor() - [38;2;191;207;240m13.435µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Shell() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv:64[38;2;156;231;201m →[0m 5.9
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv(POSH_SHELL_VERSION) - [38;2;191;207;240m1.723µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mdebug.go:PrintDebug:24[38;2;156;231;201m →[0m segment: Title
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m {{ .Folder }}
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv(POSH_CURSOR_LINE) - [38;2;191;207;240m5.771µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv(POSH_CURSOR_COLUMN) - [38;2;191;207;240m1.302µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m40ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m30ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m431ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m80ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Docker
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m5.14µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m60ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Text
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m130ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m extensions: [compose.yml compose.yaml docker-compose.yml docker-compose.yaml Dockerfile]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:String:79[38;2;156;231;201m →[0m display_mode: context
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv(DOCKER_MACHINE_NAME) - [38;2;191;207;240m1.743µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m12.534µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv(DOCKER_HOST) - [38;2;191;207;240m1.312µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv(DOCKER_CONTEXT) - [38;2;191;207;240m1.302µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m30ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m120ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Getenv(DOCKER_CONFIG) - [38;2;191;207;240m1.343µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;253;122;140m[ERROR] [38;2;156;231;201m15:15:56.578 [0mterminal.go:FileContent:207[38;2;156;231;201m →[0m open /home/aerion/.docker/config.json: no such file or directory
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:FileContent(/home/aerion/.docker/config.json) - [38;2;191;207;240m6.352µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m50ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Rust
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Git
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m2.334µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m extensions: [*.rs Cargo.toml Cargo.lock]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m folders: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Path
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:Bool:133[38;2;156;231;201m →[0m home_enabled: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:Bool:133[38;2;156;231;201m →[0m disable_with_jj: false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m171ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:String:79[38;2;156;231;201m →[0m display_mode: files
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m8.175µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:ResolveSymlink:195[38;2;156;231;201m →[0m /home/aerion/Development/dotfiles
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:ResolveSymlink(/home/aerion/Development/dotfiles) - [38;2;191;207;240m13.505µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m91ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Dotnet
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:Bool:133[38;2;156;231;201m →[0m display_cygpath: false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m2.865µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m141ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:HasParentFilePath(.git) - [38;2;191;207;240m23.844µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mseparator.go:Separator() - [38;2;191;207;240m211ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_bare_info: false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Shell() - [38;2;191;207;240m260ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m30ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m141ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m140ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:Execute:173[38;2;156;231;201m →[0m [38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Git
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (device) found entry: is_wsl - false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](device is_wsl) - [38;2;191;207;240m27.842µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m3.216µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m120ns[0m
+7µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m30ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m210ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:GOOS() - [38;2;191;207;240m80ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:Bool:133[38;2;156;231;201m →[0m disable_with_jj: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m3.417µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m extensions: [*.kt *.kts *.ktm]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m folders: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mterminal.go:ResolveSymlink:195[38;2;156;231;201m →[0m /home/aerion/Development/dotfiles
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:ResolveSymlink(/home/aerion/Development/dotfiles) - [38;2;191;207;240m14.537µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:HasParentFilePath(.git) - [38;2;191;207;240m20.728µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_bare_info: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mstore.go:]:176[38;2;156;231;201m →[0m (device) found entry: is_wsl - false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.578 [0mterminal.go:Flags() - [38;2;191;207;240m211ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mstore.go:](device is_wsl) - [38;2;191;207;240m174.385µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal_unix.go:IsWsl() - [38;2;191;207;240m180.246µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal_unix.go:IsWsl2() - [38;2;191;207;240m184.754µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:GOOS() - [38;2;191;207;240m30ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:GOOS() - [38;2;191;207;240m80ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Python
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m extensions: [*.cs *.csx *.vb *.sln *.slnx *.slnf *.csproj *.vbproj *.fs *.fsx *.fsproj global.json]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m folders: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:Bool:133[38;2;156;231;201m →[0m home_enabled: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:String:79[38;2;156;231;201m →[0m display_mode: files
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m357.837µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:CommandPath:304[38;2;156;231;201m →[0m /usr/bin/git
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:CommandPath(git) - [38;2;191;207;240m104.625µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasCommand(git) - [38;2;191;207;240m108.923µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.cs) - [38;2;191;207;240m76.833µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.csx) - [38;2;191;207;240m4.017µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m105.767µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.rs) - [38;2;191;207;240m450.369µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:GOOS() - [38;2;191;207;240m21ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.vb) - [38;2;191;207;240m14.627µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_user: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:String:79[38;2;156;231;201m →[0m source: cli
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.sln) - [38;2;191;207;240m4.288µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_status: false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(Cargo.toml) - [38;2;191;207;240m7.595µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.slnx) - [38;2;191;207;240m5.2µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:String:79[38;2;156;231;201m →[0m display_mode: environment
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(Cargo.lock) - [38;2;191;207;240m3.847µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.slnf) - [38;2;191;207;240m3.897µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m tooling: [rustc]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m extensions: [*.py *.ipynb pyproject.toml venv.bak]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m folders: [.venv venv virtualenv venv-win pyenv-win]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:FileContent:212[38;2;156;231;201m ↓
+[0m    ref: refs/heads/master
+    
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.csproj) - [38;2;191;207;240m9.267µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.vbproj) - [38;2;191;207;240m3.948µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_virtual_env: true
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.fs) - [38;2;191;207;240m3.206µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:FileContent(/home/aerion/Development/dotfiles/.git/HEAD) - [38;2;191;207;240m25.498µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mgit.go:updateHEADReference:976[38;2;156;231;201m →[0m HEADRef: ref: refs/heads/master
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.fsx) - [38;2;191;207;240m4.578µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mgit.go:updateHEADReference:1001[38;2;156;231;201m →[0m current HEAD is a branch: master
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:Flags() - [38;2;191;207;240m210ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:String:79[38;2;156;231;201m →[0m branch_icon: 
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(*.fsproj) - [38;2;191;207;240m4.138µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:KeyValueMap:208[38;2;156;231;201m →[0m mapped_branches: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:GOOS() - [38;2;191;207;240m91ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:String:79[38;2;156;231;201m →[0m branch_template: 
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(global.json) - [38;2;191;207;240m3.827µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Npm
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_upstream_icon: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m tooling: [dotnet]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:Flags() - [38;2;191;207;240m30ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:GOOS() - [38;2;191;207;240m100ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Bun
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m8.707µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m extensions: [bun.lockb bun.lock]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m folders: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:Bool:133[38;2;156;231;201m →[0m home_enabled: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:String:79[38;2;156;231;201m →[0m display_mode: files
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(bun.lockb) - [38;2;191;207;240m6.613µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:HasFilesInDir(bun.lock) - [38;2;191;207;240m3.576µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:Flags() - [38;2;191;207;240m251ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m tooling: [bun]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:Flags() - [38;2;191;207;240m31ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.579 [0mterminal.go:GOOS() - [38;2;191;207;240m70ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Node
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.579 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.578 [0mmap.go:Bool:133[38;2;156;231;201m →[0m home_enabled: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mstore.go:](session toggle_cache) - [38;2;156;231;201m1.108886ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m folders: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:Bool:133[38;2;156;231;201m →[0m home_enabled: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m display_mode: files
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_package_manager: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(*.js) - [38;2;191;207;240m5.39µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(*.ts) - [38;2;191;207;240m4.267µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(package.json) - [38;2;191;207;240m3.046µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(.nvmrc) - [38;2;191;207;240m2.615µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:Bool:133[38;2;156;231;201m →[0m mapped_locations_enabled: true
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m extensions: [package.json package-lock.json]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(pnpm-workspace.yaml) - [38;2;191;207;240m3.035µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m windows_registry_icon: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m folders: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m windows_registry_icon: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:Bool:133[38;2;156;231;201m →[0m home_enabled: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(.pnpmfile.cjs) - [38;2;191;207;240m4.098µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m display_mode: files
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;253;122;140m[ERROR] [38;2;156;231;201m15:15:56.580 [0mterminal.go:CommandPath:308[38;2;156;231;201m →[0m exec: "python": executable file not found in $PATH
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(.vue) - [38;2;191;207;240m2.594µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:CommandPath(python) - [38;2;156;231;201m1.215275ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m tooling: [node]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(package.json) - [38;2;191;207;240m5.32µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(package-lock.json) - [38;2;191;207;240m3.406µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m tooling: [npm]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Flags() - [38;2;191;207;240m30ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m home_icon: ~
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:KeyValueMap:208[38;2;156;231;201m →[0m mapped_locations: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:CommandPath:304[38;2;156;231;201m →[0m /usr/bin/git
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mseparator.go:Separator() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:CommandPath(git) - [38;2;156;231;201m1.683367ms[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mseparator.go:Separator() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasCommand(git) - [38;2;156;231;201m1.687154ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m80ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m30ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m50ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_user: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m source: cli
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:Bool:141[38;2;156;231;201m →[0m fetch_status: true
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m gitdir_format: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m ignore_status: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:83[38;2;156;231;201m →[0m style: full
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m cycle: []
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m folder_separator_template: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:KeyValueMap:208[38;2;156;231;201m →[0m status_formats: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m folder_separator_icon: /
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:KeyValueMap:208[38;2;156;231;201m →[0m untracked_modes: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:Bool:133[38;2;156;231;201m →[0m cycle_folder_separator: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m folder_format: %s
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:CommandPath:304[38;2;156;231;201m →[0m /home/linuxbrew/.linuxbrew/bin/python3
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:KeyValueMap:208[38;2;156;231;201m →[0m ignore_submodules: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m edge_format: %s
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:CommandPath(python3) - [38;2;191;207;240m68.107µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m left_format: %s
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:String:79[38;2;156;231;201m →[0m right_format: %s
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:StackCount() - [38;2;191;207;240m60ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal_unix.go:DirIsWritable(/home/aerion/Development/dotfiles) - [38;2;191;207;240m2.956µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(pyvenv.cfg) - [38;2;191;207;240m62.537µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m  {{ .Data.Path }} 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:HasFilesInDir(pyvenv.cfg) - [38;2;191;207;240m14.547µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:Bool:133[38;2;156;231;201m →[0m folder_name_fallback: true
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m default_venv_names: [.venv venv]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Getenv(VIRTUAL_ENV) - [38;2;191;207;240m1.703µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Getenv(CONDA_ENV_PATH) - [38;2;191;207;240m1.332µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Getenv(CONDA_DEFAULT_ENV) - [38;2;191;207;240m1.653µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.580 [0mmap.go:StringArray:220[38;2;156;231;201m →[0m tooling: [pyenv python python3 py]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.580 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.582 [0mterminal.go:RunCommand:280[38;2;156;231;201m ↓
+[0m    # branch.oid b1dedf0083874e6fdbfd616f1834a4cfce065300
+    # branch.head master
+    # branch.upstream origin/master
+    # branch.ab +0 -0
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 726d2d63b3e05f4d5afe2d91cc7809115a0559a9 .gitignore
+    1 .M N... 100644 100644 100644 346c8ccecf1b95132a48c608a1d49d275538b39c 346c8ccecf1b95132a48c608a1d49d275538b39c .zshrc
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 07729b234bddb95dbabc48c482c2e121c1a2127a config/claude/agents/debugger.md
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 096d0354a61a345a82e5fdf036e3ff9222a04414 config/claude/agents/developer.md
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 6b3e909e5b7533e531519cc77cf3e5c4dda2ca60 config/claude/agents/git-master.md
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 b9cc18fb1c48ca4a9b454bb10386145534a18cfe config/claude/agents/researcher.md
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 7d7990382c25e164b0a45faa88019f7ef021d75a config/claude/agents/technical-writer.md
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 6780651983cd222f2f335ac4478a54fe33131183 config/claude/agents/test-engineer.md
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 2e0a80d0b7ddeb868d5baccd3af89ead4d0f87cf config/claude/ccstatusline/settings.json
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 4bc5f517b7b2f48de9823c541c1d75d9d4cccfbd config/claude/mcp-servers/base.json
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 0676614498e137f188c5032b0abeea5b87559a7d config/claude/mcp-servers/desktop.json
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 df7f2d7311800825a02625cfb10fb24345abc19c config/claude/settings.json
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 c810a1983fa0c5e95cd348ded6ff22f10996ae68 config/oh-my-posh.toml
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 784ffd6c6c3038f5af37203831dbdbae68f40f24 flake.lock
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 4353290b094b21eeb9d80805e52bfef81bdcea8e flake.nix
+    1 .M N... 100644 100644 100644 9710a6135cb853e9c8cc608d247ead997aad1b83 9710a6135cb853e9c8cc608d247ead997aad1b83 modules/linux-amd64/claude.sh
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 b0b20c4450c1682797faec4c51dfb031e044a185 nix/hosts/darwin-aarch64.nix
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 527865e05a2c45b4865fbe83eaebdf4f11f96a71 nix/hosts/linux-x86_64.nix
+    1 AM N... 000000 100644 100644 0000000000000000000000000000000000000000 b97f05150a90e6ba4886a3c46fd277714992f1fa nix/modules/claude.nix
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 e69ff6d01956711106de2270b0b91b9d661f1683 nix/modules/cli-tools.nix
+    1 AM N... 000000 100644 100644 0000000000000000000000000000000000000000 e280903b5d61515223743efcb356a0ba53363bd9 nix/modules/git.nix
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 60a37623a6b0dfb416dd68ee648d6e0f06a7ed65 nix/modules/prompt/oh-my-posh.nix
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 3018cb123f72b89998b66094680b78055464c963 nix/modules/prompt/ps1.nix
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 40951038ba133fee124384a65154cf6eb63577b7 nix/modules/prompt/starship.nix
+    1 AM N... 000000 100644 100644 0000000000000000000000000000000000000000 d7a1dac40bb89e5ab72cc265a53e4d24b93d2ec2 nix/modules/shell/bash.nix
+    1 AM N... 000000 100644 100644 0000000000000000000000000000000000000000 844fe236379dea037e600da0698248409438622b nix/modules/shell/common.nix
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 158db2a803a5ff894ef99c8b1c8ade4d04194a37 nix/modules/shell/fish.nix
+    1 AM N... 000000 100644 100644 0000000000000000000000000000000000000000 2b31ce2955e40108c597088d39ec2167059dd79e nix/modules/shell/zsh.nix
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 4d038e8901d0db81a96e42b9616deea002787c48 nix/options.nix
+    1 AM N... 000000 100644 100644 0000000000000000000000000000000000000000 bfd885bd7ad5805c6e35a47d6f197a3bf83f39a9 nix/profiles/desktop.nix
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 a9994eced7b180f3c54fce4fc90e699123bd7ec6 nix/profiles/server.nix
+    1 A. N... 000000 100644 100644 0000000000000000000000000000000000000000 60fd38ae9ff2c08db6375d69edb1fa56b91bd444 nix/profiles/work.nix
+    ? .gitconfig
+    ? config/bat/
+    ? config/kde/
+    ? config/zsh/
+    ? debug.txt
+    ? migration/
+    ? modules/linux-amd64/kde-theme.sh
+    ? terminal-colors.md
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.582 [0mterminal.go:RunCommand(git -C /home/aerion/Development/dotfiles --no-optional-locks -c core.quotepath=false -c color.status=false status -unormal --branch --porcelain=2) - [38;2;156;231;201m2.098971ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.582 [0mmap.go:String:83[38;2;156;231;201m →[0m branch_icon:  
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.582 [0mmap.go:KeyValueMap:208[38;2;156;231;201m →[0m mapped_branches: map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.582 [0mmap.go:String:79[38;2;156;231;201m →[0m branch_template: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.582 [0mterminal.go:HasFolder:180[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.582 [0mterminal.go:HasFolder(/home/aerion/Development/dotfiles/.git/rebase-merge) - [38;2;191;207;240m9.257µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.582 [0mterminal.go:HasFolder:180[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:HasFolder(/home/aerion/Development/dotfiles/.git/rebase-apply) - [38;2;191;207;240m19.076µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mmap.go:String:79[38;2;156;231;201m →[0m commit_icon: 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:HasFilesInDir(MERGE_MSG) - [38;2;191;207;240m45.024µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:HasFilesInDir(CHERRY_PICK_HEAD) - [38;2;191;207;240m6.061µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:HasFilesInDir(REVERT_HEAD) - [38;2;191;207;240m3.727µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mterminal.go:HasFilesInDir:151[38;2;156;231;201m →[0m false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:HasFilesInDir(sequencer/todo) - [38;2;191;207;240m3.066µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mmap.go:String:79[38;2;156;231;201m →[0m branch_identical_icon: ≡
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_push_status: false
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mmap.go:Bool:133[38;2;156;231;201m →[0m fetch_upstream_icon: false
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:Flags() - [38;2;191;207;240m30ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m  {{ .Data.HEAD }}{{if .Data.BranchStatus }} {{ .Data.BranchStatus }}{{ end }}{{ if .Data.Working.Changed }}  {{ .Data.Working.String }}{{ end }}{{ if and (.Data.Staging.Changed) (.Data.Working.Changed) }} |{{ end }}{{ if .Data.Staging.Changed }}  {{ .Data.Staging.String }}{{ end }} 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m {{ if .Data.Rebase }} [rebasing]{{ end }}{{ if .Data.CherryPick }} [cherry-pick]{{ end }}{{ if .Data.Merge }} [merging]{{ end }}
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:Shell() - [38;2;191;207;240m100ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:Flags() - [38;2;191;207;240m110ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:GOOS() - [38;2;191;207;240m30ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Time
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m3.677µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mmap.go:String:83[38;2;156;231;201m →[0m time_format: 15:04:05
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.583 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.583 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m  {{ .Data.CurrentDate | date .Data.Format }} 
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mterminal_unix.go:TerminalWidth:83[38;2;156;231;201m →[0m terminal width: 107
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal_unix.go:TerminalWidth() - [38;2;156;231;201m1.857522ms[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mengine.go:shouldFill:165[38;2;156;231;201m →[0m no filler specified
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Shell() - [38;2;191;207;240m70ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:GOOS() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Text
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Flags() - [38;2;191;207;240m220ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m3.636µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Flags() - [38;2;191;207;240m190ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:GOOS() - [38;2;191;207;240m80ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Text
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:GOOS() - [38;2;191;207;240m90ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Session
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m5.64µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m3.827µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Getenv(SSH_CONNECTION) - [38;2;191;207;240m2.665µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Flags() - [38;2;191;207;240m30ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mterminal.go:Getenv(SSH_CLIENT) - [38;2;191;207;240m1.583µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.585 [0mstore.go:]:176[38;2;156;231;201m →[0m (device) found entry: environment_platform - ubuntu
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.585 [0mstore.go:](device environment_platform) - [38;2;191;207;240m3.937µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0mterminal.go:RunCommand:280[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:RunCommand(who am i) - [38;2;156;231;201m1.579774ms[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m <b>{{ .UserName }}@{{ .HostName }}</b>
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m {{ if gt .Code 0 }}red{{ end }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m {{ if gt .Code 0 }}red{{ end }}
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Flags() - [38;2;191;207;240m100ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Shell() - [38;2;191;207;240m70ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Flags() - [38;2;191;207;240m111ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0mhome.go:12[38;2;156;231;201m →[0m /home/aerion
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:GOOS() - [38;2;191;207;240m40ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0msegment.go:Execute:173[38;2;156;231;201m →[0m segment: Text
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0mstore.go:]:176[38;2;156;231;201m →[0m (session) found entry: toggle_cache - map[]
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mstore.go:](session toggle_cache) - [38;2;191;207;240m3.887µs[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0msegment.go:isToggled:291[38;2;156;231;201m →[0m no toggles found
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m {{ if (call .Getenv "SPOTIFY_NOW_PLAYING") }}{{ (call .Getenv "SPOTIFY_NOW_PLAYING") }}{{ end }}
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Getenv:64[38;2;156;231;201m →[38;2;253;122;140m NO DATA
+[0m[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Getenv(SPOTIFY_NOW_PLAYING) - [38;2;191;207;240m14.868µs[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Flags() - [38;2;191;207;240m20ns[0m
+[38;2;191;207;240m[DEBUG] [38;2;156;231;201m15:15:56.587 [0mtext.go:patchTemplate:149[38;2;156;231;201m →[0m {{ .Folder }}
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mterminal.go:Shell() - [38;2;191;207;240m30ns[0m
+[38;2;204;137;214m[TRACE] [38;2;156;231;201m15:15:56.587 [0mpath.go:Path() - [38;2;191;207;240m50ns[0m

@@ -47,6 +47,8 @@ module_aliases() {
 # Claude
 alias c='claude'
 alias cc='claude --continue'
+alias 'c!'='claude --dangerously-skip-permissions'
+alias 'cc!'='claude --continue --dangerously-skip-permissions'
 EOF
 }
 
