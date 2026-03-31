@@ -1,0 +1,29 @@
+{{- $profile := "server" -}}
+{{- if stdinIsATTY -}}
+{{-   $profile = promptChoiceOnce . "profile" "Which profile?" (list "work" "personal" "server") -}}
+{{- else if hasKey . "profile" -}}
+{{-   $profile = .profile -}}
+{{- end -}}
+
+[data]
+  profile = {{ $profile | quote }}
+
+  {{- if eq $profile "work" }}
+  # Work: macOS, blue/white theme
+  colorPrimary = "#4A90D9"
+  colorAccent = "#FFFFFF"
+  colorBg = "#1E2A38"
+  colorFg = "#E8EAED"
+  {{- else if eq $profile "personal" }}
+  # Personal: Linux, dark teal + warm amber
+  colorPrimary = "#00BCD4"
+  colorAccent = "#F67400"
+  colorBg = "#0D1A1D"
+  colorFg = "#E8EAED"
+  {{- else }}
+  # Server: minimal
+  colorPrimary = "#00BCD4"
+  colorAccent = "#F67400"
+  colorBg = "#0D1A1D"
+  colorFg = "#E8EAED"
+  {{- end }}
