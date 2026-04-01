@@ -1,0 +1,38 @@
+#!/bin/bash
+# Install Nerd Fonts — managed by chezmoi
+{{ if eq .profile "server" -}}
+# Server profile: skip font installation
+exit 0
+{{ end -}}
+set -euo pipefail
+
+FONT_DIR=""
+{{ if eq .chezmoi.os "darwin" -}}
+FONT_DIR="$HOME/Library/Fonts"
+{{ else -}}
+FONT_DIR="$HOME/.local/share/fonts"
+{{ end -}}
+mkdir -p "$FONT_DIR"
+
+install_nerd_font() {
+    local name="$1"
+    if ls "$FONT_DIR"/${name}*.ttf &>/dev/null || ls "$FONT_DIR"/${name}*.otf &>/dev/null; then
+        echo "$name already installed, skipping."
+        return
+    fi
+    echo "Installing $name Nerd Font..."
+    local url="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${name}.tar.xz"
+    curl -fsSL "$url" | tar xJ -C "$FONT_DIR"
+    echo "$name installed."
+}
+
+install_nerd_font "FiraCode"
+install_nerd_font "JetBrainsMono"
+install_nerd_font "Hack"
+
+{{ if ne .chezmoi.os "darwin" -}}
+# Rebuild font cache on Linux
+fc-cache -f "$FONT_DIR"
+{{ end -}}
+
+echo "Font installation complete."

@@ -5,25 +5,73 @@
 {{-   $profile = .profile -}}
 {{- end -}}
 
+{{- $gitName := "Kevin W (Aerion Dyseti)" -}}
+{{- $gitEmail := "" -}}
+{{- if eq $profile "work" -}}
+{{-   $gitEmail = "kevin.whiteside@favordelivery.com" -}}
+{{- else -}}
+{{-   $gitEmail = "inblessedsilencewaiting@gmail.com" -}}
+{{- end -}}
+
 [data]
   profile = {{ $profile | quote }}
+  gitName = {{ $gitName | quote }}
+  gitEmail = {{ $gitEmail | quote }}
 
   {{- if eq $profile "work" }}
-  # Work: macOS, blue/white theme
-  colorPrimary = "#4A90D9"
-  colorAccent = "#FFFFFF"
-  colorBg = "#1E2A38"
-  colorFg = "#E8EAED"
+  editor = "code"
+  visual = "code"
   {{- else if eq $profile "personal" }}
-  # Personal: Linux, dark teal + warm amber
-  colorPrimary = "#00BCD4"
-  colorAccent = "#F67400"
-  colorBg = "#0D1A1D"
-  colorFg = "#E8EAED"
+  editor = "micro"
+  visual = "code"
   {{- else }}
-  # Server: minimal
-  colorPrimary = "#00BCD4"
-  colorAccent = "#F67400"
-  colorBg = "#0D1A1D"
-  colorFg = "#E8EAED"
+  editor = "nano"
+  visual = "nano"
+  {{- end }}
+
+  # ── ANSI Palette (hex values for Ghostty only) ──
+  # All other tools use ANSI color names and inherit from the terminal.
+
+  {{- if eq $profile "work" }}
+  # Work: Favor Delivery brand — blue + gold
+  palette0  = "#0a1a24"
+  palette1  = "#942020"
+  palette2  = "#1e7a10"
+  palette3  = "#a07020"
+  palette4  = "#1a6a9a"
+  palette5  = "#7a29a3"
+  palette6  = "#206880"
+  palette7  = "#dcdcdc"
+  palette8  = "#3a5060"
+  palette9  = "#e0251b"
+  palette10 = "#28a702"
+  palette11 = "#f0a820"
+  palette12 = "#0099e5"
+  palette13 = "#d600d6"
+  palette14 = "#00c8e0"
+  palette15 = "#f5f5f5"
+  paletteBg = "#000000"
+  paletteFg = "#ffffff"
+  {{- else if eq $profile "personal" }}
+  # Personal: dark teal + warm amber
+  palette0  = "#1c1c1c"
+  palette1  = "#aa2020"
+  palette2  = "#1a9050"
+  palette3  = "#a07020"
+  palette4  = "#2a6099"
+  palette5  = "#7a29a3"
+  palette6  = "#277b8e"
+  palette7  = "#dcdcdc"
+  palette8  = "#555555"
+  palette9  = "#e62020"
+  palette10 = "#00e060"
+  palette11 = "#f0a820"
+  palette12 = "#0090ff"
+  palette13 = "#d600d6"
+  palette14 = "#00e9e9"
+  palette15 = "#f5f5f5"
+  paletteBg = "#000000"
+  paletteFg = "#ffffff"
+  {{- else }}
+  # Server: no terminal config managed (SSH inherits local palette)
   {{- end }}

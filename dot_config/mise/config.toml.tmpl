@@ -1,0 +1,11 @@
+{{- if ne .profile "server" }}
+[tools]
+python = "3.13"
+node = "lts"
+bun = "latest"
+kotlin = "2.3"
+dotnet = "10"
+{{- else }}
+[tools]
+python = "3.13"
+{{- end }}

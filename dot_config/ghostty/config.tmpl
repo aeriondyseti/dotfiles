@@ -1,0 +1,35 @@
+# Ghostty terminal configuration — managed by chezmoi
+# This is the ONLY file with hex color values.
+# All other tools use ANSI color names and inherit from this palette.
+
+background              = {{ .paletteBg }}
+foreground              = {{ .paletteFg }}
+cursor-color            = {{ .paletteFg }}
+cursor-text             = {{ .paletteBg }}
+selection-background    = #b5d5ff
+selection-foreground    = #000000
+
+palette = 0={{ .palette0 }}
+palette = 1={{ .palette1 }}
+palette = 2={{ .palette2 }}
+palette = 3={{ .palette3 }}
+palette = 4={{ .palette4 }}
+palette = 5={{ .palette5 }}
+palette = 6={{ .palette6 }}
+palette = 7={{ .palette7 }}
+palette = 8={{ .palette8 }}
+palette = 9={{ .palette9 }}
+palette = 10={{ .palette10 }}
+palette = 11={{ .palette11 }}
+palette = 12={{ .palette12 }}
+palette = 13={{ .palette13 }}
+palette = 14={{ .palette14 }}
+palette = 15={{ .palette15 }}
+
+{{- if eq .profile "personal" }}
+
+background-image = /home/aerion/.config/ghostty/background_dark.png
+background-image-position = center
+background-image-opacity = 0.250
+background-image-fit = cover
+{{- end }}

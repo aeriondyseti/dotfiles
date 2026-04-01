@@ -1,0 +1,45 @@
+# Micro colorscheme — uses ANSI terminal colors
+# Inherits palette from Ghostty (single source of truth)
+
+# -- Syntax highlighting --
+color-link default "white"
+color-link comment "brightblack"
+color-link identifier "brightblue"
+color-link constant "cyan"
+color-link constant.string "green"
+color-link constant.string.char "green"
+color-link statement "brightmagenta"
+color-link symbol "yellow"
+color-link preproc "brightmagenta"
+color-link type "brightcyan"
+color-link type.extended "default"
+color-link special "yellow"
+color-link ignore "default"
+color-link underlined "brightblue"
+color-link error "bold red"
+color-link todo "bold yellow"
+
+# -- UI elements --
+color-link statusline "black,brightcyan"
+color-link tabbar "black,brightblue"
+color-link indent-char "brightblack"
+color-link line-number "brightblack"
+color-link current-line-number "brightmagenta"
+color-link hlsearch "black,yellow"
+color-link match-brace ",brightmagenta"
+color-link color-column "brightblack"
+color-link symbol.brackets "default"
+color-link preproc.shebang "comment"
+
+# -- Diff --
+color-link diff-added "green"
+color-link diff-modified "yellow"
+color-link diff-deleted "red"
+
+# -- Gutter --
+color-link gutter-error ",red"
+color-link gutter-warning "yellow"
+
+# -- Whitespace errors --
+color-link tab-error "red"
+color-link trailingws "red"

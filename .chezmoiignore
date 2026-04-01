@@ -1,0 +1,20 @@
+# Non-deployable repo files
+__ARCHIVE__/
+.claude/
+.vector-memory/
+.vscode/
+
+# Profile-specific ignores
+{{ if ne .profile "personal" }}
+.config/kde/
+{{ end }}
+
+{{ if eq .profile "server" }}
+.config/oh-my-posh/
+.config/mise/
+.config/ghostty/
+.config/micro/
+.config/claude/
+.config/btop/
+.config/lazygit/
+{{ end }}

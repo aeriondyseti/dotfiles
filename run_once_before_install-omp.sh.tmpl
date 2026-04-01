@@ -1,0 +1,14 @@
+#!/bin/bash
+# Install Oh My Posh — managed by chezmoi
+{{ if eq .profile "server" -}}
+# Server profile: skip OMP installation
+exit 0
+{{ end -}}
+set -euo pipefail
+
+if ! command -v oh-my-posh &>/dev/null; then
+    echo "Installing Oh My Posh..."
+    curl -s https://ohmyposh.dev/install.sh | bash -s
+fi
+
+echo "Oh My Posh setup complete."

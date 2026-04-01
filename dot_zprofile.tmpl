@@ -1,0 +1,32 @@
+# ~/.zprofile: executed at login (once), not on every interactive shell.
+
+# ─────────────────────────────────────────
+# XDG Base Directories
+# ─────────────────────────────────────────
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# Ensure they exist
+mkdir -p "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_CACHE_HOME" "$XDG_STATE_HOME"
+
+# ─────────────────────────────────────────
+# Locale
+# ─────────────────────────────────────────
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# ─────────────────────────────────────────
+# PATH
+# ─────────────────────────────────────────
+export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
+{{- if eq .profile "work" }}
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+{{- else if eq .profile "personal" }}
+[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+{{- end }}
+{{- if eq .profile "personal" }}
+export PATH="$HOME/.spicetify:$PATH"
+export PATH="$HOME/.lmstudio/bin:$PATH"
+{{- end }}

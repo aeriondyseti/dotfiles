@@ -1,0 +1,25 @@
+#!/bin/bash
+# Install mise-en-place + global tool versions — managed by chezmoi
+{{ if eq .profile "server" -}}
+# Server profile: minimal mise setup
+{{ end -}}
+set -euo pipefail
+
+if ! command -v mise &>/dev/null; then
+    echo "Installing mise..."
+    curl https://mise.run | sh
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Activate mise for this script
+eval "$(mise activate bash)"
+
+# Install global tool versions (defined in ~/.config/mise/config.toml)
+echo "Installing tool versions via mise..."
+mise install --yes
+
+# Create shims so tools are available to non-interactive shells (hooks, scripts, etc.)
+echo "Creating mise shims..."
+mise reshim
+
+echo "mise setup complete."
