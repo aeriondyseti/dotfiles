@@ -121,6 +121,7 @@ newline = true
     [blocks.segments.options]
     fetch_status = true
     fetch_upstream_icon = true
+    branch_icon = ""
 
 # ═════════════════════════════════════════
 # Line 1 (right): execution time + clock

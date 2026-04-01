@@ -1,0 +1,44 @@
+# lazygit configuration
+gui:
+  theme:
+    activeBorderColor:
+      - cyan
+      - bold
+    inactiveBorderColor:
+      - white
+    searchingActiveBorderColor:
+      - cyan
+      - bold
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - default
+    selectedRangeBgColor:
+      - default
+    cherryPickedCommitBgColor:
+      - cyan
+    cherryPickedCommitFgColor:
+      - blue
+    unstagedChangesColor:
+      - red
+    defaultFgColor:
+      - default
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+  parseEmoji: true
+os:
+  editCommand: '{{ .editor }}'
+  editCommandTemplate: '{{ .editor }} {{ "{{" }}filename{{ "}}" }}'
+customCommands:
+  - key: 'C'
+    command: "git commit"
+    context: "global"
+    description: "commit"
+    subprocess: true
+  - key: 'S'
+    command: "git status"
+    context: "global"
+    description: "status"
+    subprocess: true

@@ -1,0 +1,90 @@
+[
+  {
+    "sessionId": "76873d42-efb5-4425-822e-3297b4a5c048",
+    "filePath": "/home/aerion/.claude/projects/-home-aerion-Development-dotfiles/76873d42-efb5-4425-822e-3297b4a5c048.jsonl",
+    "project": "home/aerion/Development/dotfiles",
+    "lastModified": 1775018478705,
+    "chunkCount": 22,
+    "messageCount": 186,
+    "indexedAt": "2026-04-01T04:41:40.251Z",
+    "firstMessageAt": "2026-03-31T23:24:12.548Z",
+    "lastMessageAt": "2026-04-01T04:41:18.597Z"
+  },
+  {
+    "sessionId": "b6bb4d7d-5674-4040-8678-bd055786ec6f",
+    "filePath": "/home/aerion/.claude/projects/-home-aerion-Development-dotfiles/b6bb4d7d-5674-4040-8678-bd055786ec6f.jsonl",
+    "project": "home/aerion/Development/dotfiles",
+    "lastModified": 1772718471597,
+    "chunkCount": 5,
+    "messageCount": 33,
+    "indexedAt": "2026-04-01T04:41:40.385Z",
+    "firstMessageAt": "2026-03-05T01:44:11.139Z",
+    "lastMessageAt": "2026-03-05T13:47:51.429Z"
+  },
+  {
+    "sessionId": "6fe11a7a-646b-4056-b6bd-c6105884b6bc",
+    "filePath": "/home/aerion/.claude/projects/-home-aerion-Development-dotfiles/6fe11a7a-646b-4056-b6bd-c6105884b6bc.jsonl",
+    "project": "home/aerion/Development/dotfiles",
+    "lastModified": 1772739845060,
+    "chunkCount": 0,
+    "messageCount": 0,
+    "indexedAt": "2026-04-01T04:41:40.385Z",
+    "firstMessageAt": "2026-03-05T19:44:05.060Z",
+    "lastMessageAt": "2026-03-05T19:44:05.060Z"
+  },
+  {
+    "sessionId": "6b7d79c1-2387-438f-89f5-d94c1d2de278",
+    "filePath": "/home/aerion/.claude/projects/-home-aerion-Development-dotfiles/6b7d79c1-2387-438f-89f5-d94c1d2de278.jsonl",
+    "project": "home/aerion/Development/dotfiles",
+    "lastModified": 1773103900550,
+    "chunkCount": 0,
+    "messageCount": 0,
+    "indexedAt": "2026-04-01T04:41:40.385Z",
+    "firstMessageAt": "2026-03-10T00:51:40.550Z",
+    "lastMessageAt": "2026-03-10T00:51:40.550Z"
+  },
+  {
+    "sessionId": "cf15896d-88bb-4595-9e74-e1299ed25872",
+    "filePath": "/home/aerion/.claude/projects/-home-aerion-Development-dotfiles/cf15896d-88bb-4595-9e74-e1299ed25872.jsonl",
+    "project": "home/aerion/Development/dotfiles",
+    "lastModified": 1772674966146,
+    "chunkCount": 2,
+    "messageCount": 3,
+    "indexedAt": "2026-04-01T04:41:40.402Z",
+    "firstMessageAt": "2026-03-05T01:42:46.045Z",
+    "lastMessageAt": "2026-03-05T01:42:46.044Z"
+  },
+  {
+    "sessionId": "ec214e6b-a1a3-4f88-8974-550fd2d2fece",
+    "filePath": "/home/aerion/.claude/projects/-home-aerion-Development-dotfiles/ec214e6b-a1a3-4f88-8974-550fd2d2fece.jsonl",
+    "project": "home/aerion/Development/dotfiles",
+    "lastModified": 1772728905040,
+    "chunkCount": 2,
+    "messageCount": 3,
+    "indexedAt": "2026-04-01T04:41:40.422Z",
+    "firstMessageAt": "2026-03-05T16:41:44.940Z",
+    "lastMessageAt": "2026-03-05T16:41:44.938Z"
+  },
+  {
+    "sessionId": "28339305-2955-4761-9e5f-b2dbd810530e",
+    "filePath": "/home/aerion/.claude/projects/-home-aerion-Development-dotfiles/28339305-2955-4761-9e5f-b2dbd810530e.jsonl",
+    "project": "home/aerion/Development/dotfiles",
+    "lastModified": 1772751321524,
+    "chunkCount": 32,
+    "messageCount": 277,
+    "indexedAt": "2026-04-01T04:41:41.398Z",
+    "firstMessageAt": "2026-03-05T16:43:49.040Z",
+    "lastMessageAt": "2026-03-05T22:55:21.418Z"
+  },
+  {
+    "sessionId": "22897099-98fa-4651-80f5-44e83ce5f46d",
+    "filePath": "/home/aerion/.claude/projects/-home-aerion-Development-dotfiles/22897099-98fa-4651-80f5-44e83ce5f46d.jsonl",
+    "project": "home/aerion/Development/dotfiles",
+    "lastModified": 1773107750008,
+    "chunkCount": 7,
+    "messageCount": 53,
+    "indexedAt": "2026-04-01T04:41:41.587Z",
+    "firstMessageAt": "2026-03-01T01:40:21.454Z",
+    "lastMessageAt": "2026-03-10T01:03:10.721Z"
+  }
+]

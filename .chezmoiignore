@@ -1,6 +1,7 @@
 # Non-deployable repo files
 __ARCHIVE__/
 .claude/
+CLAUDE.md
 .vector-memory/
 .vscode/
 scripts/
