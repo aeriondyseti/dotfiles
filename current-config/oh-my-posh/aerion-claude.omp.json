@@ -1,0 +1,147 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "console_title_template": "{{ if .Root }}# {{ end }}{{ .Folder }}{{ if .Segments.Git.HEAD }} ({{ .Segments.Git.HEAD }}){{ end }}",
+  "palette": {
+    "teal": "#00474f",
+    "teal-mid": "#006b6b",
+    "teal-glow": "#00b3a0",
+    "amber": "#f0a500",
+    "amber-dim": "#8a6000",
+    "black": "#0d0f12",
+    "grey-dark": "#1a1a1a",
+    "grey-mid": "#2a2a2a",
+    "grey-border": "#3a3a3a",
+    "grey-muted": "#666666",
+    "grey-text": "#999999",
+    "grey-light": "#c0c0c0",
+    "grey-bright": "#e0e0e0",
+    "white": "#ffffff",
+    "red": "#cc4444"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "os",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b0",
+          "background": "p:teal",
+          "foreground": "p:white",
+          "template": " {{ .Icon }} ",
+          "options": {
+            "linux": "\uf31b",
+            "macos": "\uf179",
+            "windows": "\ue62a",
+            "ubuntu": "\uf31b"
+          }
+        },
+        {
+          "type": "shell",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "p:grey-mid",
+          "foreground": "p:grey-text",
+          "template": " \uf489 {{ .Name }} "
+        },
+        {
+          "type": "node",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "p:grey-dark",
+          "foreground": "p:teal-glow",
+          "template": " \ue718 {{ .Major }}.{{ .Minor }} ",
+          "options": {
+            "fetch_package_manager": false
+          }
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "p:grey-dark",
+          "foreground": "p:teal-glow",
+          "template": " \ue235 {{ .Major }}.{{ .Minor }}{{ if .Venv }} \uf0e7{{ .Venv }}{{ end }} "
+        },
+        {
+          "type": "kotlin",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "p:grey-dark",
+          "foreground": "p:teal-glow",
+          "template": " \ue634 {{ .Major }}.{{ .Minor }} "
+        },
+        {
+          "type": "rust",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "p:grey-dark",
+          "foreground": "p:teal-glow",
+          "template": " \ue7a8 {{ .Major }}.{{ .Minor }} "
+        },
+        {
+          "type": "spotify",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "p:grey-dark",
+          "foreground": "p:grey-text",
+          "template": " <p:amber>\uf1bc</> {{ if ne .Status \"stopped\" }}{{ .Artist }} — {{ .Track }}{{ end }} "
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "p:grey-light",
+          "template": " {{ .Path }}  \u2502",
+          "options": {
+            "style": "agnoster_short",
+            "max_depth": 3,
+            "folder_icon": "\uf07b",
+            "folder_separator_icon": " <p:grey-muted>\ue0b1</> ",
+            "home_icon": "\ueb06"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:teal-glow",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:amber{{ end }}"
+          ],
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} \u2502{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <p:grey-text>\ueb4b {{ .StashCount }}</>{{ end }}",
+          "options": {
+            "branch_icon": "\ue725 ",
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "claude",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "#FFFFFF",
+          "background": "#FF6B35",
+          "template": " \udb82\udfc9 {{ .Model.DisplayName }} \uf2d0 {{ .TokenUsagePercent.Gauge }} "
+        }
+      ]
+    }
+  ]
+}

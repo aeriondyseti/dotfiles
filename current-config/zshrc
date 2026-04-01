@@ -1,0 +1,20 @@
+# config files
+source ~/.config/zsh/env.sh
+source ~/.config/zsh/kdub.sh
+
+# Work-specific configs (not in dotfiles repo — present only on work machine)
+[[ -f ~/.config/zsh/favor.sh ]]    && source ~/.config/zsh/favor.sh
+[[ -f ~/.config/zsh/coreapi.sh ]]  && source ~/.config/zsh/coreapi.sh
+[[ -f ~/.config/zsh/api-keys.sh ]] && source ~/.config/zsh/api-keys.sh
+
+# iTerm2 Integration
+[[ -s "${HOME}/.iterm2_shell_integration.zsh" ]] && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Bun Completions
+[[ -s "${HOME}/.bun/_bun" ]] && source "${HOME}/.bun/_bun"
+
+# oh-my-posh
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/aerion.omp.json)"
+
+# local binaries
+export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
