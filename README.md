@@ -7,10 +7,14 @@ A modern, multi-profile dotfiles system managed by [chezmoi](https://www.chezmoi
 To initialize and apply these dotfiles on a new machine, run:
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply aeriondyseti
+# 1. Install chezmoi
+sh -c "$(curl -fsLS get.chezmoi.io)"
+
+# 2. Initialize and apply dotfiles
+bin/chezmoi init --apply aeriondyseti/dotfiles
 ```
 
-*Note: You will be prompted to select a profile (`work`, `personal`, or `server`) and provide your Git credentials.*
+*Note: The first command installs `chezmoi` to `./bin/chezmoi`. The second command uses that binary to set up your environment. You will be prompted to select a profile (`work`, `personal`, or `server`) and provide your Git credentials.*
 
 ## Core Architecture
 
