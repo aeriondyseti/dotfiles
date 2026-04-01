@@ -3,6 +3,7 @@ __ARCHIVE__/
 .claude/
 .vector-memory/
 .vscode/
+scripts/
 
 # Profile-specific ignores
 {{ if ne .profile "personal" }}
