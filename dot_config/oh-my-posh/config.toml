@@ -57,8 +57,8 @@ newline = true
   style = "powerline"
   powerline_symbol = "\ue0b0"
   background = "black"
-  foreground = "lightCyan"
-  template = " \ue718 {{ .Major }}.{{ .Minor }} "
+  foreground = "yellow"
+  template = " \ue718 {{ .Major }}.{{ .Minor }}"
 
     [blocks.segments.options]
     fetch_package_manager = false
@@ -66,47 +66,42 @@ newline = true
   # Python
   [[blocks.segments]]
   type = "python"
-  style = "powerline"
-  powerline_symbol = "\ue0b0"
+  style = "accordion"
   background = "black"
-  foreground = "lightCyan"
-  template = " \ue235 {{ .Major }}.{{ .Minor }}{{ if .Venv }} \uf0e7{{ .Venv }}{{ end }} "
+  foreground = "yellow"
+  template = " \ue235 {{ .Major }}.{{ .Minor }}{{ if .Venv }} \uf0e7{{ .Venv }}{{ end }}"
 
   # Kotlin
   [[blocks.segments]]
   type = "kotlin"
-  style = "powerline"
-  powerline_symbol = "\ue0b0"
+  style = "accordion"
   background = "black"
-  foreground = "lightCyan"
-  template = " \ue634 {{ .Major }}.{{ .Minor }} "
+  foreground = "yellow"
+  template = " \ue634 {{ .Major }}.{{ .Minor }}"
 
   # .NET
   [[blocks.segments]]
   type = "dotnet"
-  style = "powerline"
-  powerline_symbol = "\ue0b0"
+  style = "accordion"
   background = "black"
-  foreground = "lightCyan"
-  template = " \ue77f {{ if .Unsupported }}{{ else }}{{ .Major }}.{{ .Minor }}{{ end }} "
+  foreground = "yellow"
+  template = " \ue77f {{ if .Unsupported }}{{ else }}{{ .Major }}.{{ .Minor }}{{ end }}"
 
   # Rust
   [[blocks.segments]]
   type = "rust"
-  style = "powerline"
-  powerline_symbol = "\ue0b0"
+  style = "accordion"
   background = "black"
-  foreground = "lightCyan"
-  template = " \ue7a8 {{ .Major }}.{{ .Minor }} "
+  foreground = "yellow"
+  template = " \ue7a8 {{ .Major }}.{{ .Minor }}"
 
   # Bun
   [[blocks.segments]]
   type = "bun"
-  style = "powerline"
-  powerline_symbol = "\ue0b0"
+  style = "accordion"
   background = "black"
-  foreground = "lightCyan"
-  template = " \ue76f {{ .Major }}.{{ .Minor }} "
+  foreground = "yellow"
+  template = " \ue76f {{ .Major }}.{{ .Minor }}"
 
   # Git
   [[blocks.segments]]
@@ -114,7 +109,7 @@ newline = true
   style = "powerline"
   powerline_symbol = "\ue0b0"
   background = "black"
-  foreground = "lightCyan"
+  foreground = "cyan"
   foreground_templates = [ "{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}" ]
   template = " \ue725 {{ .HEAD }}{{- if gt (add .Staging.Added .Staging.Modified .Staging.Deleted) 0 }} <green>✓{{ add .Staging.Added .Staging.Modified .Staging.Deleted }}</>{{ end }}{{- if gt (add .Working.Added .Working.Modified .Working.Deleted .Working.Untracked) 0 }} <yellow>~{{ add .Working.Added .Working.Modified .Working.Deleted .Working.Untracked }}</>{{ end }}{{- if gt .Ahead 0 }} <lightCyan>⇡{{ .Ahead }}</>{{ end }}{{- if gt .Behind 0 }} <red>⇣{{ .Behind }}</>{{ end }}{{- if .Rebase }} <red>[rebasing]</>{{ end }}{{- if .CherryPick }} <red>[cherry-pick]</>{{ end }}{{- if .Merge }} <red>[merging]</>{{ end }}{{ if gt .StashCount 0 }} <darkGray>\ueb4b {{ .StashCount }}</>{{ end }} "
 
@@ -198,12 +193,12 @@ newline = true
   [[blocks.segments]]
   type = "session"
   style = "plain"
-  foreground = "lightCyan"
-  template = " <b>{{ .UserName }}<cyan>@{{ .HostName }}</></b>"
+  foreground = "cyan"
+  template = " <b>{{ .UserName }}<lightCyan>@{{ .HostName }}</></b>"
 
   [[blocks.segments]]
   type = "text"
   style = "plain"
-  foreground = "lightCyan"
-  foreground_templates = [ "{{ if gt .Code 0 }}yellow{{ end }}" ]
+  foreground = "cyan"
+  foreground_templates = [ "{{ if gt .Code 0 }}red{{ end }}" ]
   template = " ❯"
