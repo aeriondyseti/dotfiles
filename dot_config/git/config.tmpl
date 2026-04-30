@@ -28,11 +28,21 @@
 [pull]
 	rebase = true
 
+# gh credential helper: absolute path on macOS (work) so GUI git clients
+# like SmartGit work with a sanitized PATH; PATH-based lookup elsewhere.
+{{ if eq .profile "work" -}}
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+{{- else }}
 [credential "https://github.com"]
 	helper = !/usr/bin/env gh auth git-credential
 
 [credential "https://gist.github.com"]
 	helper = !/usr/bin/env gh auth git-credential
+{{- end }}
 
 [core]
 	pager = delta
