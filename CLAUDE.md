@@ -299,7 +299,6 @@ SYSTEMD_LESS="$LESS"
 ### PATH entries (in .zprofile)
 ```bash
 $HOME/.local/bin          # all profiles
-$HOME/.spicetify          # personal only
 $HOME/.lmstudio/bin       # personal only
 ```
 

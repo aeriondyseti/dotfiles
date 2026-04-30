@@ -19,7 +19,6 @@ _prepend_path "${XDG_DATA_HOME:-$HOME/.local/share}/cargo/bin"
 _prepend_path "${XDG_DATA_HOME:-$HOME/.local/share}/bun/bin"
 
 {{- if eq .profile "personal" }}
-_prepend_path "$HOME/.spicetify"
 _prepend_path "$HOME/.lmstudio/bin"
 {{- end }}
 
