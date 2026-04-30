@@ -30,8 +30,6 @@ plugins=(
   zsh-autosuggestions zsh-syntax-highlighting
 {{- if ne .profile "server" }}
   docker docker-compose mise uv 1password
-{{- end }}
-{{- if eq .profile "work" }}
   brew
 {{- end }}
 )
