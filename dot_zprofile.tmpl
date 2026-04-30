@@ -18,15 +18,18 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # ─────────────────────────────────────────
-# PATH
+# Environment (also sourced from .zshrc for interactive shells)
 # ─────────────────────────────────────────
-export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
+[ -f "$HOME/.config/zsh/env.zsh" ] && source "$HOME/.config/zsh/env.zsh"
+
+# ─────────────────────────────────────────
+# PATH
+# Brew shellenv stays here (sets MANPATH/INFOPATH/HOMEBREW_PREFIX too).
+# Everything else lives in ~/.config/zsh/path.zsh — single source of truth.
+# ─────────────────────────────────────────
 {{- if eq .profile "work" }}
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 {{- else if eq .profile "personal" }}
 [ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 {{- end }}
-{{- if eq .profile "personal" }}
-export PATH="$HOME/.spicetify:$PATH"
-export PATH="$HOME/.lmstudio/bin:$PATH"
-{{- end }}
+[ -f "$HOME/.config/zsh/path.zsh" ] && source "$HOME/.config/zsh/path.zsh"

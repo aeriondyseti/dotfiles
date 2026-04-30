@@ -28,8 +28,8 @@ palette = 15={{ .palette15 }}
 
 {{- if eq .profile "personal" }}
 
-background-image = /home/aerion/.config/ghostty/background_dark.png
+background-image = {{ .chezmoi.homeDir }}/.config/ghostty/tech-background.jpg
 background-image-position = center
-background-image-opacity = 0.250
+background-image-opacity = 0.01
 background-image-fit = cover
 {{- end }}

@@ -1,0 +1,26 @@
+# PATH — single source of truth.
+# Sourced from .zprofile (login) and .zshrc (interactive re-prepend, idempotent).
+# Brew-managed PATH entries stay in .zprofile because `brew shellenv` also sets
+# MANPATH / INFOPATH / HOMEBREW_PREFIX, not just PATH.
+
+_prepend_path() {
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) export PATH="$1:$PATH" ;;
+  esac
+}
+
+# User-local bin + mise shims (highest priority for tool resolution)
+_prepend_path "$HOME/.local/bin"
+_prepend_path "$HOME/.local/share/mise/shims"
+
+# XDG-relocated tool bins
+_prepend_path "${XDG_DATA_HOME:-$HOME/.local/share}/cargo/bin"
+_prepend_path "${XDG_DATA_HOME:-$HOME/.local/share}/bun/bin"
+
+{{- if eq .profile "personal" }}
+_prepend_path "$HOME/.spicetify"
+_prepend_path "$HOME/.lmstudio/bin"
+{{- end }}
+
+unset -f _prepend_path
