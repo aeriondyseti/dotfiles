@@ -20,6 +20,9 @@ alias ports='ss -tulnp'
 alias localip='hostname -I | awk "{print \$1}"'
 {{- end }}
 
+# Git
+alias gitlog='git log --all --pretty=format:"%h %s" --graph'
+
 # Bat (cat replacement)
 alias cat='bat --paging=never'
 alias catp='bat'
@@ -64,11 +67,26 @@ alias bi='bun install'
 alias ba='bun add'
 alias bad='bun add -d'
 
+# Oh My Posh
+alias omp='oh-my-posh'
+
 # Claude
-alias c='claude'
-alias cc='claude --continue'
-alias 'c!'='claude --dangerously-skip-permissions'
-alias 'cc!'='claude --continue --dangerously-skip-permissions'
+alias cprofiles='npx -y @aeriondyseti/claude-profiles'
+
+alias claude-work='CLAUDE_CONFIG_DIR=~/.claude-work \claude'
+alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal \claude'
+
+alias c='claude-work'
+alias cc='claude-work --continue'
+alias 'c!'='claude-work --dangerously-skip-permissions'
+alias 'cc!'='claude-work --continue --dangerously-skip-permissions'
+
+alias cwork='claude-work --dangerously-skip-permissions "/color blue"'
+alias cpers='claude-personal --dangerously-skip-permissions "/color orange"'
+alias cpersonal='claude-personal --dangerously-skip-permissions "/color orange"'
+alias ccwork='claude-work --continue --dangerously-skip-permissions "/color blue"'
+alias ccpers='claude-personal --continue --dangerously-skip-permissions "/color orange"'
+alias ccpersonal='claude-personal --continue --dangerously-skip-permissions "/color orange"'
 
 # Docker
 alias d='docker'
@@ -104,6 +122,22 @@ alias uvs='uv sync'
 alias uva='uv add'
 alias uvad='uv add --dev'
 alias uvp='uv pip'
+
+{{- if eq .profile "work" }}
+
+# Kubernetes
+alias k='kubectl'
+alias kc='kubectl config current-context'
+
+# Project directories
+alias mr='cd ~/Development/make-right'
+alias poe='cd ~/Development/post-order-experience'
+alias core='cd ~/Development/core-api'
+alias kcom='cd ~/Development/kotlin-commons'
+alias gfs='cd ~/Development/geo-fence-service'
+alias eta='cd ~/Development/eta-service'
+alias rts='cd ~/Development/runner-tracking'
+{{- end }}
 {{- end }}
 
 {{- if ne .profile "work" }}

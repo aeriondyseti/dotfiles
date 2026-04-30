@@ -91,7 +91,64 @@ shedit() {
         *)       echo "Usage: shedit {rc|aliases|funcs|env|api|local}"; return 1 ;;
     esac
 }
+
+gbclean() {
+    : "Delete all local branches except master and env/* branches."
+    git branch | grep -v "master" | grep -v "env/.*" | xargs git branch -D
+}
+
 {{- if ne .profile "server" }}
+
+# ─────────────────────────────────────────
+# Project navigation
+# ─────────────────────────────────────────
+
+# cd into ~/Development/<dir> with tab completion
+dev() {
+{{- if eq .profile "work" }}
+    cd "$HOME/Development/$1"
+{{- else }}
+    cd "$HOME/Personal/Development/$1"
+{{- end }}
+}
+_dev() {
+    ((CURRENT == 2)) &&
+{{- if eq .profile "work" }}
+    _files -/ -W "$HOME/Development"
+{{- else }}
+    _files -/ -W "$HOME/Personal/Development"
+{{- end }}
+}
+compdef _dev dev
+
+{{- if eq .profile "work" }}
+
+# cd into ~/Personal/Development/<dir> with tab completion
+pers() {
+    cd "$HOME/Personal/Development/$1"
+}
+_pers() {
+    ((CURRENT == 2)) &&
+    _files -/ -W "$HOME/Personal/Development"
+}
+compdef _pers pers
+{{- end }}
+
+# ─────────────────────────────────────────
+# Claude helpers
+# ─────────────────────────────────────────
+
+# Ask claude a single question without entering the TUI
+ask-claude() {
+    if [ -z "$*" ]; then
+        echo "Usage: ask-claude '<question>'" >&2
+        return 1
+    fi
+    claude -p "$*" \
+        --allowedTools "Read,Grep,Glob" \
+        --disallowedTools "Write,Edit,Bash"
+}
+alias ask='ask-claude'
 
 # ─────────────────────────────────────────
 # Docker
@@ -277,4 +334,96 @@ fa-widget() {
 }
 zle -N fa-widget
 bindkey '^[a' fa-widget
+
+{{- if eq .profile "work" }}
+
+# ─────────────────────────────────────────
+# AWS
+# ─────────────────────────────────────────
+
+awsLogin() {
+    aws sso login --profile $1
+    export AWS_PROFILE=$1
+    eval "$(aws configure export-credentials --profile $1 --format env)"
+}
+
+awsEnv() {
+    eval "$(aws configure export-credentials --profile $1 --format env)"
+}
+
+# ─────────────────────────────────────────
+# Redis (IAM auth)
+# ─────────────────────────────────────────
+
+redisIamRw() {
+    aws sso login --profile $1
+    eval "$(aws configure export-credentials --profile $1 --format env)"
+    es-iam-auth \
+        -username svc-iam-rw \
+        -replicationGroupId $2 \
+        -clusterHostname $3
+}
+
+redisIamRo() {
+    aws sso login --profile $1
+    eval "$(aws configure export-credentials --profile $1 --format env)"
+    es-iam-auth \
+        -username svc-iam-ro \
+        -replicationGroupId $2 \
+        -clusterHostname $3
+}
+
+alias redisPoeDev='redisIamRw core-services-np-staff post-order-experience-dev-cm redis-post-order-experience-dev-cm.consumer-np.fvr.internal'
+alias redisPoeQa='redisIamRw core-services-np-staff post-order-experience-qa-cm clustercfg.post-order-experience-qa-cm.fyzvqd.use1.cache.amazonaws.com'
+alias redisRtsDev='redisIamRw consumer-np-staff geo-fence-service-dev-cm clustercfg.geo-fence-service-dev-cm.fyzvqd.use1.cache.amazonaws.com'
+alias redisRtsQa='redisIamRw consumer-np-staff geo-fence-service-qa-cm clustercfg.geo-fence-service-qa-cm.fyzvqd.use1.cache.amazonaws.com'
+
+# ─────────────────────────────────────────
+# Kubernetes
+# ─────────────────────────────────────────
+
+update-kubecfg() {
+    CONFIG=${1:-config}
+    kubeconfigfiles=(~/.kube/configs/*.${CONFIG})
+    local IFS=:
+    export KUBECONFIG=$(echo "${kubeconfigfiles[*]}")
+    unset IFS
+    kubectl config view --raw=true > ~/.kube/configs/combined.cfg
+}
+
+fetch-s3-kubecfg() {
+    aws sso login --profile devops-build-staff
+    aws s3 cp s3://favor-eks-kubeconfigs/ ~/.kube/configs --recursive --profile devops-build-staff
+}
+
+fetch-kubecfg() {
+    kubecfg_string="kubecfg-$1"
+
+    mkdir -p ~/.kube/configs
+
+    if ! command -v op &>/dev/null; then
+        echo "Please ensure you have the 1pass CLI installed."
+        echo "See https://favorengineering.atlassian.net/wiki/spaces/DE/pages/3897196572/1password+CLI for instructions"
+        return 1
+    fi
+
+    op account list | grep favor &> /dev/null
+    if [ $? -ne 0 ]; then
+        echo "1pass CLI does not appear to have been configured."
+        echo "See https://favorengineering.atlassian.net/wiki/spaces/DE/pages/3897196572/1password+CLI for instructions"
+        return 1
+    fi
+
+    op whoami &> /dev/null || eval $(op signin --account favor)
+
+    for config in $(op document list --vault="Engineering Shared" --format json | jq -r --arg kubecfg_string ${kubecfg_string} '.[] | select( .title | contains($kubecfg_string) ) | .title' ); do
+        echo "fetching ${config}"
+        op document get "${config}" --vault="Engineering Shared" > ~/.kube/configs/$(echo ${config} | sed 's/kubecfg-//').config
+    done
+
+    fetch-s3-kubecfg
+
+    update-kubecfg
+}
+{{- end }}
 {{- end }}
