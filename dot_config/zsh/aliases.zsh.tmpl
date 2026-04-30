@@ -47,8 +47,15 @@ alias rg='command rg --smart-case'
 alias rgi='command rg --no-ignore'
 
 # Zoxide (after init, 'z' is available)
-alias cd='z'
-alias cdi='zi'
+# Gate to interactive shells — zoxide init in ~/.zshrc is also interactive-only,
+# so without this gate, non-interactive shells (e.g. Claude Code's Bash tool)
+# would alias cd to a missing 'z' function.
+if [[ -o interactive ]]; then
+  alias cd='z'
+  alias cdi='zi'
+fi
+
+# TODO: Replace 'watch' with 'viddy'
 
 # Shell quick edits
 alias editshrc='$EDITOR ~/.zshrc'

@@ -17,19 +17,8 @@ mkdir -p "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_CACHE_HOME" "$XDG_STATE_HOME"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-# ─────────────────────────────────────────
-# Environment (also sourced from .zshrc for interactive shells)
-# ─────────────────────────────────────────
+# Environment + PATH (also sourced from .zshrc for non-login interactive shells).
+# Sourcing here ensures GUI launches (login shells without .zshrc) inherit
+# the correct environment.
 [ -f "$HOME/.config/zsh/env.zsh" ] && source "$HOME/.config/zsh/env.zsh"
-
-# ─────────────────────────────────────────
-# PATH
-# Brew shellenv stays here (sets MANPATH/INFOPATH/HOMEBREW_PREFIX too).
-# Everything else lives in ~/.config/zsh/path.zsh — single source of truth.
-# ─────────────────────────────────────────
-{{- if eq .profile "work" }}
-eval "$(/opt/homebrew/bin/brew shellenv zsh)"
-{{- else if eq .profile "personal" }}
-[ -x /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
-{{- end }}
 [ -f "$HOME/.config/zsh/path.zsh" ] && source "$HOME/.config/zsh/path.zsh"

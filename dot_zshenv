@@ -1,0 +1,4 @@
+# .zshenv: sourced for ALL zsh invocations (login, non-login,
+# interactive, non-interactive, scripts). Keep MINIMAL — heavy
+# setup belongs in .zprofile (login) or .zshrc (interactive).
+# PATH and env vars are set by path.zsh and env.zsh.

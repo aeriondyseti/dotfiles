@@ -11,38 +11,7 @@ mkcd() {
         echo "  Creates a directory (including parents) and cd into it."
         return 0
     fi
-    mkdir -p "$1" && cd "$1"
-}
-
-# Note: oh-my-zsh's `extract` plugin already provides this with broader
-# format support. Kept here for now; consider removing once you trust the
-# plugin's version. Run `which extract` to see which one wins.
-extract() {
-    : "Extract archives of various formats (tar, zip, 7z, rar, bz2, gz, xz)."
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-        echo "Usage: extract <file>"
-        echo "  Extracts archive files of various formats."
-        echo "  Supports: tar.bz2, tar.gz, tar.xz, bz2, gz, tar, tbz2, tgz, zip, 7z, rar"
-        return 0
-    fi
-    if [ -f "$1" ]; then
-        case "$1" in
-            *.tar.bz2) tar xjf "$1" ;;
-            *.tar.gz)  tar xzf "$1" ;;
-            *.tar.xz)  tar xJf "$1" ;;
-            *.bz2)     bunzip2 "$1" ;;
-            *.gz)      gunzip "$1" ;;
-            *.tar)     tar xf "$1" ;;
-            *.tbz2)    tar xjf "$1" ;;
-            *.tgz)     tar xzf "$1" ;;
-            *.zip)     unzip "$1" ;;
-            *.7z)      7z x "$1" ;;
-            *.rar)     unrar x "$1" ;;
-            *)         echo "'$1' cannot be extracted" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
+    mkdir -p "$1" && builtin cd "$1"
 }
 
 backupfile() {
@@ -106,9 +75,9 @@ gbclean() {
 # cd into ~/Development/<dir> with tab completion
 dev() {
 {{- if eq .profile "work" }}
-    cd "$HOME/Development/$1"
+    builtin cd "$HOME/Development/$1"
 {{- else }}
-    cd "$HOME/Personal/Development/$1"
+    builtin cd "$HOME/Personal/Development/$1"
 {{- end }}
 }
 _dev() {
@@ -119,19 +88,20 @@ _dev() {
     _files -/ -W "$HOME/Personal/Development"
 {{- end }}
 }
-compdef _dev dev
+# compdef is provided by oh-my-zsh's compinit; skipped under Claude Code
+(( ${+functions[compdef]} )) && compdef _dev dev
 
 {{- if eq .profile "work" }}
 
 # cd into ~/Personal/Development/<dir> with tab completion
 pers() {
-    cd "$HOME/Personal/Development/$1"
+    builtin cd "$HOME/Personal/Development/$1"
 }
 _pers() {
     ((CURRENT == 2)) &&
     _files -/ -W "$HOME/Personal/Development"
 }
-compdef _pers pers
+(( ${+functions[compdef]} )) && compdef _pers pers
 {{- end }}
 
 # ─────────────────────────────────────────
@@ -211,62 +181,8 @@ alias 'chelp!'='chelp --dangerously-skip-permissions'
 {{- end }}
 
 # ─────────────────────────────────────────
-# Docker
-# ─────────────────────────────────────────
-
-dbash() {
-    : "Open an interactive shell in a running container (bash, fallback to sh)."
-    docker exec -it "$1" /bin/bash 2>/dev/null || docker exec -it "$1" /bin/sh
-}
-
-dlogs() {
-    : "Tail the last 100 lines of a container's logs and follow."
-    docker logs -f --tail 100 "$1"
-}
-
-dstop() {
-    : "Stop all running Docker containers."
-    docker stop $(docker ps -q) 2>/dev/null || echo "No running containers"
-}
-
-dclean() {
-    : "Prune stopped containers and dangling images."
-    docker container prune -f
-    docker image prune -f
-}
-
-dnuke() {
-    : "Remove ALL stopped containers, unused images, volumes, and networks. Confirms first."
-    echo "This will remove all stopped containers, unused images, volumes, and networks."
-    read -p "Continue? [y/N] " confirm
-    [[ "$confirm" =~ ^[Yy]$ ]] || return 1
-    docker system prune -af --volumes
-}
-
-# ─────────────────────────────────────────
 # Fuzzy stuff (fzf)
 # ─────────────────────────────────────────
-
-fcd() {
-    : "Fuzzy-pick a subdirectory and cd into it."
-    local dir
-    dir=$(fd --type d --hidden --exclude .git 2>/dev/null | fzf --preview 'eza --tree --level=1 {} 2>/dev/null || ls -la {}') && cd "$dir"
-}
-
-fedit() {
-    : "Fuzzy-pick a file and open it in \$EDITOR."
-    local file
-    file=$(fzf --preview 'bat --color=always --line-range=:500 {} 2>/dev/null || head -100 {}') && $EDITOR "$file"
-}
-
-fbranch() {
-    : "Fuzzy-pick a git branch (local or remote) and check it out."
-    local branch
-    branch=$(git branch --all | grep -v HEAD | sed 's/^..//' | fzf --preview 'git log --oneline -20 {}') || return
-    branch=$(echo "$branch" | sed 's#remotes/origin/##')
-    git checkout "$branch"
-}
-alias fbr='fbranch'
 
 fkillProc() {
     : "Fuzzy-pick a process and kill it. Use --force/-f for SIGKILL."
@@ -281,11 +197,6 @@ fkillProc() {
     [ -n "$pid" ] && kill -"$sig" "$pid" && echo "Killed $pid (SIG$([ $sig -eq 9 ] && echo KILL || echo TERM))"
 }
 alias fkill='fkillProc'
-
-fgitlog() {
-    : "Fuzzy-search git log; selecting a commit shows it via git show."
-    git log --oneline --color=always | fzf --ansi --preview 'git show --color=always {1}' | awk '{print $1}' | xargs -r git show
-}
 
 fkillport() {
     : "Fuzzy-pick a listening port's owner and kill it. --root for sudo, --force for SIGKILL."
