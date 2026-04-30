@@ -20,4 +20,5 @@ scripts/
 .config/claude/
 .config/btop/
 .config/lazygit/
+.local/bin/helper-prompt
 {{ end }}

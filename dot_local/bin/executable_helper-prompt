@@ -1,0 +1,5 @@
+#!/bin/bash
+# Output the helper-agent system prompt with today's date stamped in.
+# Replaces the syspromptgen binary for default-flag invocations.
+# Usage: claude --system-prompt-file <(helper-prompt) ...
+sed "s/{{TODAY}}/$(date '+%A, %B %d, %Y')/" "$HOME/.config/claude/helper-prompt.md"

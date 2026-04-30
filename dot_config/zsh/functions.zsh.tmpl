@@ -137,18 +137,78 @@ compdef _pers pers
 # ─────────────────────────────────────────
 # Claude helpers
 # ─────────────────────────────────────────
+#
+# Convention: `c`/`cc` (and `cpers`/`ccpers` on work) are functions so the
+# `/color` slash command lands AFTER user args. The `!`-variants are
+# aliases that add `--dangerously-skip-permissions` — canonical daily form.
+# `chelp` adds the helper-prompt-generated system prompt.
 
-# Ask claude a single question without entering the TUI
 ask-claude() {
+    : "Ask claude a single question without entering the TUI (read-only tools)."
     if [ -z "$*" ]; then
         echo "Usage: ask-claude '<question>'" >&2
         return 1
     fi
-    claude -p "$*" \
+{{- if eq .profile "work" }}
+    CLAUDE_CONFIG_DIR=~/.claude-work \claude -p "$*" \
         --allowedTools "Read,Grep,Glob" \
         --disallowedTools "Write,Edit,Bash"
+{{- else if eq .profile "personal" }}
+    \claude -p "$*" \
+        --allowedTools "Read,Grep,Glob" \
+        --disallowedTools "Write,Edit,Bash"
+{{- end }}
 }
 alias ask='ask-claude'
+
+{{- if eq .profile "work" }}
+
+# Work machine has dual claude profiles. Default ~/.claude-work (blue);
+# cpers/ccpers (and !-variants) target ~/.claude-personal (orange).
+
+c() {
+    : "Spawn claude with the work profile (~/.claude-work, blue prompt)."
+    CLAUDE_CONFIG_DIR=~/.claude-work \claude "$@" /color blue
+}
+cc() { c --continue "$@"; }
+
+cpers() {
+    : "Spawn claude with the personal profile (~/.claude-personal, orange prompt)."
+    CLAUDE_CONFIG_DIR=~/.claude-personal \claude "$@" /color orange
+}
+ccpers() { cpers --continue "$@"; }
+
+alias 'c!'='c --dangerously-skip-permissions'
+alias 'cc!'='cc --dangerously-skip-permissions'
+alias 'cpers!'='cpers --dangerously-skip-permissions'
+alias 'ccpers!'='ccpers --dangerously-skip-permissions'
+
+chelp() {
+    : "Spawn claude with the helper system prompt (work profile, blue)."
+    CLAUDE_CONFIG_DIR=~/.claude-work \claude --system-prompt-file <(helper-prompt) "$@" /color blue
+}
+alias 'chelp!'='chelp --dangerously-skip-permissions'
+
+{{- else if eq .profile "personal" }}
+
+# Personal machine: single claude profile (~/.claude, orange).
+
+c() {
+    : "Spawn claude (single profile, orange prompt)."
+    \claude "$@" /color orange
+}
+cc() { c --continue "$@"; }
+
+alias 'c!'='c --dangerously-skip-permissions'
+alias 'cc!'='cc --dangerously-skip-permissions'
+
+chelp() {
+    : "Spawn claude with the helper system prompt loaded."
+    \claude --system-prompt-file <(helper-prompt) "$@" /color orange
+}
+alias 'chelp!'='chelp --dangerously-skip-permissions'
+
+{{- end }}
 
 # ─────────────────────────────────────────
 # Docker

@@ -70,23 +70,11 @@ alias bad='bun add -d'
 # Oh My Posh
 alias omp='oh-my-posh'
 
-# Claude
+# Claude — c/cc/cpers/ccpers + chelp live in functions.zsh; their
+# !-variants (c! cc! cpers! ccpers! chelp!) are aliased there too.
+{{- if eq .profile "work" }}
 alias cprofiles='npx -y @aeriondyseti/claude-profiles'
-
-alias claude-work='CLAUDE_CONFIG_DIR=~/.claude-work \claude'
-alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal \claude'
-
-alias c='claude-work'
-alias cc='claude-work --continue'
-alias 'c!'='claude-work --dangerously-skip-permissions'
-alias 'cc!'='claude-work --continue --dangerously-skip-permissions'
-
-alias cwork='claude-work --dangerously-skip-permissions "/color blue"'
-alias cpers='claude-personal --dangerously-skip-permissions "/color orange"'
-alias cpersonal='claude-personal --dangerously-skip-permissions "/color orange"'
-alias ccwork='claude-work --continue --dangerously-skip-permissions "/color blue"'
-alias ccpers='claude-personal --continue --dangerously-skip-permissions "/color orange"'
-alias ccpersonal='claude-personal --continue --dangerously-skip-permissions "/color orange"'
+{{- end }}
 
 # Docker
 alias d='docker'
