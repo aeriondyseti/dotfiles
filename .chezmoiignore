@@ -2,6 +2,7 @@
 __ARCHIVE__/
 .claude/
 CLAUDE.md
+README.md
 .vector-memory/
 .vscode/
 scripts/
