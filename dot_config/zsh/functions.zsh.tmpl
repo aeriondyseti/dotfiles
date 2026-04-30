@@ -4,8 +4,8 @@
 # General
 # ─────────────────────────────────────────
 
-# Quick directory creation and cd
 mkcd() {
+    : "Create a directory (with parents) and cd into it."
     if [[ "$1" == "-h" || "$1" == "--help" || -z "$1" ]]; then
         echo "Usage: mkcd <directory>"
         echo "  Creates a directory (including parents) and cd into it."
@@ -14,8 +14,11 @@ mkcd() {
     mkdir -p "$1" && cd "$1"
 }
 
-# Extract various archive formats
+# Note: oh-my-zsh's `extract` plugin already provides this with broader
+# format support. Kept here for now; consider removing once you trust the
+# plugin's version. Run `which extract` to see which one wins.
 extract() {
+    : "Extract archives of various formats (tar, zip, 7z, rar, bz2, gz, xz)."
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
         echo "Usage: extract <file>"
         echo "  Extracts archive files of various formats."
@@ -42,8 +45,8 @@ extract() {
     fi
 }
 
-# Backup file with timestamp
 backupfile() {
+    : "Make a timestamped .bak copy of a file (file.YYYYMMDD_HHMMSS.bak)."
     if [[ "$1" == "-h" || "$1" == "--help" || -z "$1" ]]; then
         echo "Usage: backupfile <file>"
         echo "  Creates a timestamped backup copy of a file."
@@ -54,8 +57,8 @@ backupfile() {
 }
 alias bak='backupfile'
 
-# Quick serve current directory (python)
 serve() {
+    : "Serve the current directory over HTTP (default port 8000)."
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
         echo "Usage: serve [port]"
         echo "  Serves the current directory over HTTP."
@@ -66,8 +69,8 @@ serve() {
     python3 -m http.server "$port"
 }
 
-# Pretty print JSON from argument or stdin
 jqpretty() {
+    : "Pretty-print JSON from argument or stdin."
     if [ -n "$1" ]; then
         echo "$1" | jq .
     else
@@ -76,35 +79,47 @@ jqpretty() {
 }
 alias jqp='jqpretty'
 
+shedit() {
+    : "Edit a shell config file: rc, aliases, funcs, env, api, local."
+    case "$1" in
+        rc)      $EDITOR ~/.zshrc ;;
+        aliases) $EDITOR ~/.config/zsh/aliases.zsh ;;
+        funcs)   $EDITOR ~/.config/zsh/functions.zsh ;;
+        env)     $EDITOR ~/.config/zsh/env.zsh ;;
+        api)     $EDITOR ~/.config/zsh/api-keys.zsh ;;
+        local)   $EDITOR ~/.config/zsh/local.zsh ;;
+        *)       echo "Usage: shedit {rc|aliases|funcs|env|api|local}"; return 1 ;;
+    esac
+}
 {{- if ne .profile "server" }}
 
 # ─────────────────────────────────────────
 # Docker
 # ─────────────────────────────────────────
 
-# Shell into container (bash)
 dbash() {
+    : "Open an interactive shell in a running container (bash, fallback to sh)."
     docker exec -it "$1" /bin/bash 2>/dev/null || docker exec -it "$1" /bin/sh
 }
 
-# Tail container logs
 dlogs() {
+    : "Tail the last 100 lines of a container's logs and follow."
     docker logs -f --tail 100 "$1"
 }
 
-# Stop all running containers
 dstop() {
+    : "Stop all running Docker containers."
     docker stop $(docker ps -q) 2>/dev/null || echo "No running containers"
 }
 
-# Clean up stopped containers and dangling images
 dclean() {
+    : "Prune stopped containers and dangling images."
     docker container prune -f
     docker image prune -f
 }
 
-# Full docker cleanup
 dnuke() {
+    : "Remove ALL stopped containers, unused images, volumes, and networks. Confirms first."
     echo "This will remove all stopped containers, unused images, volumes, and networks."
     read -p "Continue? [y/N] " confirm
     [[ "$confirm" =~ ^[Yy]$ ]] || return 1
@@ -115,20 +130,20 @@ dnuke() {
 # Fuzzy stuff (fzf)
 # ─────────────────────────────────────────
 
-# Fuzzy cd into subdirectories
 fcd() {
+    : "Fuzzy-pick a subdirectory and cd into it."
     local dir
     dir=$(fd --type d --hidden --exclude .git 2>/dev/null | fzf --preview 'eza --tree --level=1 {} 2>/dev/null || ls -la {}') && cd "$dir"
 }
 
-# Fuzzy open file in editor
 fedit() {
+    : "Fuzzy-pick a file and open it in \$EDITOR."
     local file
     file=$(fzf --preview 'bat --color=always --line-range=:500 {} 2>/dev/null || head -100 {}') && $EDITOR "$file"
 }
 
-# Fuzzy git branch checkout
 fbranch() {
+    : "Fuzzy-pick a git branch (local or remote) and check it out."
     local branch
     branch=$(git branch --all | grep -v HEAD | sed 's/^..//' | fzf --preview 'git log --oneline -20 {}') || return
     branch=$(echo "$branch" | sed 's#remotes/origin/##')
@@ -136,8 +151,8 @@ fbranch() {
 }
 alias fbr='fbranch'
 
-# Fuzzy kill process
 fkillProc() {
+    : "Fuzzy-pick a process and kill it. Use --force/-f for SIGKILL."
     local pid sig=15
 
     if [[ "$1" == "--force" || "$1" == "-f" ]]; then
@@ -150,13 +165,13 @@ fkillProc() {
 }
 alias fkill='fkillProc'
 
-# Fuzzy search git log
 fgitlog() {
+    : "Fuzzy-search git log; selecting a commit shows it via git show."
     git log --oneline --color=always | fzf --ansi --preview 'git show --color=always {1}' | awk '{print $1}' | xargs -r git show
 }
 
-# Fuzzy search for listener of a port
 fkillport() {
+    : "Fuzzy-pick a listening port's owner and kill it. --root for sudo, --force for SIGKILL."
     local selection pid sudo_cmd="" sig=15
 
     for arg in "$@"; do
@@ -173,7 +188,6 @@ fkillport() {
             return 1
         fi
     fi
-
 {{- if eq .profile "work" }}
     selection=$( $sudo_cmd lsof -iTCP -sTCP:LISTEN -P -n | fzf --header-lines=1 --prompt="Kill Port> " --preview 'echo {}' )
 
@@ -195,4 +209,72 @@ fkillport() {
     fi
 }
 alias fkp='fkillport'
+
+# ─────────────────────────────────────────
+# Taskwarrior
+# ─────────────────────────────────────────
+
+tp() {
+    : "Fuzzy-pick a pending Taskwarrior task; print its ID."
+    task export status:pending 2>/dev/null \
+      | jq -r '.[] | "\(.id)\t[\(.project // "-")]\t\(.description)"' \
+      | fzf --preview 'task {1} info' \
+      | awk '{print $1}'
+}
+
+tlist() {
+    : "Fuzzy-pick any Taskwarrior task (all statuses); print its ID."
+    task export 2>/dev/null \
+      | jq -r '.[] | "\(.id)\t[\(.project // "-")]\t\(.description)"' \
+      | fzf --preview 'task {1} info' \
+      | awk '{print $1}'
+}
+
+# ─────────────────────────────────────────
+# fa — fuzzy-find aliases and functions
+# ─────────────────────────────────────────
+
+fa() {
+    : "Fuzzy-find aliases and functions, with descriptions and previews."
+    local selection name
+    selection=$(
+        {
+            # Aliases: name=expansion
+            alias | sed -E 's/^/alias: /'
+            # Functions: name + docstring (first `: "..."` in body) if present
+            for fn in ${(k)functions}; do
+                local doc
+                doc=$(functions "$fn" | grep -m1 -oE ':[[:space:]]+"[^"]+"' | sed -E 's/^:[[:space:]]+"//; s/"$//')
+                if [[ -n "$doc" ]]; then
+                    printf "func:  %s  —  %s\n" "$fn" "$doc"
+                else
+                    printf "func:  %s\n" "$fn"
+                fi
+            done
+        } | sort -u | fzf \
+            --preview 'name=$(echo {} | sed -E "s/^(alias|func): +//" | cut -d= -f1 | awk "{print \$1}");
+                       if alias "$name" >/dev/null 2>&1; then
+                         echo "ALIAS: $name"
+                         alias "$name" | cut -d= -f2-
+                       else
+                         echo "FUNCTION: $name"
+                         echo
+                         functions "$name"
+                       fi' \
+            --preview-window=down:15
+    )
+    [[ -z "$selection" ]] && return
+    name=$(echo "$selection" | sed -E 's/^(alias|func): +//' | cut -d= -f1 | awk '{print $1}')
+    echo "$name"
+}
+
+# Optional: Alt-A widget to insert the picked name at the prompt
+fa-widget() {
+    local sel
+    sel=$(fa)
+    LBUFFER+="$sel"
+    zle reset-prompt
+}
+zle -N fa-widget
+bindkey '^[a' fa-widget
 {{- end }}

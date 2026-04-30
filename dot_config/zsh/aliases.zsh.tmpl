@@ -117,3 +117,13 @@ if command -v nala &>/dev/null; then
 fi
 {{- end }}
 {{- end }}
+
+{{- if ne .profile "server" }}
+
+# taskwarrior
+alias t='task'
+alias tadd='task add'
+alias tdone='task $(tp) done'
+alias tedit='task $(tp) edit'
+alias tstart='task $(tp) start'
+{{- end }}
