@@ -55,11 +55,18 @@ Set-Alias catp bat
 Set-Alias top btm
 
 # --- eza (ls replacement) ---
-function ls  { eza -a --color=always --group-directories-first --icons @args }
-function ll  { eza -la --color=always --group-directories-first --icons --octal-permissions @args }
-function llm { eza -lbGd --header --git --sort=modified --color=always --group-directories-first --icons @args }
-function lx  { eza -lbhHigUmuSa'@' --time-style=long-iso --git --color-scale --color=always --group-directories-first --icons @args }
-function lt  { eza --tree --level=2 --color=always --group-directories-first --icons @args }
+# Windows system-file noise hidden from the default 'ls' (registry hives etc.).
+# Single-quoted so $RECYCLE.BIN is literal, not a variable. '|'-separated globs.
+$script:_ezaSysIgnore = 'NTUSER*|ntuser*|desktop.ini|Thumbs.db|$RECYCLE.BIN|System Volume Information|hiberfil.sys|pagefile.sys|swapfile.sys'
+
+# ls: dotfiles shown, Windows system files hidden. Passes through flags/paths.
+function ls  { eza -a --ignore-glob $script:_ezaSysIgnore --group-directories-first --icons=always --color=always @args }
+# la: everything, including system files.
+function la  { eza -a --group-directories-first --icons=always --color=always @args }
+function ll  { eza -la --octal-permissions --group-directories-first --icons=always --color=always @args }
+function llm { eza -lbGd --header --git --sort=modified --group-directories-first --icons=always --color=always @args }
+function lx  { eza -lbhHigUmuSa'@' --time-style=long-iso --git --color-scale --group-directories-first --icons=always --color=always @args }
+function lt  { eza --tree --level=2 --group-directories-first --icons=always --color=always @args }
 
 # --- fd (find replacement) ---
 Set-Alias f fd
