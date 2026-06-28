@@ -31,8 +31,8 @@ $script:_claudeColor = 'orange'
 # --dangerously-skip-permissions (canonical daily form).
 function c   { claude @args /color $script:_claudeColor }
 function cc  { c --continue @args }
-function 'c!'  { c --dangerously-skip-permissions @args }
-function 'cc!' { cc --dangerously-skip-permissions @args }
+function c!  { c --dangerously-skip-permissions @args }
+function cc! { cc --dangerously-skip-permissions @args }
 
 # ask: one-shot question, read-only tools, no TUI.
 function ask-claude {
