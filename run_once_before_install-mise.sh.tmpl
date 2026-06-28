@@ -1,3 +1,4 @@
+{{ if ne .profile "windows" -}}
 #!/bin/bash
 # Install mise-en-place + global tool versions — managed by chezmoi
 {{ if eq .profile "server" -}}
@@ -23,3 +24,4 @@ echo "Creating mise shims..."
 mise reshim
 
 echo "mise setup complete."
+{{- end }}

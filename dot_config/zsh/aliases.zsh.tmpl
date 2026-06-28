@@ -15,7 +15,7 @@ alias cpf='cp -f'
 
 # Networking
 alias myip='curl -s ifconfig.me'
-{{- if ne .profile "work" }}
+{{- if ne .profile "macos" }}
 alias ports='ss -tulnp'
 alias localip='hostname -I | awk "{print \$1}"'
 {{- end }}
@@ -79,7 +79,7 @@ alias omp='oh-my-posh'
 
 # Claude — c/cc/cpers/ccpers + chelp live in functions.zsh; their
 # !-variants (c! cc! cpers! ccpers! chelp!) are aliased there too.
-{{- if eq .profile "work" }}
+{{- if eq .profile "macos" }}
 alias cprofiles='npx -y @aeriondyseti/claude-profiles'
 {{- end }}
 
@@ -118,7 +118,7 @@ alias uva='uv add'
 alias uvad='uv add --dev'
 alias uvp='uv pip'
 
-{{- if eq .profile "work" }}
+{{- if eq .profile "macos" }}
 
 # Kubernetes
 alias k='kubectl'
@@ -135,7 +135,7 @@ alias rts='cd ~/Development/runner-tracking'
 {{- end }}
 {{- end }}
 
-{{- if ne .profile "work" }}
+{{- if ne .profile "macos" }}
 
 # Linux-only
 alias sc='systemctl'

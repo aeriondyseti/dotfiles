@@ -1,3 +1,4 @@
+{{ if ne .profile "windows" -}}
 #!/bin/bash
 # Install Oh My Posh — managed by chezmoi
 {{ if eq .profile "server" -}}
@@ -12,3 +13,4 @@ if ! command -v oh-my-posh &>/dev/null; then
 fi
 
 echo "Oh My Posh setup complete."
+{{- end }}

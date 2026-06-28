@@ -1,7 +1,7 @@
-{{- if eq .chezmoi.os "windows" -}}
+{{- if eq .profile "windows" -}}
 # Install core CLI tools on Windows — managed by chezmoi.
 # Parallels run_once_before_install-packages.sh (brew) for Unix.
-# Renders empty on non-Windows so chezmoi skips it.
+# Renders empty on non-windows profiles so chezmoi skips it.
 $ErrorActionPreference = 'Stop'
 
 $pkgs = @(

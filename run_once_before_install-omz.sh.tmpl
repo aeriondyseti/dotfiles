@@ -1,3 +1,4 @@
+{{ if ne .profile "windows" -}}
 #!/bin/bash
 # Install Oh My Zsh + community plugins — managed by chezmoi
 set -euo pipefail
@@ -23,3 +24,4 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
 fi
 
 echo "Oh My Zsh setup complete."
+{{- end }}

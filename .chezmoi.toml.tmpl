@@ -1,13 +1,13 @@
 {{- $profile := "server" -}}
 {{- if stdinIsATTY -}}
-{{-   $profile = promptChoiceOnce . "profile" "Which profile?" (list "work" "personal" "server") -}}
+{{-   $profile = promptChoiceOnce . "profile" "Which profile?" (list "ubuntu" "windows" "macos" "server") -}}
 {{- else if hasKey . "profile" -}}
 {{-   $profile = .profile -}}
 {{- end -}}
 
 {{- $gitName := "Kevin W (Aerion Dyseti)" -}}
 {{- $gitEmail := "" -}}
-{{- if eq $profile "work" -}}
+{{- if eq $profile "macos" -}}
 {{-   $gitEmail = "kevin.whiteside@favordelivery.com" -}}
 {{- else -}}
 {{-   $gitEmail = "inblessedsilencewaiting@gmail.com" -}}
@@ -18,11 +18,14 @@
   gitName = {{ $gitName | quote }}
   gitEmail = {{ $gitEmail | quote }}
 
-  {{- if eq $profile "work" }}
+  {{- if eq $profile "macos" }}
   editor = "code"
   visual = "code"
-  {{- else if eq $profile "personal" }}
+  {{- else if eq $profile "ubuntu" }}
   editor = "micro"
+  visual = "code"
+  {{- else if eq $profile "windows" }}
+  editor = "code"
   visual = "code"
   {{- else }}
   editor = "nano"
@@ -32,7 +35,7 @@
   # ── ANSI Palette (hex values for Ghostty only) ──
   # All other tools use ANSI color names and inherit from the terminal.
 
-  {{- if eq $profile "work" }}
+  {{- if eq $profile "macos" }}
   # Work: Favor Delivery brand — blue + gold
   palette0  = "#0a1a24"
   palette1  = "#942020"
@@ -52,7 +55,7 @@
   palette15 = "#f5f5f5"
   paletteBg = "#000000"
   paletteFg = "#ffffff"
-  {{- else if eq $profile "personal" }}
+  {{- else if eq $profile "ubuntu" }}
   # Personal: dark teal + warm amber
   palette0  = "#1c1c1c"
   palette1  = "#aa2020"

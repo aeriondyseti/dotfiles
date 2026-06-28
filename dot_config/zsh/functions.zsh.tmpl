@@ -74,7 +74,7 @@ gbclean() {
 
 # cd into ~/Development/<dir> with tab completion
 dev() {
-{{- if eq .profile "work" }}
+{{- if eq .profile "macos" }}
     builtin cd "$HOME/Development/$1"
 {{- else }}
     builtin cd "$HOME/Personal/Development/$1"
@@ -82,7 +82,7 @@ dev() {
 }
 _dev() {
     ((CURRENT == 2)) &&
-{{- if eq .profile "work" }}
+{{- if eq .profile "macos" }}
     _files -/ -W "$HOME/Development"
 {{- else }}
     _files -/ -W "$HOME/Personal/Development"
@@ -91,7 +91,7 @@ _dev() {
 # compdef is provided by oh-my-zsh's compinit; skipped under Claude Code
 (( ${+functions[compdef]} )) && compdef _dev dev
 
-{{- if eq .profile "work" }}
+{{- if eq .profile "macos" }}
 
 # cd into ~/Personal/Development/<dir> with tab completion
 pers() {
@@ -119,11 +119,11 @@ ask-claude() {
         echo "Usage: ask-claude '<question>'" >&2
         return 1
     fi
-{{- if eq .profile "work" }}
+{{- if eq .profile "macos" }}
     CLAUDE_CONFIG_DIR=~/.claude-work \claude -p "$*" \
         --allowedTools "Read,Grep,Glob" \
         --disallowedTools "Write,Edit,Bash"
-{{- else if eq .profile "personal" }}
+{{- else if eq .profile "ubuntu" }}
     \claude -p "$*" \
         --allowedTools "Read,Grep,Glob" \
         --disallowedTools "Write,Edit,Bash"
@@ -131,7 +131,7 @@ ask-claude() {
 }
 alias ask='ask-claude'
 
-{{- if eq .profile "work" }}
+{{- if eq .profile "macos" }}
 
 # Work machine has dual claude profiles. Default ~/.claude-work (blue);
 # cpers/ccpers (and !-variants) target ~/.claude-personal (orange).
@@ -159,7 +159,7 @@ chelp() {
 }
 alias 'chelp!'='chelp --dangerously-skip-permissions'
 
-{{- else if eq .profile "personal" }}
+{{- else if eq .profile "ubuntu" }}
 
 # Personal machine: single claude profile (~/.claude, orange).
 
@@ -216,7 +216,7 @@ fkillport() {
             return 1
         fi
     fi
-{{- if eq .profile "work" }}
+{{- if eq .profile "macos" }}
     selection=$( $sudo_cmd lsof -iTCP -sTCP:LISTEN -P -n | fzf --header-lines=1 --prompt="Kill Port> " --preview 'echo {}' )
 
     if [[ -n "$selection" ]]; then
@@ -306,7 +306,7 @@ fa-widget() {
 zle -N fa-widget
 bindkey '^[a' fa-widget
 
-{{- if eq .profile "work" }}
+{{- if eq .profile "macos" }}
 
 # ─────────────────────────────────────────
 # AWS

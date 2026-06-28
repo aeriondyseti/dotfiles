@@ -1,3 +1,4 @@
+{{ if ne .profile "windows" -}}
 #!/bin/bash
 # Install Nerd Fonts — managed by chezmoi
 {{ if eq .profile "server" -}}
@@ -36,3 +37,4 @@ fc-cache -f "$FONT_DIR"
 {{ end -}}
 
 echo "Font installation complete."
+{{- end }}

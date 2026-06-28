@@ -8,7 +8,7 @@ README.md
 scripts/
 
 # Profile-specific ignores
-{{ if ne .profile "personal" }}
+{{ if ne .profile "ubuntu" }}
 .config/kde/
 {{ end }}
 
@@ -23,14 +23,16 @@ scripts/
 .local/bin/helper-prompt
 {{ end }}
 
-# ── OS-specific ignores ──
-{{ if ne .chezmoi.os "windows" }}
-# Windows-only files — skip everywhere else
+# ── windows profile ──
+# The Unix run_once scripts are gated in-content with {{ "{{ if ne .profile \"windows\" }}" }},
+# so they are not listed here ( .chezmoiignore does not reliably skip scripts ).
+{{ if ne .profile "windows" }}
+# Windows-only files — skip on every other profile
 Documents/
 {{ end }}
 
-{{ if eq .chezmoi.os "windows" }}
-# Unix shell config — skip on Windows
+{{ if eq .profile "windows" }}
+# Unix shell config — skip on the windows profile
 .zshrc
 .zprofile
 .config/zsh/
@@ -43,10 +45,4 @@ Documents/
 .config/bat/
 .config/gh/
 .config/kde/
-# Unix install scripts (bash/brew) — skip on Windows
-run_once_before_install-fonts.sh
-run_once_before_install-mise.sh
-run_once_before_install-omp.sh
-run_once_before_install-omz.sh
-run_once_before_install-packages.sh
 {{ end }}
