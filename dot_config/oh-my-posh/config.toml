@@ -2,156 +2,105 @@
 version = 2
 final_space = true
 console_title_template = "{{ if .Root }}# {{ end }}{{ .Folder }}{{ if .Segments.Git.HEAD }} ({{ .Segments.Git.HEAD }}){{ end }}"
-async = true
+patch_pwsh_bleed = true
 
-# ─────────────────────────────────────────
-# Transient prompt: just ❯ (amber on error)
-# ─────────────────────────────────────────
-[transient_prompt]
-background = "transparent"
-foreground = "lightCyan"
-foreground_templates = [ "{{ if gt .Code 0 }}yellow{{ end }}" ]
-template = "❯ "
-
-[secondary_prompt]
-background = "transparent"
-foreground = "darkGray"
-template = "… "
-
-# ═════════════════════════════════════════
-# Line 1: powerline bar — OS, shell, tools, git
-# ═════════════════════════════════════════
 [[blocks]]
 type = "prompt"
 alignment = "left"
 newline = true
 
-  # OS icon (diamond cap)
   [[blocks.segments]]
   type = "os"
-  style = "diamond"
-  leading_diamond = "\ue0b6"
-  trailing_diamond = "\ue0b0"
-  background = "cyan"
-  foreground = "lightWhite"
+  style = "powerline"
+  foreground = "p:grey-bright"
+  background = "p:teal"
   template = " {{ .Icon }} "
+  powerline_symbol = ""
+  leading_diamond = ""
 
     [blocks.segments.options]
-    linux = "\uf31b"
-    macos = "\uf179"
-    windows = "\ue62a"
-    ubuntu = "\uf31b"
+    linux = ""
+    macos = ""
+    ubuntu = ""
+    windows = ""
 
-  # Shell name
   [[blocks.segments]]
   type = "shell"
   style = "powerline"
-  powerline_symbol = "\ue0b0"
-  background = "darkGray"
-  foreground = "white"
-  template = " \uf489 {{ .Name }} "
+  foreground = "p:grey-bright"
+  background = "p:grey-mid"
+  template = " {{ .Name }} "
+  powerline_symbol = ""
+  leading_diamond = ""
+  trailing_diamond = ""
 
-  # Node
   [[blocks.segments]]
   type = "node"
   style = "powerline"
-  powerline_symbol = "\ue0b0"
-  background = "black"
-  foreground = "yellow"
-  template = " \ue718 {{ .Major }}.{{ .Minor }}"
+  foreground = "p:grey-dark"
+  background = "p:node-green"
+  template = "  {{ .Major }}.{{ .Minor }}"
+  powerline_symbol = ""
+  trailing_diamond = ""
 
     [blocks.segments.options]
     fetch_package_manager = false
 
-  # Python
   [[blocks.segments]]
   type = "python"
-  style = "accordion"
-  background = "black"
-  foreground = "yellow"
-  template = " \ue235 {{ .Major }}.{{ .Minor }}{{ if .Venv }} \uf0e7{{ .Venv }}{{ end }}"
+  style = "powerline"
+  foreground = "p:grey-dark"
+  background = "p:python-gold"
+  template = "  {{ .Major }}.{{ .Minor }}{{ if .Venv }} [{{ .Venv }}]{{ end }}"
+  powerline_symbol = ""
+  trailing_diamond = ""
 
-  # Kotlin
   [[blocks.segments]]
   type = "kotlin"
-  style = "accordion"
-  background = "black"
-  foreground = "yellow"
-  template = " \ue634 {{ .Major }}.{{ .Minor }}"
+  style = "powerline"
+  foreground = "p:grey-dark"
+  background = "p:kotlin-purple"
+  template = "  {{ .Major }}.{{ .Minor }}"
+  powerline_symbol = ""
+  trailing_diamond = ""
 
-  # .NET
-  [[blocks.segments]]
-  type = "dotnet"
-  style = "accordion"
-  background = "black"
-  foreground = "yellow"
-  template = " \ue77f {{ if .Unsupported }}{{ else }}{{ .Major }}.{{ .Minor }}{{ end }}"
-
-  # Rust
-  [[blocks.segments]]
-  type = "rust"
-  style = "accordion"
-  background = "black"
-  foreground = "yellow"
-  template = " \ue7a8 {{ .Major }}.{{ .Minor }}"
-
-  # Bun
   [[blocks.segments]]
   type = "bun"
-  style = "accordion"
-  background = "black"
-  foreground = "yellow"
-  template = " \ue76f {{ .Major }}.{{ .Minor }}"
-
-  # Git
-  [[blocks.segments]]
-  type = "git"
   style = "powerline"
-  powerline_symbol = "\ue0b0"
-  background = "black"
-  foreground = "cyan"
-  foreground_templates = [ "{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}" ]
-  template = " \ue725 {{ .HEAD }}{{- if gt (add .Staging.Added .Staging.Modified .Staging.Deleted) 0 }} <green>✓{{ add .Staging.Added .Staging.Modified .Staging.Deleted }}</>{{ end }}{{- if gt (add .Working.Added .Working.Modified .Working.Deleted .Working.Untracked) 0 }} <yellow>~{{ add .Working.Added .Working.Modified .Working.Deleted .Working.Untracked }}</>{{ end }}{{- if gt .Ahead 0 }} <lightCyan>⇡{{ .Ahead }}</>{{ end }}{{- if gt .Behind 0 }} <red>⇣{{ .Behind }}</>{{ end }}{{- if .Rebase }} <red>[rebasing]</>{{ end }}{{- if .CherryPick }} <red>[cherry-pick]</>{{ end }}{{- if .Merge }} <red>[merging]</>{{ end }}{{ if gt .StashCount 0 }} <darkGray>\ueb4b {{ .StashCount }}</>{{ end }} "
+  foreground = "p:grey-dark"
+  background = "p:bun-sand"
+  template = "  {{ .Major }}.{{ .Minor }}"
+  powerline_symbol = ""
+  trailing_diamond = ""
 
-    [blocks.segments.options]
-    fetch_status = true
-    fetch_upstream_icon = true
-    branch_icon = ""
+  [[blocks.segments]]
+  type = "dotnet"
+  style = "powerline"
+  powerline_symbol = ""
+  template = "  {{ if .Unsupported }}{{ else }}{{ .Full }}{{ end }} "
+  foreground = "p:grey-dark"
+  background = "p:dotnet-purple"
 
-# ═════════════════════════════════════════
-# Line 1 (right): execution time + clock
-# ═════════════════════════════════════════
+  [[blocks.segments]]
+  type = "rust"
+  style = "powerline"
+  powerline_symbol = ""
+  template = "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}"
+  foreground = "p:grey-dark"
+  background = "p:rust-orange"
+
 [[blocks]]
-type = "rprompt"
-
-  [[blocks.segments]]
-  type = "executiontime"
-  style = "plain"
-  foreground = "yellow"
-  template = "\uf252 {{ .FormattedMs }} "
-
-    [blocks.segments.options]
-    threshold = 2000
-    style = "austin"
-
-  [[blocks.segments]]
-  type = "time"
-  style = "plain"
-  foreground = "darkGray"
-
-    [blocks.segments.options]
-    time_format = "15:04"
-    template = "{{ .CurrentDate | date .Format }}"
+type = "prompt"
+alignment = "right"
+newline = false
 
   [[blocks.segments]]
   type = "spotify"
   style = "plain"
-  foreground = "green"
-  template = '{{ if ne .Status "stopped" }}<yellow>{{ .Icon }}</> {{ .Artist }} — {{ .Track }}{{ end }}'
+  foreground = "p:teal"
+  template = '{{ if ne .Status "stopped" }}<p:amber>{{ .Icon }}</> {{ .Artist }} — {{ .Track }}{{ end }}'
+  powerline_symbol = ""
 
-# ═════════════════════════════════════════
-# Line 2: ╭─ path
-# ═════════════════════════════════════════
 [[blocks]]
 type = "prompt"
 alignment = "left"
@@ -160,25 +109,39 @@ newline = true
   [[blocks.segments]]
   type = "text"
   style = "plain"
-  foreground = "darkGray"
+  foreground = "p:grey-muted"
   template = "╭─"
 
   [[blocks.segments]]
   type = "path"
   style = "plain"
-  foreground = "white"
+  foreground = "p:grey-light"
 
     [blocks.segments.options]
-    style = "agnoster_short"
+    folder_icon = ""
+    folder_separator_icon = ""
+    home_icon = ""
     max_depth = 3
-    folder_icon = "\uf07b"
-    folder_separator_icon = " <darkGray>\ue0b1</> "
-    home_icon = "\ueb06"
+    style = "agnoster_short"
     template = " {{ .Path }}"
 
-# ═════════════════════════════════════════
-# Line 3: ╰─ session ❯
-# ═════════════════════════════════════════
+[[blocks]]
+type = "prompt"
+alignment = "right"
+newline = false
+
+  [[blocks.segments]]
+  type = "git"
+  style = "plain"
+  foreground = "p:git-blue"
+  template = " {{ .HEAD }}{{- if gt (add .Staging.Added .Staging.Modified .Staging.Deleted) 0 }} <p:teal-glow>✓{{ add .Staging.Added .Staging.Modified .Staging.Deleted }}</>{{ end }}{{- if gt (add .Working.Added .Working.Modified .Working.Deleted .Working.Untracked) 0 }} <p:amber>~{{ add .Working.Added .Working.Modified .Working.Deleted .Working.Untracked }}</>{{ end }}{{- if gt .Ahead 0 }} <p:teal-glow>⇡{{ .Ahead }}</>{{ end }}{{- if gt .Behind 0 }} <p:red>⇣{{ .Behind }}</>{{ end }}{{- if .Rebase }} <p:red>[rebasing]</>{{ end }}{{- if .CherryPick }} <p:red>[cherry-pick]</>{{ end }}{{- if .Merge }} <p:red>[merging]</>{{ end }}{{ if gt .StashCount 0 }} <p:grey-muted> {{ .StashCount }}</>{{ end }} "
+  powerline_symbol = ""
+
+    [blocks.segments.options]
+    branch_icon = ""
+    fetch_status = true
+    fetch_upstream_icon = true
+
 [[blocks]]
 type = "prompt"
 alignment = "left"
@@ -187,18 +150,61 @@ newline = true
   [[blocks.segments]]
   type = "text"
   style = "plain"
-  foreground = "darkGray"
+  foreground = "p:grey-muted"
   template = "╰─"
 
   [[blocks.segments]]
   type = "session"
   style = "plain"
-  foreground = "cyan"
-  template = " <b>{{ .UserName }}<lightCyan>@{{ .HostName }}</></b>"
+  foreground = "p:teal-glow"
+  template = " <b>{{ .UserName }}<p:teal-mid>@{{ .HostName }}</></b>"
 
   [[blocks.segments]]
   type = "text"
   style = "plain"
-  foreground = "cyan"
-  foreground_templates = [ "{{ if gt .Code 0 }}red{{ end }}" ]
+  foreground = "p:teal-glow"
+  foreground_templates = [ "{{ if gt .Code 0 }}p:red{{ end }}" ]
   template = " ❯"
+
+[transient_prompt]
+template = "❯ "
+foreground = "p:teal-glow"
+background = "transparent"
+foreground_templates = [ "{{ if gt .Code 0 }}p:red{{ end }}" ]
+
+[secondary_prompt]
+template = "… "
+foreground = "p:grey-muted"
+background = "transparent"
+
+[palette]
+teal = "#00474f"
+teal-mid = "#006b6b"
+teal-glow = "#00b3a0"
+amber = "#f0a500"
+amber-dim = "#8a6000"
+red = "#d94444"
+git-blue = "#4e94b8"
+git-blue-dim = "#3a6f8a"
+node-green = "#5b9a4b"
+python-gold = "#c49a3c"
+kotlin-purple = "#8b6bbf"
+php-indigo = "#6181b6"
+rust-orange = "#c4602c"
+dotnet-purple = "#7868c0"
+bun-sand = "#d6c39a"
+black = "#0d0f12"
+grey-dark = "#1a1a1a"
+grey-mid = "#2a2a2a"
+grey-border = "#3a3a3a"
+grey-muted = "#666666"
+grey-text = "#999999"
+grey-light = "#c0c0c0"
+grey-bright = "#e0e0e0"
+white = "#ffffff"
+
+[upgrade]
+source = "cdn"
+interval = "168h"
+auto = false
+notice = false
