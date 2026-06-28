@@ -1,0 +1,33 @@
+# Normalize line endings repo-wide. Stops the CRLF "every line changed" churn
+# on Windows regardless of any machine's core.autocrlf setting.
+# chezmoi ignores dotfiles not starting with .chezmoi, so this is NOT deployed —
+# it only governs how git stores/checks out the source repo.
+
+# Default: detect text vs binary, store as LF, check out as LF everywhere.
+* text=auto eol=lf
+
+# Shell + PowerShell scripts must be LF (LF is fine for PowerShell 7).
+*.sh   text eol=lf
+*.zsh  text eol=lf
+*.bash text eol=lf
+*.ps1  text eol=lf
+*.psm1 text eol=lf
+*.psd1 text eol=lf
+
+# Windows-only script types that require CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binaries — never touch.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.webp binary
+*.gz   binary
+*.zip  binary
+*.ttf  binary
+*.otf  binary
+*.woff  binary
+*.woff2 binary
