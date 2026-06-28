@@ -1,4 +1,12 @@
-{{- if ne .profile "server" }}
+{{- if eq .profile "windows" }}
+[tools]
+# .NET is provided by Visual Studio on Windows, so it is intentionally omitted.
+python = "3.13"
+uv = "latest"
+node = "lts"
+bun = "latest"
+kotlin = "2.3"
+{{- else if ne .profile "server" }}
 [tools]
 python = "3.13"
 uv = "latest"

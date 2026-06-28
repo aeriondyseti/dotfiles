@@ -1,0 +1,21 @@
+{{- if eq .profile "windows" -}}
+# Install mise-managed runtimes on Windows — managed by chezmoi.
+# Runs AFTER files are applied, so ~/.config/mise/config.toml already exists
+# and `mise install` can read it. The mise binary itself is installed by the
+# winpackages bootstrap (winget jdx.mise).
+# (.NET is intentionally NOT managed by mise here — Visual Studio provides it.)
+$ErrorActionPreference = 'Stop'
+
+# mise may have been installed earlier in this same apply (winget), so its PATH
+# entry isn't in this process yet. Refresh PATH from the registry to find it.
+$env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')
+
+if (Get-Command mise -ErrorAction SilentlyContinue) {
+  Write-Host "Installing mise-managed runtimes..."
+  mise install --yes
+  mise reshim
+  Write-Host "mise setup complete."
+} else {
+  Write-Host "mise not on PATH yet; open a new shell and run 'mise install'." -ForegroundColor Yellow
+}
+{{- end -}}
