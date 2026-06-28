@@ -11,7 +11,11 @@ $pkgs = @(
   'BurntSushi.ripgrep.MSVC', # grep
   'ajeetdsouza.zoxide',      # cd/z
   'Clement.bottom',          # top (btm)  — btop has no Windows build
-  'junegunn.fzf'             # fuzzy finder
+  'junegunn.fzf',            # fuzzy finder (used by PSFzf)
+  'JanDeDobbeleer.OhMyPosh', # prompt (same config as Linux)
+  'dbrgn.tealdeer',          # tldr — man-page replacement
+  'dandavison.delta',        # git pager (referenced in git config)
+  'GitHub.cli'               # gh — git credential helper
 )
 
 foreach ($p in $pkgs) {
@@ -25,5 +29,14 @@ foreach ($p in $pkgs) {
   }
 }
 
-Write-Host "Done. Set a Nerd Font in your terminal for eza --icons."
+# PSFzf is a PowerShell module (not on winget) — gives Ctrl+r/Ctrl+t/Alt+c.
+if (-not (Get-Module -ListAvailable PSFzf)) {
+  Write-Host "Installing PSFzf module ..."
+  Install-Module PSFzf -Scope CurrentUser -Force -AcceptLicense
+}
+
+# Refresh tldr's page cache so 'tldr <cmd>' works immediately.
+if (Get-Command tldr -ErrorAction SilentlyContinue) { tldr --update 2>$null }
+
+Write-Host "Done. Set a Nerd Font in your terminal for eza --icons / Oh My Posh glyphs."
 {{- end -}}

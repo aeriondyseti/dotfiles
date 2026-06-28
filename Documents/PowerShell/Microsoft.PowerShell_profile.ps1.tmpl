@@ -7,3 +7,31 @@ if (Test-Path "$PSScriptRoot\env.ps1")       { . "$PSScriptRoot\env.ps1" }
 if (Test-Path "$PSScriptRoot\aliases.ps1")   { . "$PSScriptRoot\aliases.ps1" }
 if (Test-Path "$PSScriptRoot\functions.ps1") { . "$PSScriptRoot\functions.ps1" }
 if (Test-Path "$PSScriptRoot\local.ps1")     { . "$PSScriptRoot\local.ps1" }
+
+# ── Interactive shell setup (the .zshrc-equivalent layer) ──
+
+# PSReadLine — zsh-like: emacs keys, inline autosuggestions, prefix history,
+# menu completion on Tab.
+Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadLineOption -PredictionViewStyle InlineView
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineKeyHandler -Key Tab       -Function MenuComplete
+Set-PSReadLineKeyHandler -Key UpArrow   -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+# PSFzf — your fzf keybindings: Ctrl+r history, Ctrl+t files, Alt+c cd.
+# (Set after PSReadLine so fzf's Ctrl+r wins.)
+if (Get-Module -ListAvailable PSFzf) {
+  Import-Module PSFzf
+  Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' `
+                  -PSReadlineChordReverseHistory 'Ctrl+r' `
+                  -PSReadlineChordSetLocation 'Alt+c'
+}
+
+# Oh My Posh — same prompt as Linux, reusing the chezmoi-managed config.
+if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
+  $ompCfg = "$HOME/.config/oh-my-posh/config.toml"
+  if (Test-Path $ompCfg) { oh-my-posh init pwsh --config $ompCfg | Invoke-Expression }
+  else                   { oh-my-posh init pwsh | Invoke-Expression }
+}

@@ -33,10 +33,10 @@ Documents/
 
 {{ if eq .profile "windows" }}
 # Unix shell config — skip on the windows profile
+# (oh-my-posh config IS deployed on windows — OMP runs natively)
 .zshrc
 .zprofile
 .config/zsh/
-.config/oh-my-posh/
 .config/ghostty/
 .config/micro/
 .config/btop/

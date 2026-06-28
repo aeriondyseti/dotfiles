@@ -36,6 +36,12 @@
 
 [credential "https://gist.github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
+{{- else if eq .profile "windows" }}
+[credential "https://github.com"]
+	helper = !gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = !gh auth git-credential
 {{- else }}
 [credential "https://github.com"]
 	helper = !/usr/bin/env gh auth git-credential
@@ -46,6 +52,10 @@
 
 [core]
 	pager = delta
+{{- if eq .profile "windows" }}
+	longpaths = true
+	autocrlf = false
+{{- end }}
 
 [interactive]
 	diffFilter = delta --color-only

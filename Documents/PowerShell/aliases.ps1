@@ -2,7 +2,7 @@
 # Dot-sourced from Microsoft.PowerShell_profile.ps1.
 
 # --- free up built-in aliases so our functions can take their names ---
-'ls','cat','cp','mv','rm' | ForEach-Object {
+'ls','cat','cp','mv','rm','man' | ForEach-Object {
   if (Test-Path "Alias:$_") { Remove-Item "Alias:$_" -Force }
 }
 
@@ -85,3 +85,14 @@ Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 # --- Shell quick edits ---
 function editshrc      { & $script:_editor $PROFILE }
 function editshaliases { & $script:_editor "$PSScriptRoot\aliases.ps1" }
+
+# --- Linux muscle-memory ---
+function which   { (Get-Command @args -ErrorAction SilentlyContinue).Source }
+function touch   { foreach ($f in $args) { if (Test-Path $f) { (Get-Item $f).LastWriteTime = Get-Date } else { New-Item -ItemType File -Path $f | Out-Null } } }
+function pbcopy  { $input | Set-Clipboard }      # echo x | pbcopy
+function pbpaste { Get-Clipboard }
+function env     { Get-ChildItem Env: }
+Set-Alias open Invoke-Item                       # open . / open file (xdg-open/open)
+Set-Alias grep rg                                # muscle memory -> ripgrep
+# man -> tldr (falls back to Get-Help if tldr isn't installed)
+function man { if (Get-Command tldr -ErrorAction SilentlyContinue) { tldr @args } else { Microsoft.PowerShell.Core\Get-Help @args } }
