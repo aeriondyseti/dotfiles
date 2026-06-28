@@ -19,9 +19,9 @@ newline = true
   leading_diamond = ""
 
     [blocks.segments.options]
-    linux = ""
+    linux = ""
     macos = ""
-    ubuntu = ""
+    ubuntu = ""
     windows = ""
 
   [[blocks.segments]]
@@ -122,7 +122,7 @@ newline = true
     folder_separator_icon = ""
     home_icon = ""
     max_depth = 3
-    style = "agnoster_left"
+    style = "full"
     template = " {{ .Path }}"
 
 [[blocks]]
