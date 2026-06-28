@@ -62,6 +62,15 @@ fi
 
 # Oh My Posh (Prompt Theme)
 if command -v oh-my-posh >/dev/null; then
-  eval "$(oh-my-posh init zsh --config "$HOME/.config/oh-my-posh/config.toml")"
+  omp_config="$HOME/.config/oh-my-posh/config.toml"
+  if [[ -f "$omp_config" ]]; then
+    # Export the theme path so the prompt can still find the config if the
+    # cache is cleared mid-session (`oh-my-posh print` reads the session theme
+    # from the cache; without this it falls back to the default theme).
+    export POSH_THEME="$omp_config"
+    eval "$(oh-my-posh init zsh --config "$omp_config")"
+  else
+    eval "$(oh-my-posh init zsh)"
+  fi
 fi
 {{- end }}
