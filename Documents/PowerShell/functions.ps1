@@ -1,5 +1,26 @@
 # functions.ps1 — managed by chezmoi (Windows). Dot-sourced from the profile.
-# Port of the AI-tool helpers from functions.zsh (single-profile / ubuntu variant).
+# Port of helpers from functions.zsh (single-profile / ubuntu variant).
+
+# --- General utilities ---
+function mkcd {
+  param([Parameter(Mandatory)][string]$Dir)
+  New-Item -ItemType Directory -Force -Path $Dir | Out-Null
+  Set-Location -LiteralPath $Dir
+}
+function backupfile {
+  param([Parameter(Mandatory)][string]$File)
+  Copy-Item -LiteralPath $File "$File.$(Get-Date -Format 'yyyyMMdd_HHmmss').bak"
+}
+Set-Alias bak backupfile
+function serve {
+  param([int]$Port = 8000)
+  python -m http.server $Port
+}
+function jqpretty {
+  if ($args.Count) { $args[0] | jq . } else { $input | jq . }
+}
+Set-Alias jqp jqpretty
+
 
 # Color for the Claude prompt. Change this to tell Windows-native Claude apart
 # from your WSL (ubuntu) Claude if you run both at once.

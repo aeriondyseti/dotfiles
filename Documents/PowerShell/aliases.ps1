@@ -96,3 +96,28 @@ Set-Alias open Invoke-Item                       # open . / open file (xdg-open/
 Set-Alias grep rg                                # muscle memory -> ripgrep
 # man -> tldr (falls back to Get-Help if tldr isn't installed)
 function man { if (Get-Command tldr -ErrorAction SilentlyContinue) { tldr @args } else { Microsoft.PowerShell.Core\Get-Help @args } }
+
+# --- oh-my-posh ---
+Set-Alias omp oh-my-posh
+
+# --- Docker (needs Docker Desktop) ---
+Set-Alias d docker
+function dps  { docker ps @args }
+function dls  { docker ps    --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Image}}' @args }
+function dlsa { docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Image}}' @args }
+function di   { docker images @args }
+function dv   { docker volume ls @args }
+function dn   { docker network ls @args }
+
+# --- Docker Compose ---
+function dc   { docker compose @args }
+function dcu  { docker compose up -d @args }
+function dcd  { docker compose down @args }
+function dcl  { docker compose logs -f @args }
+function dcr  { docker compose restart @args }
+function dcb  { docker compose build @args }
+function dce  { docker compose exec @args }
+
+# --- lazydocker / lazygit ---
+Set-Alias lzd lazydocker
+Set-Alias lg  lazygit
