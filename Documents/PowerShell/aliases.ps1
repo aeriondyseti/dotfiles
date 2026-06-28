@@ -6,7 +6,7 @@
   if (Test-Path "Alias:$_") { Remove-Item "Alias:$_" -Force }
 }
 
-$script:_editor = if (Get-Command code -ErrorAction SilentlyContinue) { 'code' } else { 'notepad' }
+# (EDITOR/VISUAL are set in env.ps1, which the profile sources before this file.)
 
 # --- General ('cls' is already built-in Clear-Host) ---
 function path { $env:PATH -split ';' }
@@ -82,9 +82,15 @@ function rgi { & rg.exe --no-ignore @args }
 # --- zoxide: smart 'cd' + 'cdi' (replaces cd, like your z/zi) ---
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 
+# --- chezmoi ---
+Set-Alias chm chezmoi
+
 # --- Shell quick edits ---
-function editshrc      { & $script:_editor $PROFILE }
-function editshaliases { & $script:_editor "$PSScriptRoot\aliases.ps1" }
+function editshrc      { & $env:EDITOR $PROFILE }
+function editshenv     { & $env:EDITOR "$PSScriptRoot\env.ps1" }
+function editshaliases { & $env:EDITOR "$PSScriptRoot\aliases.ps1" }
+function editshfuncs   { & $env:EDITOR "$PSScriptRoot\functions.ps1" }
+function shreload      { . $PROFILE }
 
 # --- Linux muscle-memory ---
 function which   { (Get-Command @args -ErrorAction SilentlyContinue).Source }
