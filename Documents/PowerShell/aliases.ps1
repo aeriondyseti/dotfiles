@@ -13,7 +13,23 @@ function path { $env:PATH -split ';' }
 function now  { Get-Date -Format 'yyyy-MM-dd HH:mm:ss' }
 
 # --- Safety nets / force variants ---
-function rmrf { Remove-Item -Recurse -Force @args }
+# rmrf: robust recursive delete. Uses native 'rmdir /s /q' for directories so it
+# handles read-only files (git objects) and deep paths (node_modules) that
+# Remove-Item chokes on. Files fall back to Remove-Item -Force. Supports globs.
+function rmrf {
+  foreach ($p in $args) {
+    $items = Resolve-Path -Path $p -ErrorAction SilentlyContinue
+    if (-not $items) { Write-Warning "rmrf: not found: $p"; continue }
+    foreach ($item in $items) {
+      $path = $item.Path
+      if (Test-Path -LiteralPath $path -PathType Container) {
+        & cmd /c "rmdir /s /q `"$path`""
+      } else {
+        Remove-Item -LiteralPath $path -Force
+      }
+    }
+  }
+}
 function mvf  { Move-Item   -Force @args }
 function cpf  { Copy-Item   -Force @args }
 # Optional interactive guards (uncomment to mimic rm -i / mv -i / cp -i):
