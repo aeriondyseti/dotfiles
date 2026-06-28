@@ -15,6 +15,20 @@ fi
 # Activate mise for this script
 eval "$(mise activate bash)"
 
+{{ if and (ne .profile "server") (eq .chezmoi.os "linux") -}}
+# .NET (installed via mise) needs the ICU runtime library. On Debian/Ubuntu the
+# package is version-numbered (libicu74/76/78/...) and there is no plain
+# "libicu", so detect whichever version the distro ships rather than hardcoding.
+if command -v apt-get &>/dev/null && ! ldconfig -p | grep -q libicui18n; then
+    echo "Installing ICU runtime (required by .NET)..."
+    sudo apt-get update -y
+    icu_pkg="$(apt-cache search --names-only '^libicu[0-9]+$' | sort -V | tail -n1 | cut -d' ' -f1)"
+    if [ -n "$icu_pkg" ]; then
+        sudo apt-get install -y "$icu_pkg"
+    fi
+fi
+
+{{ end -}}
 # Install global tool versions (defined in ~/.config/mise/config.toml)
 echo "Installing tool versions via mise..."
 mise install --yes
