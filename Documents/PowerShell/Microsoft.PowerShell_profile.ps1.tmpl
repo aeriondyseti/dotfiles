@@ -32,6 +32,12 @@ if (Get-Module -ListAvailable PSFzf) {
 # Oh My Posh — same prompt as Linux, reusing the chezmoi-managed config.
 if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
   $ompCfg = "$HOME/.config/oh-my-posh/config.toml"
-  if (Test-Path $ompCfg) { oh-my-posh init pwsh --config $ompCfg | Invoke-Expression }
-  else                   { oh-my-posh init pwsh | Invoke-Expression }
+  if (Test-Path $ompCfg) {
+    # Export the theme path so the prompt can still find the config if the
+    # cache is cleared mid-session (`oh-my-posh print` reads the session theme
+    # from the cache; without this it falls back to the default theme).
+    $env:POSH_THEME = $ompCfg
+    oh-my-posh init pwsh --config $ompCfg | Invoke-Expression
+  }
+  else { oh-my-posh init pwsh | Invoke-Expression }
 }
