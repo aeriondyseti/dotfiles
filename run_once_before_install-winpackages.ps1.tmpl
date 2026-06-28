@@ -1,0 +1,29 @@
+{{- if eq .chezmoi.os "windows" -}}
+# Install core CLI tools on Windows — managed by chezmoi.
+# Parallels run_once_before_install-packages.sh (brew) for Unix.
+# Renders empty on non-Windows so chezmoi skips it.
+$ErrorActionPreference = 'Stop'
+
+$pkgs = @(
+  'eza-community.eza',        # ls
+  'sharkdp.bat',             # cat
+  'sharkdp.fd',              # find
+  'BurntSushi.ripgrep.MSVC', # grep
+  'ajeetdsouza.zoxide',      # cd/z
+  'Clement.bottom',          # top (btm)  — btop has no Windows build
+  'junegunn.fzf'             # fuzzy finder
+)
+
+foreach ($p in $pkgs) {
+  winget list --id $p -e --accept-source-agreements *> $null
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host "Installing $p ..."
+    winget install --id $p -e --source winget `
+      --accept-package-agreements --accept-source-agreements
+  } else {
+    Write-Host "$p already installed"
+  }
+}
+
+Write-Host "Done. Set a Nerd Font in your terminal for eza --icons."
+{{- end -}}

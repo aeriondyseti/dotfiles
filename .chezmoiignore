@@ -22,3 +22,31 @@ scripts/
 .config/lazygit/
 .local/bin/helper-prompt
 {{ end }}
+
+# ── OS-specific ignores ──
+{{ if ne .chezmoi.os "windows" }}
+# Windows-only files — skip everywhere else
+Documents/
+{{ end }}
+
+{{ if eq .chezmoi.os "windows" }}
+# Unix shell config — skip on Windows
+.zshrc
+.zprofile
+.config/zsh/
+.config/oh-my-posh/
+.config/ghostty/
+.config/micro/
+.config/btop/
+.config/lazygit/
+.config/mise/
+.config/bat/
+.config/gh/
+.config/kde/
+# Unix install scripts (bash/brew) — skip on Windows
+run_once_before_install-fonts.sh
+run_once_before_install-mise.sh
+run_once_before_install-omp.sh
+run_once_before_install-omz.sh
+run_once_before_install-packages.sh
+{{ end }}

@@ -1,0 +1,9 @@
+# PowerShell profile — managed by chezmoi (Windows)
+# Mirrors the zsh setup: source split-out config files if present.
+# $PSScriptRoot is this profile's folder, so siblings resolve regardless of
+# where Documents lives (handles OneDrive redirection).
+
+if (Test-Path "$PSScriptRoot\env.ps1")       { . "$PSScriptRoot\env.ps1" }
+if (Test-Path "$PSScriptRoot\aliases.ps1")   { . "$PSScriptRoot\aliases.ps1" }
+if (Test-Path "$PSScriptRoot\functions.ps1") { . "$PSScriptRoot\functions.ps1" }
+if (Test-Path "$PSScriptRoot\local.ps1")     { . "$PSScriptRoot\local.ps1" }
