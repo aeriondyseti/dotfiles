@@ -63,7 +63,9 @@ $script:_ezaSysIgnore = 'NTUSER*|ntuser*|desktop.ini|Thumbs.db|$RECYCLE.BIN|Syst
 function ls  { eza -a --ignore-glob $script:_ezaSysIgnore --group-directories-first --icons=always --color=always @args }
 # la: everything, including system files.
 function la  { eza -a --group-directories-first --icons=always --color=always @args }
-function ll  { eza -la --octal-permissions --group-directories-first --icons=always --color=always @args }
+# ll: long view, system files hidden (like ls). lla: long view, everything.
+function ll  { eza -la --octal-permissions --ignore-glob $script:_ezaSysIgnore --group-directories-first --icons=always --color=always @args }
+function lla { eza -la --octal-permissions --group-directories-first --icons=always --color=always @args }
 function llm { eza -lbGd --header --git --sort=modified --group-directories-first --icons=always --color=always @args }
 function lx  { eza -lbhHigUmuSa'@' --time-style=long-iso --git --color-scale --group-directories-first --icons=always --color=always @args }
 function lt  { eza --tree --level=2 --group-directories-first --icons=always --color=always @args }
