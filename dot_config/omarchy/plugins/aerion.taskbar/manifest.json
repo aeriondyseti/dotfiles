@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "aerion.taskbar",
+  "name": "Taskbar",
+  "version": "1.0.0",
+  "author": "aerion",
+  "description": "Icons for open windows: click to focus/minimize/restore, pulses when a window needs attention",
+  "kinds": ["bar-widget"],
+  "entryPoints": { "barWidget": "Taskbar.qml" },
+  "barWidget": {
+    "displayName": "Taskbar",
+    "description": "Open windows with focus, minimize and attention indicators",
+    "category": "Compositor",
+    "allowMultiple": false,
+    "defaultSection": "left",
+    "defaults": { "iconSize": 18, "urgentColor": "#f0a820" },
+    "schema": [
+      { "key": "iconSize", "type": "number", "label": "Icon size" },
+      { "key": "urgentColor", "type": "string", "label": "Attention color" }
+    ]
+  }
+}
