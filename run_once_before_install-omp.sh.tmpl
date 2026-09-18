@@ -1,8 +1,8 @@
 {{ if ne .profile "windows" -}}
 #!/bin/bash
 # Install Oh My Posh — managed by chezmoi
-{{ if eq .profile "server" -}}
-# Server profile: skip OMP installation
+{{ if or (eq .profile "server") (eq .profile "omarchy") -}}
+# Server and Omarchy profiles: skip OMP installation (Omarchy uses Starship)
 exit 0
 {{ end -}}
 set -euo pipefail

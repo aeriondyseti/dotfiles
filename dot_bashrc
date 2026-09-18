@@ -1,0 +1,23 @@
+# Omarchy environment (OMARCHY_PATH + PATH), needed even for non-interactive shells
+[[ -r /usr/share/omarchy/default/bash/env-bootstrap ]] && source /usr/share/omarchy/default/bash/env-bootstrap
+
+# If not running interactively, don't do anything else (leave this above the rc source)
+[[ $- != *i* ]] && return
+
+# All the default Omarchy aliases and functions
+# (don't mess with these directly, just overwrite them here!)
+source "$OMARCHY_PATH/default/bash/rc"
+
+# Add your own exports, aliases, and functions here.
+#
+# Make an alias for invoking commands you use constantly
+# alias p='python'
+
+# ─────────────────────────────────────────
+# Personal config (ported from github.com/aeriondyseti/dotfiles)
+# Loaded after Omarchy's defaults so these win on conflicts.
+# ─────────────────────────────────────────
+for _f in env path api-keys aliases functions local; do
+  [ -f "$HOME/.config/bash/$_f.bash" ] && source "$HOME/.config/bash/$_f.bash"
+done
+unset _f

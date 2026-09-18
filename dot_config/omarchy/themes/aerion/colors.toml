@@ -1,0 +1,35 @@
+# Aerion — dark teal + warm amber (ported from the dotfiles "ubuntu" palette)
+mode = "dark"
+
+accent = "#00e9e9"
+selection = "#1f3f47"
+muted = "#555555"
+
+background = "#050708"
+dark_background = "#030405"
+darker_background = "#000000"
+lighter_background = "#1c2426"
+
+foreground = "#dcdcdc"
+dark_foreground = "#7a8a8e"
+light_foreground = "#e8e8e8"
+bright_foreground = "#f5f5f5"
+
+selection_background = "#1f3f47"
+selection_foreground = "#f5f5f5"
+
+red = "#aa2020"
+yellow = "#a07020"
+orange = "#f0a820"
+green = "#1a9050"
+cyan = "#277b8e"
+blue = "#2a6099"
+magenta = "#7a29a3"
+brown = "#6b4a1f"
+
+bright_red = "#e62020"
+bright_yellow = "#f0a820"
+bright_green = "#00e060"
+bright_cyan = "#00e9e9"
+bright_blue = "#0090ff"
+bright_magenta = "#d600d6"

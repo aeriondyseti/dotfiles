@@ -70,3 +70,31 @@
 
 [diff]
 	colorMoved = default
+{{- if eq .profile "omarchy" }}
+
+# Omarchy's git defaults, kept alongside the settings above
+[alias]
+	co = checkout
+	br = branch
+	st = status
+
+[diff]
+	algorithm = histogram
+	mnemonicPrefix = true
+
+[commit]
+	verbose = true
+
+[column]
+	ui = auto
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = -version:refname
+
+[rerere]
+	enabled = true
+	autoupdate = true
+{{- end }}

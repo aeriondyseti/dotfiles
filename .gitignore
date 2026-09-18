@@ -1,2 +1,6 @@
 result
 .direnv
+omarchy/boot/omarchy-green/
+omarchy/boot/efibootmgr-before.txt
+omarchy/boot/limine.conf.copy
+omarchy/boot/grub.cfg.installed

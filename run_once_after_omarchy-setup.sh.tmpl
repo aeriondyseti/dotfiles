@@ -1,0 +1,18 @@
+{{ if eq .profile "omarchy" -}}
+#!/bin/bash
+# Omarchy post-apply setup — managed by chezmoi.
+# Runs AFTER files are applied, so the Aerion theme, Ghostty config and mise
+# config are already in place.
+set -euo pipefail
+
+# Tools from ~/.config/mise/config.toml (uv, bun, python, ...)
+mise install --yes
+
+# Ghostty for Super+Return and every other Omarchy terminal launch
+omarchy default terminal ghostty
+
+# Apply the Aerion theme, then the dark teal wallpaper
+# (theme set picks its own background, so set ours after it)
+omarchy theme set aerion
+omarchy theme bg set "$HOME/.local/state/omarchy/current/theme/backgrounds/1-tech-teal-dark.jpg"
+{{ end -}}

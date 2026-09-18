@@ -1,0 +1,105 @@
+# Starship prompt — ported from dotfiles oh-my-posh/config.toml.
+# Uses ANSI color names only, so the Omarchy theme (Aerion) drives the palette:
+#   cyan = teal, bright-cyan = teal glow, bright-yellow = amber, bright-black = muted grey
+add_newline = true
+command_timeout = 200
+continuation_prompt = "[… ](bright-black)"
+
+format = """
+$os$shell$nodejs$python$kotlin$bun$dotnet$rust
+[╭─](bright-black) $directory$fill$git_branch$git_status$git_state
+[╰─](bright-black) $username$hostname $character"""
+
+# ── Line 1: badges ────────────────────────────
+[os]
+disabled = false
+format = "[](fg:cyan)[ $symbol ](fg:bright-white bg:cyan)[](fg:cyan) "
+
+[os.symbols]
+Arch = ""
+Linux = ""
+
+[shell]
+disabled = false
+bash_indicator = "bash"
+format = "[](fg:bright-black)[ $indicator ](fg:white bg:bright-black)[](fg:bright-black) "
+
+[nodejs]
+format = "[](fg:green)[ $symbol$version ](fg:black bg:green)[](fg:green) "
+symbol = " "
+version_format = "${major}.${minor}"
+
+[python]
+format = "[](fg:yellow)[ $symbol$version( \\[$virtualenv\\]) ](fg:black bg:yellow)[](fg:yellow) "
+symbol = " "
+version_format = "${major}.${minor}"
+
+[kotlin]
+format = "[](fg:purple)[ $symbol$version ](fg:bright-white bg:purple)[](fg:purple) "
+symbol = " "
+version_format = "${major}.${minor}"
+
+[bun]
+format = "[](fg:bright-yellow)[ $symbol$version ](fg:black bg:bright-yellow)[](fg:bright-yellow) "
+symbol = " "
+version_format = "${major}.${minor}"
+
+[dotnet]
+format = "[](fg:purple)[ $symbol$version ](fg:bright-white bg:purple)[](fg:purple) "
+symbol = " "
+
+[rust]
+format = "[](fg:red)[ $symbol$version ](fg:bright-white bg:red)[](fg:red) "
+symbol = " "
+
+# ── Line 2: path ··· git ───────────────────────
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style)"
+style = "white"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " "
+
+[fill]
+symbol = " "
+
+[git_branch]
+format = "[ $branch]($style)"
+style = "blue"
+
+[git_status]
+format = "( $all_status$ahead_behind)"
+staged = "[✓${count}](bright-cyan) "
+modified = "[~${count}](bright-yellow) "
+untracked = "[?${count}](bright-yellow) "
+deleted = "[✘${count}](bright-yellow) "
+renamed = "[»${count}](bright-yellow) "
+conflicted = "[=${count}](bright-red) "
+stashed = "[ ${count}](bright-black) "
+ahead = "[⇡${count}](bright-cyan)"
+behind = "[⇣${count}](bright-red)"
+diverged = "[⇡${ahead_count}](bright-cyan)[⇣${behind_count}](bright-red)"
+up_to_date = ""
+
+[git_state]
+format = " [\\[$state\\]]($style)"
+style = "bright-red"
+rebase = "rebasing"
+merge = "merging"
+cherry_pick = "cherry-pick"
+
+# ── Line 3: user@host ❯ ────────────────────────
+[username]
+show_always = true
+format = "[$user]($style)"
+style_user = "bold bright-cyan"
+style_root = "bold bright-red"
+
+[hostname]
+ssh_only = false
+format = "[@$hostname]($style)"
+style = "bold cyan"
+
+[character]
+success_symbol = "[❯](bright-cyan)"
+error_symbol = "[❯](bright-red)"

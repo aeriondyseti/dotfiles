@@ -21,6 +21,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply aeriondyseti/dotfiles
 | `work` | macOS (darwin/arm64) | Blue/white | Corporate MacBook |
 | `personal` | Linux (amd64, WSL/Ubuntu) | Dark Teal + Amber | Personal desktop/laptop |
 | `server` | Linux (any arch) | Minimal | Homelab, VPS, Headless |
+| `omarchy` | Omarchy (Arch + Hyprland) | Aerion (Omarchy theme) | Personal desktop |
 
 ### Key Components
 
@@ -36,6 +37,23 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply aeriondyseti/dotfiles
 1. Hex colors are defined *only* in the Ghostty configuration (`dot_config/ghostty/config.tmpl`).
 2. All other tools (Oh My Posh, bat, micro, delta) use standard ANSI color names (0–15).
 3. Changing the Ghostty palette instantly updates the theme for every tool.
+
+### Omarchy profile
+
+Omarchy ships its own shell and desktop setup, so this profile works *with* it
+instead of replacing it:
+
+- **Shell:** Omarchy's bash + Starship. Personal env/aliases/functions live in
+  `~/.config/bash/*.bash`, sourced after Omarchy's defaults (zsh/OMZ/OMP are skipped).
+- **Colors:** the **Aerion** Omarchy theme (`dot_config/omarchy/themes/aerion/`)
+  is the hex source of truth; Ghostty, Starship and the rest use ANSI names.
+- **Desktop:** Hyprland overrides (blur, glow, gaps, animations, opacity), a
+  transparent/blurred bar, Ghostty as default terminal.
+- **Source dir:** `~/development/dotfiles` (set via `sourceDir`), not
+  `~/.local/share/chezmoi`. Initialize with
+  `chezmoi init --source ~/development/dotfiles --apply`.
+- **Boot menu:** GRUB-in-front-of-Limine setup is documented in
+  `omarchy/boot/README.md` (run by hand; not deployed).
 
 ## Maintenance
 

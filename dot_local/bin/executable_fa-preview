@@ -1,0 +1,11 @@
+#!/bin/bash
+# Preview helper for the `fa` shell function: prints an alias or function
+# definition from a dump of `alias -p; declare -f`.
+defs="$1"; name="$2"
+if grep -q -- "^alias $name=" "$defs"; then
+    echo "ALIAS: $name"; echo
+    grep -m1 -- "^alias $name=" "$defs" | sed -E "s/^alias [^=]+=//"
+else
+    echo "FUNCTION: $name"; echo
+    awk -v n="$name" '$1==n && $2=="()" {p=1} p {print} p && /^}/ {exit}' "$defs"
+fi

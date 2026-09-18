@@ -3,7 +3,16 @@
 # Install core CLI tools — managed by chezmoi
 set -euo pipefail
 
-{{ if ne .profile "server" -}}
+{{ if eq .profile "omarchy" -}}
+# ─────────────────────────────────────────
+# Omarchy: most CLI tools ship with Omarchy; add the rest through its
+# installers (they prompt for sudo). claude/uv/bun/python come from mise.
+# ─────────────────────────────────────────
+omarchy pkg add micro git-delta
+command -v ghostty &>/dev/null || omarchy install terminal ghostty
+command -v code &>/dev/null || omarchy install editor vscode
+
+{{ else if ne .profile "server" -}}
 # ─────────────────────────────────────────
 # Personal + Work: Homebrew (macOS native, Linuxbrew on Linux)
 # ─────────────────────────────────────────

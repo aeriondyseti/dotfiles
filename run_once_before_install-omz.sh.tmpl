@@ -1,6 +1,10 @@
 {{ if ne .profile "windows" -}}
 #!/bin/bash
 # Install Oh My Zsh + community plugins — managed by chezmoi
+{{ if eq .profile "omarchy" -}}
+# Omarchy profile: bash + Starship, no Oh My Zsh
+exit 0
+{{ end -}}
 set -euo pipefail
 
 # Install Oh My Zsh if not present

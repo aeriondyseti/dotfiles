@@ -1,3 +1,57 @@
+{{- if eq .profile "omarchy" -}}
+# Ghostty on Omarchy — managed by chezmoi.
+# Colors come from the active Omarchy theme (Aerion) via the config-file include below.
+# Dynamic theme colors
+config-file = ?"~/.local/state/omarchy/current/theme/ghostty.conf"
+
+# Font
+font-family = "JetBrainsMono Nerd Font"
+font-style = Regular
+font-size = 8
+
+# Window
+window-theme = ghostty
+window-padding-x = 14
+window-padding-y = 14
+confirm-close-surface=false
+resize-overlay = never
+gtk-toolbar-style = flat
+
+# Cursor styling
+cursor-style = "block"
+cursor-style-blink = false
+
+# Cursor styling + SSH session terminfo
+# (all shell integration options must be passed together)
+shell-integration-features = no-cursor,ssh-env
+
+# Keyboard bindings
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+# Send Shift+Enter as CSI-u so TUIs can distinguish it from Enter.
+keybind = shift+enter=csi:13;2u
+# Legacy encoding sends Alt+Shift+Enter the same as Alt+Enter; send CSI-u so tmux can match M-S-Enter.
+keybind = alt+shift+enter=csi:13;4u
+keybind = super+control+shift+alt+arrow_down=resize_split:down,100
+keybind = super+control+shift+alt+arrow_up=resize_split:up,100
+keybind = super+control+shift+alt+arrow_left=resize_split:left,100
+keybind = super+control+shift+alt+arrow_right=resize_split:right,100
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+
+# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+async-backend = epoll
+
+# Background image (from dotfiles; darkened teal variant made for the Aerion theme)
+background-image = {{ .chezmoi.homeDir }}/.config/omarchy/themes/aerion/backgrounds/1-tech-teal-dark.jpg
+background-image-position = center
+background-image-fit = cover
+background-image-opacity = 0.05
+
+# Translucent background so Hyprland blur shows through (text stays opaque)
+background-opacity = 0.94
+{{- else -}}
 # Ghostty terminal configuration — managed by chezmoi
 # This is the ONLY file with hex color values.
 # All other tools use ANSI color names and inherit from this palette.
@@ -32,4 +86,6 @@ background-image = {{ .chezmoi.homeDir }}/.config/ghostty/tech-background.jpg
 background-image-position = center
 background-image-opacity = 0.01
 background-image-fit = cover
+{{- end }}
+
 {{- end }}

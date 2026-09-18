@@ -6,6 +6,7 @@ README.md
 .vector-memory/
 .vscode/
 scripts/
+omarchy/
 
 # Profile-specific ignores
 {{ if ne .profile "ubuntu" }}
@@ -45,4 +46,26 @@ Documents/
 .config/bat/
 .config/gh/
 .config/kde/
+{{ end }}
+
+# ── omarchy profile ──
+# Omarchy runs bash + Starship (its own shell setup), so the zsh/OMP stack is
+# skipped. btop is left to Omarchy, whose config follows the active theme.
+{{ if eq .profile "omarchy" }}
+.zshrc
+.zprofile
+.zshenv
+.config/zsh/
+.config/oh-my-posh/
+.config/btop/
+{{ else }}
+# Omarchy-only files — skip on every other profile
+.bashrc
+.config/bash/
+.config/starship.toml
+.config/omarchy/
+.config/hypr/
+.config/foot/
+.config/xdg-terminals.list
+.local/bin/fa-preview
 {{ end }}
