@@ -84,6 +84,30 @@ Item {
     dispatch("hl.dsp.window.close({ window = \"" + windowSelector(toplevel) + "\" })")
   }
 
+  // Thin teal line along the bottom edge of Omarchy's top bar (the bar has no
+  // border option). Normal exclusion stacks it just below the bar's space.
+  Variants {
+    model: Quickshell.screens
+
+    PanelWindow {
+      required property var modelData
+      screen: modelData
+
+      anchors.top: true
+      anchors.left: true
+      anchors.right: true
+      implicitHeight: 1
+      exclusionMode: ExclusionMode.Normal
+      exclusiveZone: 0
+      color: Qt.rgba(Color.accent.r, Color.accent.g, Color.accent.b, 0.18)
+
+      WlrLayershell.namespace: "aerion-bar-edge"
+      WlrLayershell.layer: WlrLayer.Top
+      WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
+      mask: Region {}
+    }
+  }
+
   Variants {
     model: Quickshell.screens
 
