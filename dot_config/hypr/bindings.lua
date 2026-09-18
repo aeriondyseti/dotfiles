@@ -31,3 +31,7 @@
 -- Minimize: hide the focused window on the special:minimized workspace.
 -- The Aerion taskbar shows it dimmed; click its icon to restore it.
 o.bind("SUPER + M", "Minimize window", hl.dsp.window.move({ workspace = "special:minimized", follow = false }))
+
+-- Choose where the NEXT window opens (dwindle preselect; one-shot, then back to auto).
+o.bind("SUPER + ALT + V", "Split vertically: next window opens to the right", hl.dsp.layout("preselect r"))
+o.bind("SUPER + ALT + H", "Split horizontally: next window opens below", hl.dsp.layout("preselect d"))
