@@ -7,9 +7,7 @@ import qs.Commons
 import qs.Ui
 
 // Taskbar: one icon per window on the current workspace, plus minimized ones.
-//   Left click:   focus it; on the focused window, minimize it;
-//                 on a minimized window, restore it to this workspace.
-//   Right click:  minimize / restore.
+//   Left click:   hide (minimize) the window, or show it again on this workspace.
 //   Middle click: close.
 // Minimized windows live on the hidden special:minimized workspace (Super+M)
 // and are drawn dimmed. Windows asking for attention (Hyprland "urgent")
@@ -72,28 +70,22 @@ BarWidget {
     moveTo(toplevel, root.minimizedWorkspace)
   }
 
-  function focusCommand(toplevel) {
-    return "hl.dsp.focus({ window = \"" + windowSelector(toplevel) + "\" })"
-  }
-
-  function focusWindow(toplevel) {
-    dispatch(focusCommand(toplevel))
-  }
-
   function restore(toplevel) {
     var current = Hyprland.focusedWorkspace
-    var workspace = current ? String(current.id) : "1"
-    var move = "hl.dsp.window.move({ workspace = \"" + workspace + "\", follow = false, window = \"" + windowSelector(toplevel) + "\" })"
-    if (root.bar) root.bar.run("hyprctl dispatch " + Util.shellQuote(move) + " && hyprctl dispatch " + Util.shellQuote(focusCommand(toplevel)))
+    moveTo(toplevel, current ? String(current.id) : "1")
   }
 
-  implicitWidth: row.implicitWidth
+  // Gap separating the taskbar from the workspace numbers before it.
+  readonly property real leadingGap: root.vertical ? 0 : Style.space(12)
+
+  implicitWidth: row.implicitWidth + leadingGap
   implicitHeight: row.implicitHeight
   visible: root.windows.length > 0
 
   GridLayout {
     id: row
     anchors.fill: parent
+    anchors.leftMargin: root.leadingGap
     columns: root.vertical ? 1 : Math.max(1, root.windows.length)
     columnSpacing: Style.space(1)
     rowSpacing: Style.space(1)
@@ -151,7 +143,7 @@ BarWidget {
         MouseArea {
           anchors.fill: parent
           hoverEnabled: true
-          acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
+          acceptedButtons: Qt.LeftButton | Qt.MiddleButton
           cursorShape: Qt.PointingHandCursor
 
           onClicked: function(mouse) {
@@ -160,10 +152,8 @@ BarWidget {
               root.dispatch("hl.dsp.window.close({ window = \"" + root.windowSelector(t) + "\" })")
             } else if (item.minimized) {
               root.restore(t)
-            } else if (mouse.button === Qt.RightButton || item.focused) {
-              root.minimize(t)
             } else {
-              root.focusWindow(t)
+              root.minimize(t)
             }
           }
           onEntered: if (root.bar) root.bar.showTooltip(item, item.toplevel.title || root.appId(item.toplevel))
