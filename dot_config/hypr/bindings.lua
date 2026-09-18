@@ -33,5 +33,11 @@
 o.bind("SUPER + M", "Minimize window", hl.dsp.window.move({ workspace = "special:minimized", follow = false }))
 
 -- Choose where the NEXT window opens (dwindle preselect; one-shot, then back to auto).
-o.bind("SUPER + ALT + V", "Split vertically: next window opens to the right", hl.dsp.layout("preselect r"))
-o.bind("SUPER + ALT + H", "Split horizontally: next window opens below", hl.dsp.layout("preselect d"))
+-- Windows Terminal muscle memory: minus = below, equal (plus) = right.
+-- These replace Omarchy's "Expand/Shrink window left a little" (Super+Alt+-/=);
+-- Super+-/= and Super+Ctrl+-/= still resize.
+-- Omarchy binds these by key code (code:20 = minus, code:21 = equal), so unbind the same codes.
+hl.unbind("SUPER + ALT + code:20")
+hl.unbind("SUPER + ALT + code:21")
+o.bind("SUPER + ALT + code:20", "Split horizontally: next window opens below", hl.dsp.layout("preselect d"))
+o.bind("SUPER + ALT + code:21", "Split vertically: next window opens to the right", hl.dsp.layout("preselect r"))
