@@ -1,6 +1,5 @@
 # Non-deployable repo files
 __ARCHIVE__/
-.claude/
 CLAUDE.md
 README.md
 .vector-memory/
@@ -14,6 +13,7 @@ omarchy/
 {{ end }}
 
 {{ if eq .profile "server" }}
+.claude/
 .config/ccstatusline/
 .config/oh-my-posh/
 .config/mise/
