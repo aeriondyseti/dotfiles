@@ -6,9 +6,9 @@ import Quickshell.Widgets
 import qs.Commons
 import qs.Ui
 
-// Taskbar: one icon per open window.
-//   Left click:   focus it (switching workspace if needed); on the focused
-//                 window, minimize it; on a minimized window, restore it here.
+// Taskbar: one icon per window on the current workspace, plus minimized ones.
+//   Left click:   focus it; on the focused window, minimize it;
+//                 on a minimized window, restore it to this workspace.
 //   Right click:  minimize / restore.
 //   Middle click: close.
 // Minimized windows live on the hidden special:minimized workspace (Super+M)
@@ -26,22 +26,20 @@ BarWidget {
     return toplevel.workspace !== null && toplevel.workspace.name === root.minimizedWorkspace
   }
 
-  // Real windows only, grouped by workspace (minimized ones last).
+  // Windows on the focused workspace, then minimized windows (always shown,
+  // so they can be restored from any workspace).
   readonly property var windows: {
-    var list = []
+    var current = Hyprland.focusedWorkspace
+    var here = []
+    var minimized = []
     var values = Hyprland.toplevels.values
     for (var i = 0; i < values.length; i++) {
       var t = values[i]
       if (t.workspace === null) continue
-      if (t.workspace.id < 0 && !isMinimized(t)) continue // other special workspaces (scratchpad)
-      list.push({ toplevel: t, order: i })
+      if (isMinimized(t)) minimized.push(t)
+      else if (current !== null && t.workspace.id === current.id) here.push(t)
     }
-    list.sort(function(a, b) {
-      var wa = isMinimized(a.toplevel) ? 1000 : a.toplevel.workspace.id
-      var wb = isMinimized(b.toplevel) ? 1000 : b.toplevel.workspace.id
-      return wa !== wb ? wa - wb : a.order - b.order
-    })
-    return list.map(function(entry) { return entry.toplevel })
+    return here.concat(minimized)
   }
 
   function appId(toplevel) {
@@ -74,23 +72,19 @@ BarWidget {
     moveTo(toplevel, root.minimizedWorkspace)
   }
 
+  function focusCommand(toplevel) {
+    return "hl.dsp.focus({ window = \"" + windowSelector(toplevel) + "\" })"
+  }
+
+  function focusWindow(toplevel) {
+    dispatch(focusCommand(toplevel))
+  }
+
   function restore(toplevel) {
     var current = Hyprland.focusedWorkspace
-    moveTo(toplevel, current ? String(current.id) : "1")
-    focusLater.target = toplevel
-    focusLater.restart()
-  }
-
-  function focus(toplevel) {
-    if (toplevel.wayland) toplevel.wayland.activate()
-  }
-
-  // Give Hyprland a moment to finish the move before activating.
-  Timer {
-    id: focusLater
-    property var target: null
-    interval: 60
-    onTriggered: if (target) root.focus(target)
+    var workspace = current ? String(current.id) : "1"
+    var move = "hl.dsp.window.move({ workspace = \"" + workspace + "\", follow = false, window = \"" + windowSelector(toplevel) + "\" })"
+    if (root.bar) root.bar.run("hyprctl dispatch " + Util.shellQuote(move) + " && hyprctl dispatch " + Util.shellQuote(focusCommand(toplevel)))
   }
 
   implicitWidth: row.implicitWidth
@@ -163,13 +157,13 @@ BarWidget {
           onClicked: function(mouse) {
             var t = item.toplevel
             if (mouse.button === Qt.MiddleButton) {
-              if (t.wayland) t.wayland.close()
+              root.dispatch("hl.dsp.window.close({ window = \"" + root.windowSelector(t) + "\" })")
             } else if (item.minimized) {
               root.restore(t)
             } else if (mouse.button === Qt.RightButton || item.focused) {
               root.minimize(t)
             } else {
-              root.focus(t)
+              root.focusWindow(t)
             }
           }
           onEntered: if (root.bar) root.bar.showTooltip(item, item.toplevel.title || root.appId(item.toplevel))
