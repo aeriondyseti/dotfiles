@@ -41,3 +41,7 @@ hl.unbind("SUPER + ALT + code:20")
 hl.unbind("SUPER + ALT + code:21")
 o.bind("SUPER + ALT + code:20", "Split horizontally: next window opens below", hl.dsp.layout("preselect d"))
 o.bind("SUPER + ALT + code:21", "Split vertically: next window opens to the right", hl.dsp.layout("preselect r"))
+
+-- Super + mouse side button (mouse:275, "Back" on its own) toggles the scratchpad, like Super+S.
+-- The button alone still works as Back in browsers.
+o.bind("SUPER + mouse:275", "Toggle scratchpad (Super + mouse side button)", hl.dsp.workspace.toggle_special("scratchpad"))
