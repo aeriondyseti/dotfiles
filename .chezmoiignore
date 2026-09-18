@@ -13,6 +13,7 @@ scripts/
 {{ end }}
 
 {{ if eq .profile "server" }}
+.config/ccstatusline/
 .config/oh-my-posh/
 .config/mise/
 .config/ghostty/

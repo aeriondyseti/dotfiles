@@ -1,4 +1,6 @@
 {
+  "tui": "fullscreen",
+  "theme": "dark",
   "statusLine": {
     "type": "command",
     "command": "bunx -y ccstatusline@latest",

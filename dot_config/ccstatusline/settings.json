@@ -1,0 +1,137 @@
+{
+  "version": 4,
+  "lines": [
+    [
+      {
+        "id": "7edc28fc-d67a-4221-bb60-33ab7a05d567",
+        "type": "current-working-dir"
+      },
+      {
+        "id": "87368cce-6916-4284-a62a-39cc880b719d",
+        "type": "separator"
+      },
+      {
+        "id": "1",
+        "type": "model",
+        "color": "cyan"
+      },
+      {
+        "id": "88bd8cd1-0e12-4602-985b-9dc23d532989",
+        "type": "custom-text",
+        "color": "cyan",
+        "customText": " ["
+      },
+      {
+        "id": "1c2f3394-2f55-4b17-81fa-e74c8513a9b2",
+        "type": "thinking-effort",
+        "color": "brightCyan",
+        "rawValue": true
+      },
+      {
+        "id": "b44dd726-8d0d-461a-bc48-c7208605ad66",
+        "type": "custom-text",
+        "color": "cyan",
+        "customText": "]"
+      },
+      {
+        "id": "6",
+        "type": "separator"
+      },
+      {
+        "id": "5",
+        "type": "git-branch",
+        "color": "cyan"
+      },
+      {
+        "id": "322ee596-bbc7-4dae-ba39-869a40e7aee8",
+        "type": "custom-symbol",
+        "color": "cyan",
+        "customSymbol": " "
+      },
+      {
+        "id": "7",
+        "type": "git-changes",
+        "color": "magenta",
+        "merge": true
+      }
+    ],
+    [
+      {
+        "id": "13e24971-012f-4450-b4ea-dbfc172b1955",
+        "type": "session-usage",
+        "color": "brightMagenta",
+        "metadata": {
+          "display": "slider"
+        }
+      },
+      {
+        "id": "26abef76-db65-4431-a0ca-3d67ca283590",
+        "type": "separator"
+      },
+      {
+        "id": "fddc41bb-ed47-45cd-9eef-48d659c9df3c",
+        "type": "reset-timer",
+        "color": "magenta"
+      }
+    ],
+    [
+      {
+        "id": "30ca6ed9-834c-47bd-bcfb-f011841a46cf",
+        "type": "context-percentage",
+        "color": "yellow",
+        "metadata": {
+          "display": "slider"
+        }
+      },
+      {
+        "id": "cc6bc636-61ab-4ee7-bfa0-f7e7395cdda6",
+        "type": "separator"
+      },
+      {
+        "id": "69e64822-a50e-4b42-ae47-2284fa34a4a9",
+        "type": "weekly-usage",
+        "metadata": {
+          "display": "slider"
+        }
+      },
+      {
+        "id": "68980bf0-a11c-4f70-9670-d404264f0cd6",
+        "type": "separator"
+      },
+      {
+        "id": "94c6de1c-20b2-4692-a05b-d69f3002f7c2",
+        "type": "fable-weekly-usage",
+        "metadata": {
+          "display": "slider"
+        }
+      }
+    ]
+  ],
+  "flexMode": "full",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "defaultPaddingSide": "both",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "gitCacheTtlSeconds": 5,
+  "terminalWidthCacheTtlSeconds": 5,
+  "customCommandCacheTtlSeconds": 0,
+  "minimalistMode": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false,
+    "continueThemeAcrossLines": false
+  },
+  "installation": {
+    "method": "auto-update",
+    "packageManager": "npm"
+  }
+}
