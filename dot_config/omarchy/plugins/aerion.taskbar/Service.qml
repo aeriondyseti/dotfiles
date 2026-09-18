@@ -94,7 +94,8 @@ Item {
 
       // Anchored to the bottom edge only, so the compositor centers it.
       anchors.bottom: true
-      implicitWidth: Math.max(row.implicitWidth + Style.space(12), root.stripHeight * 3)
+      // 80% of the screen width (wider if the icons ever need more room).
+      implicitWidth: Math.max(Math.round(modelData.width * 0.8), row.implicitWidth + Style.space(12))
       implicitHeight: root.stripHeight
       exclusiveZone: root.stripHeight
       color: "transparent"
