@@ -34,3 +34,13 @@ o.window({ tag = "default-opacity" }, { opacity = "0.95 0.90" })
 
 -- Frosted-glass blur behind the (transparent) Omarchy bar.
 hl.layer_rule({ match = { namespace = "omarchy-bar" }, blur = true })
+
+-- ─────────────────────────────────────────
+-- Windows-style floating (hybrid): tiling stays the default elsewhere.
+-- ─────────────────────────────────────────
+-- Unity Editor + Hub always float (their panels and dialogs misbehave when tiled).
+o.window("(?i)^(unity|unityhub|unity hub)$", { float = true, center = true })
+
+-- Workspace 5 is a "floating desktop": windows opened there float and overlap.
+-- (Super+T still toggles any single window between floating and tiled.)
+o.window({ workspace = "r[5-5]" }, { float = true, center = true })
