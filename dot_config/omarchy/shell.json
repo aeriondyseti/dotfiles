@@ -2,38 +2,35 @@
   "bar": {
     "centerAnchor": "omarchy.clock",
     "layout": {
-      "center": [
-        {
-          "id": "omarchy.indicators"
-        },
-        {
-          "format": "ddd d MMM h:mm AP",
-          "formatAlt": "d MMMM 'W'ww yyyy",
-          "id": "omarchy.clock",
-          "verticalFormat": "HH\n—\nmm"
-        },
-        {
-          "id": "omarchy.keyboard-layout"
-        },
-        {
-          "id": "omarchy.weather"
-        },
-        {
-          "id": "omarchy.system-update"
-        }
-      ],
       "left": [
         {
           "id": "omarchy.menu"
         },
         {
           "id": "omarchy.workspaces"
-        },
+        }
+      ],
+      "center": [
         {
-          "id": "aerion.taskbar"
+          "format": "ddd d MMM h:mm AP",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
+          "verticalFormat": "HH\n—\nmm"
         }
       ],
       "right": [
+        {
+          "id": "omarchy.indicators"
+        },
+        {
+          "id": "omarchy.weather"
+        },
+        {
+          "id": "omarchy.system-update"
+        },
+        {
+          "id": "omarchy.keyboard-layout"
+        },
         {
           "id": "omarchy.tray"
         },
@@ -57,13 +54,17 @@
         }
       ]
     },
-    "position": "bottom",
+    "position": "top",
     "transparent": true
   },
   "idle": {
     "lock": 300,
     "screensaver": 150
   },
-  "plugins": [],
+  "plugins": [
+    {
+      "id": "aerion.taskbar"
+    }
+  ],
   "version": 1
 }

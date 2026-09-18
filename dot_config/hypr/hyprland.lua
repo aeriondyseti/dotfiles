@@ -34,6 +34,7 @@ o.window({ tag = "default-opacity" }, { opacity = "0.95 0.90" })
 
 -- Frosted-glass blur behind the (transparent) Omarchy bar.
 hl.layer_rule({ match = { namespace = "omarchy-bar" }, blur = true })
+hl.layer_rule({ match = { namespace = "aerion-taskbar" }, blur = true, ignore_alpha = 0.01 })
 
 -- ─────────────────────────────────────────
 -- Windows-style floating (hybrid): tiling stays the default elsewhere.
