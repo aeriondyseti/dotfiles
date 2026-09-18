@@ -28,20 +28,30 @@ Item {
     return toplevel.workspace !== null && toplevel.workspace.name === root.minimizedWorkspace
   }
 
-  // Windows on the focused workspace, then minimized windows (always shown,
-  // so they can be restored from any workspace).
+  // Stable order: each window gets a sequence number the first time it is
+  // seen, so icons keep their place when focus changes or they're minimized.
+  // (Plain JS object — writing to it doesn't re-trigger bindings.)
+  property var seenOrder: ({ next: 0 })
+
+  function orderOf(toplevel) {
+    var key = String(toplevel.address)
+    if (seenOrder[key] === undefined) seenOrder[key] = seenOrder.next++
+    return seenOrder[key]
+  }
+
+  // Windows on the focused workspace plus minimized windows (always shown,
+  // so they can be restored from any workspace), in first-seen order.
   readonly property var windows: {
     var current = Hyprland.focusedWorkspace
-    var here = []
-    var minimized = []
+    var list = []
     var values = Hyprland.toplevels.values
     for (var i = 0; i < values.length; i++) {
       var t = values[i]
       if (t.workspace === null) continue
-      if (isMinimized(t)) minimized.push(t)
-      else if (current !== null && t.workspace.id === current.id) here.push(t)
+      if (isMinimized(t) || (current !== null && t.workspace.id === current.id)) list.push(t)
     }
-    return here.concat(minimized)
+    list.sort(function(a, b) { return orderOf(a) - orderOf(b) })
+    return list
   }
 
   function appId(toplevel) {
