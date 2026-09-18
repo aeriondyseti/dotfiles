@@ -56,11 +56,12 @@
 -- hl.gesture({ fingers = 3, direction = "left", action = function() hl.dispatch(hl.dsp.focus({ direction = "l" })) end })
 -- hl.gesture({ fingers = 3, direction = "right", action = function() hl.dispatch(hl.dsp.focus({ direction = "r" })) end })
 
--- Opening a special workspace (scratchpad) moves the cursor onto its window.
--- With focus-follows-mouse, a cursor left over the main window would otherwise
--- refocus it on the slightest movement, and Hyprland then hides the scratchpad.
+-- Click to focus (Windows-style): a window only takes keyboard focus when
+-- clicked; hovering and scrolling still reach the window under the cursor.
+-- With focus-follows-mouse, a moving cursor refocused the main window the moment
+-- the scratchpad opened, and Hyprland then hid the scratchpad again.
 hl.config({
-  cursor = {
-    warp_on_toggle_special = 1,
+  input = {
+    follow_mouse = 2,
   },
 })
