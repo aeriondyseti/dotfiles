@@ -8,7 +8,7 @@ set -euo pipefail
 # Omarchy: most CLI tools ship with Omarchy; add the rest through its
 # installers (they prompt for sudo). claude/uv/bun/python come from mise.
 # ─────────────────────────────────────────
-omarchy pkg add micro git-delta
+omarchy pkg add micro git-delta discord
 command -v ghostty &>/dev/null || omarchy install terminal ghostty
 command -v code &>/dev/null || omarchy install editor vscode
 

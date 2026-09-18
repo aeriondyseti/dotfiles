@@ -1,0 +1,21 @@
+#!/bin/bash
+# Start Discord at login and park it on the taskbar's hidden "minimized"
+# workspace, so it shows as a dimmed icon that pulses on new messages.
+# Discord opens an updater window before the main one, so keep minimizing
+# its windows for a short while after the first one appears.
+set -u
+
+uwsm-app -- discord &
+
+first_seen=""
+for _ in $(seq 1 90); do
+  for address in $(hyprctl clients -j | jq -r '.[] | select(.class == "discord" and .workspace.name != "special:minimized") | .address'); do
+    hyprctl dispatch "hl.dsp.window.move({ workspace = \"special:minimized\", follow = false, window = \"address:$address\" })" >/dev/null
+    first_seen=${first_seen:-$SECONDS}
+  done
+  # Stop 15s after the first Discord window (enough for updater -> main window).
+  if [ -n "$first_seen" ] && [ $((SECONDS - first_seen)) -ge 15 ]; then
+    exit 0
+  fi
+  sleep 1
+done

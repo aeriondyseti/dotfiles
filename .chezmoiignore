@@ -68,4 +68,5 @@ Documents/
 .config/foot/
 .config/xdg-terminals.list
 .local/bin/fa-preview
+.local/bin/discord-start-minimized
 {{ end }}
