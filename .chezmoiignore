@@ -69,4 +69,5 @@ Documents/
 .config/xdg-terminals.list
 .local/bin/fa-preview
 .local/bin/discord-start-minimized
+.local/bin/scratchpad-toggle
 {{ end }}

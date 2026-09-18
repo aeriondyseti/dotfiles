@@ -1,0 +1,16 @@
+#!/bin/bash
+# Toggle the scratchpad, ignoring repeats within 350 ms. Some mice report one
+# press of a side button as several rapid clicks (switch bounce), which would
+# open and close the scratchpad over and over.
+state="${XDG_RUNTIME_DIR:-/tmp}/scratchpad-toggle"
+
+# Bounces arrive almost simultaneously: only one instance may run at a time.
+exec 9>"$state.lock"
+flock -n 9 || exit 0
+
+now=$(date +%s%3N)
+last=$(cat "$state.last" 2>/dev/null || echo 0)
+(( now - last < 350 )) && exit 0
+echo "$now" > "$state.last"
+
+hyprctl dispatch 'hl.dsp.workspace.toggle_special("scratchpad")' >/dev/null
