@@ -6,9 +6,9 @@ import Quickshell.Wayland
 import Quickshell.Widgets
 import qs.Commons
 
-// Bottom taskbar: a centered strip along the bottom edge (one per screen),
-// separate from Omarchy's top bar. One icon per window on the current
-// workspace, plus minimized windows.
+// Bottom taskbar: a full-width frosted bar along the bottom edge (one per
+// screen) mirroring Omarchy's top bar. Centered icons: one per window on the
+// current workspace, plus minimized windows.
 //   Left click:   hide (minimize) the window, or show it again on this workspace.
 //   Middle click: close.
 // Minimized windows live on the hidden special:minimized workspace (Super+M)
@@ -116,10 +116,10 @@ Item {
       required property var modelData
       screen: modelData
 
-      // Anchored to the bottom edge only, so the compositor centers it.
+      // Full width, like the top bar (transparent; Hyprland blurs behind it).
       anchors.bottom: true
-      // 80% of the screen width (wider if the icons ever need more room).
-      implicitWidth: Math.max(Math.round(modelData.width * 0.8), row.implicitWidth + Style.space(12))
+      anchors.left: true
+      anchors.right: true
       implicitHeight: root.stripHeight
       exclusiveZone: root.stripHeight
       color: "transparent"
@@ -128,12 +128,13 @@ Item {
       WlrLayershell.layer: WlrLayer.Top
       WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
 
+      // Teal line along the top edge, mirroring the line under the top bar.
       Rectangle {
-        anchors.fill: parent
-        radius: Style.space(2)
-        color: Qt.rgba(Color.bar.background.r, Color.bar.background.g, Color.bar.background.b, 0.45)
-        border.width: 1
-        border.color: Qt.rgba(Color.accent.r, Color.accent.g, Color.accent.b, 0.18)
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: 1
+        color: Qt.rgba(Color.accent.r, Color.accent.g, Color.accent.b, 0.18)
       }
 
       RowLayout {
