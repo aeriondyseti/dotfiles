@@ -3,7 +3,6 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Wayland
-import Quickshell.Widgets
 import qs.Commons
 
 // Bottom taskbar: a full-width frosted bar along the bottom edge (one per
@@ -60,11 +59,29 @@ Item {
     return ipc && ipc.class ? ipc.class : ""
   }
 
-  function iconFor(toplevel) {
+  // Icon sources to try in order: the themed lookup, then the standard
+  // hicolor/pixmaps folders directly (the themed lookup misses some apps,
+  // e.g. Discord), then a generic icon. The icon falls through on load errors.
+  function iconCandidates(toplevel) {
     var id = appId(toplevel)
     var entry = id ? DesktopEntries.heuristicLookup(id) : null
-    var path = Quickshell.iconPath(entry && entry.icon ? entry.icon : id, true)
-    return path.length > 0 ? path : Quickshell.iconPath("application-x-executable", true)
+    var name = entry && entry.icon ? String(entry.icon) : id
+    var list = []
+    if (name.charAt(0) === "/") list.push("file://" + name)
+    var themed = name ? Quickshell.iconPath(name, true) : ""
+    if (themed.length > 0) list.push(themed)
+    if (name && name.charAt(0) !== "/") {
+      var roots = [Quickshell.env("HOME") + "/.local/share/icons/hicolor", "/usr/share/icons/hicolor"]
+      for (var r = 0; r < roots.length; r++) {
+        var sizes = ["256x256", "128x128", "64x64", "48x48"]
+        for (var i = 0; i < sizes.length; i++) list.push("file://" + roots[r] + "/" + sizes[i] + "/apps/" + name + ".png")
+        list.push("file://" + roots[r] + "/scalable/apps/" + name + ".svg")
+      }
+      list.push("file:///usr/share/pixmaps/" + name + ".png")
+      list.push("file:///usr/share/pixmaps/" + name + ".svg")
+    }
+    list.push(Quickshell.iconPath("application-x-executable", true))
+    return list
   }
 
   // Runs `hyprctl dispatch <lua>` without a shell (argv form).
@@ -92,6 +109,39 @@ Item {
 
   function close(toplevel) {
     dispatch("hl.dsp.window.close({ window = \"" + windowSelector(toplevel) + "\" })")
+  }
+
+  // Minimized windows must never hold keyboard focus: apps like Discord grab
+  // focus while they're hidden (e.g. when they finish loading), so typing would
+  // go to an invisible window. Give focus back to the last visible window.
+  property var lastVisibleToplevel: null
+
+  function guardHiddenFocus() {
+    var active = Hyprland.activeToplevel
+    if (!active) return
+    if (!isMinimized(active)) {
+      lastVisibleToplevel = active
+      return
+    }
+    var current = Hyprland.focusedWorkspace
+    var target = lastVisibleToplevel
+    var valid = target && target.workspace !== null && !isMinimized(target)
+      && current !== null && target.workspace.id === current.id
+      && Hyprland.toplevels.values.indexOf(target) !== -1
+    if (!valid) {
+      target = null
+      var values = Hyprland.toplevels.values
+      for (var i = 0; i < values.length && !target; i++) {
+        var t = values[i]
+        if (t.workspace !== null && current !== null && t.workspace.id === current.id) target = t
+      }
+    }
+    if (target) dispatch("hl.dsp.focus({ window = \"" + windowSelector(target) + "\" })")
+  }
+
+  Connections {
+    target: Hyprland
+    function onActiveToplevelChanged() { root.guardHiddenFocus() }
   }
 
   // Thin teal line along the bottom edge of Omarchy's top bar (the bar has no
@@ -182,10 +232,19 @@ Item {
               }
             }
 
-            IconImage {
+            Image {
+              readonly property var candidates: root.iconCandidates(item.toplevel)
+              property int candidate: 0
               anchors.centerIn: parent
-              implicitSize: root.iconSize
-              source: root.iconFor(item.toplevel)
+              width: root.iconSize
+              height: root.iconSize
+              sourceSize.width: root.iconSize * 2
+              sourceSize.height: root.iconSize * 2
+              fillMode: Image.PreserveAspectFit
+              smooth: true
+              source: candidates[Math.min(candidate, candidates.length - 1)]
+              onStatusChanged: if (status === Image.Error && candidate < candidates.length - 1) candidate++
+              onCandidatesChanged: candidate = 0
               opacity: item.minimized ? 0.4 : (item.focused ? 1 : 0.8)
             }
 

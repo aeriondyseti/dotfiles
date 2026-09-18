@@ -5,6 +5,10 @@
 # its windows for a short while after the first one appears.
 set -u
 
+# Whatever had focus before Discord started; focus goes back there, since a
+# freshly opened window grabs keyboard focus even after it's hidden.
+previous=$(hyprctl activewindow -j | jq -r '.address // empty')
+
 uwsm-app -- discord &
 
 first_seen=""
@@ -13,6 +17,14 @@ for _ in $(seq 1 90); do
     hyprctl dispatch "hl.dsp.window.move({ workspace = \"special:minimized\", follow = false, window = \"address:$address\" })" >/dev/null
     first_seen=${first_seen:-$SECONDS}
   done
+  # Don't leave keyboard focus on a hidden Discord window.
+  if [ "$(hyprctl activewindow -j | jq -r '.class // empty')" = "discord" ]; then
+    if [ -n "$previous" ] && hyprctl clients -j | jq -e --arg a "$previous" 'any(.[]; .address == $a)' >/dev/null; then
+      hyprctl dispatch "hl.dsp.focus({ window = \"address:$previous\" })" >/dev/null
+    else
+      hyprctl dispatch "hl.dsp.focus({ workspace = \"$(hyprctl activeworkspace -j | jq -r .id)\" })" >/dev/null
+    fi
+  fi
   # Stop 15s after the first Discord window (enough for updater -> main window).
   if [ -n "$first_seen" ] && [ $((SECONDS - first_seen)) -ge 15 ]; then
     exit 0
