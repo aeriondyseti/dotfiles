@@ -7,7 +7,7 @@ continuation_prompt = "[… ](bright-black)"
 
 format = """
 $os$shell$nodejs$python$kotlin$bun$dotnet$rust
-[╭─](bright-black) $directory$fill$git_branch$git_status$git_state
+[╭─](bright-black) $directory$git_branch$git_status$git_state
 [╰─](bright-black) $username$hostname $character"""
 
 # ── Line 1: badges ────────────────────────────
@@ -52,7 +52,8 @@ symbol = " "
 format = "[](fg:red)[ $symbol$version ](fg:bright-white bg:red)[](fg:red) "
 symbol = " "
 
-# ── Line 2: path ··· git ───────────────────────
+# ── Line 2: path + git ─────────────────────────
+# (No $fill here: a full-width line makes bash add a blank line.)
 [directory]
 format = "[$path]($style)[$read_only]($read_only_style)"
 style = "white"
@@ -60,11 +61,8 @@ truncation_length = 3
 truncation_symbol = "…/"
 read_only = " "
 
-[fill]
-symbol = " "
-
 [git_branch]
-format = "[ $branch]($style)"
+format = "  [ $branch]($style)"
 style = "blue"
 
 [git_status]
