@@ -1,9 +1,30 @@
 # aliases.ps1 — managed by chezmoi (Windows). PowerShell 7 port of aliases.zsh.
 # Dot-sourced from Microsoft.PowerShell_profile.ps1.
 
+# Snapshot of PowerShell's built-in aliases/functions, taken before we change
+# anything, so 'fa' (functions.ps1) lists only ours.
+$script:_builtinAliases   = @(Get-Alias | ForEach-Object { "$($_.Name)=$($_.Definition)" })
+$script:_builtinFunctions = @((Get-ChildItem Function:).Name)
+
 # --- free up built-in aliases so our functions can take their names ---
 'ls','cat','cp','mv','rm','man' | ForEach-Object {
   if (Test-Path "Alias:$_") { Remove-Item "Alias:$_" -Force }
+}
+
+# --- GNU coreutils (uutils, installed via winget) ---
+# winget links each utility (rm.exe, mv.exe, mkdir.exe, ...) into WinGet\Links.
+# Drop the PowerShell aliases/functions that shadow them so rm -rf, mkdir -p,
+# tee -a, sort -u etc. behave like Linux. echo/pwd/sleep/cd stay PowerShell;
+# ls/cat stay eza/bat (below).
+$script:_uutils    = "$env:LOCALAPPDATA\Microsoft\WinGet\Links"
+$script:_hasUutils = Test-Path "$script:_uutils\sort.exe"
+if ($script:_hasUutils) {
+  'rmdir','tee','sort' | ForEach-Object {
+    if (Test-Path "Alias:$_") { Remove-Item "Alias:$_" -Force }
+  }
+  if (Test-Path Function:mkdir) { Remove-Item Function:mkdir }
+  # System32\sort.exe precedes WinGet\Links on PATH; point at GNU sort explicitly.
+  Set-Alias sort "$script:_uutils\sort.exe"
 }
 
 # (EDITOR/VISUAL are set in env.ps1, which the profile sources before this file.)
@@ -13,29 +34,36 @@ function path { $env:PATH -split ';' }
 function now  { Get-Date -Format 'yyyy-MM-dd HH:mm:ss' }
 
 # --- Safety nets / force variants ---
-# rmrf: robust recursive delete. Uses native 'rmdir /s /q' for directories so it
-# handles read-only files (git objects) and deep paths (node_modules) that
-# Remove-Item chokes on. Files fall back to Remove-Item -Force. Supports globs.
-function rmrf {
-  foreach ($p in $args) {
-    $items = Resolve-Path -Path $p -ErrorAction SilentlyContinue
-    if (-not $items) { Write-Warning "rmrf: not found: $p"; continue }
-    foreach ($item in $items) {
-      $path = $item.Path
-      if (Test-Path -LiteralPath $path -PathType Container) {
-        & cmd /c "rmdir /s /q `"$path`""
-      } else {
-        Remove-Item -LiteralPath $path -Force
+if ($script:_hasUutils) {
+  # Same as aliases.zsh. GNU rm -rf handles read-only git objects and >260-char
+  # paths, and uutils expands globs itself (PowerShell doesn't for native exes).
+  function rm   { & "$script:_uutils\rm.exe" -i @args }
+  function mv   { & "$script:_uutils\mv.exe" -i @args }
+  function cp   { & "$script:_uutils\cp.exe" -i @args }
+  function rmrf { & "$script:_uutils\rm.exe" -rf @args }
+  function mvf  { & "$script:_uutils\mv.exe" -f @args }
+  function cpf  { & "$script:_uutils\cp.exe" -f @args }
+} else {
+  # rmrf: robust recursive delete. Uses native 'rmdir /s /q' for directories so it
+  # handles read-only files (git objects) and deep paths (node_modules) that
+  # Remove-Item chokes on. Files fall back to Remove-Item -Force. Supports globs.
+  function rmrf {
+    foreach ($p in $args) {
+      $items = Resolve-Path -Path $p -ErrorAction SilentlyContinue
+      if (-not $items) { Write-Warning "rmrf: not found: $p"; continue }
+      foreach ($item in $items) {
+        $path = $item.Path
+        if (Test-Path -LiteralPath $path -PathType Container) {
+          & cmd /c "rmdir /s /q `"$path`""
+        } else {
+          Remove-Item -LiteralPath $path -Force
+        }
       }
     }
   }
+  function mvf  { Move-Item   -Force @args }
+  function cpf  { Copy-Item   -Force @args }
 }
-function mvf  { Move-Item   -Force @args }
-function cpf  { Copy-Item   -Force @args }
-# Optional interactive guards (uncomment to mimic rm -i / mv -i / cp -i):
-# function rm { Remove-Item -Confirm @args }
-# function mv { Move-Item   -Confirm @args }
-# function cp { Copy-Item   -Confirm @args }
 
 # --- Networking ---
 function myip    { Invoke-RestMethod ifconfig.me }
@@ -94,10 +122,13 @@ function shreload      { . $PROFILE }
 
 # --- Linux muscle-memory ---
 function which   { (Get-Command @args -ErrorAction SilentlyContinue).Source }
-function touch   { foreach ($f in $args) { if (Test-Path $f) { (Get-Item $f).LastWriteTime = Get-Date } else { New-Item -ItemType File -Path $f | Out-Null } } }
 function pbcopy  { $input | Set-Clipboard }      # echo x | pbcopy
 function pbpaste { Get-Clipboard }
-function env     { Get-ChildItem Env: }
+# touch/env: GNU versions from uutils when installed; PowerShell fallbacks otherwise.
+if (-not $script:_hasUutils) {
+  function touch { foreach ($f in $args) { if (Test-Path $f) { (Get-Item $f).LastWriteTime = Get-Date } else { New-Item -ItemType File -Path $f | Out-Null } } }
+  function env   { Get-ChildItem Env: }
+}
 Set-Alias open Invoke-Item                       # open . / open file (xdg-open/open)
 Set-Alias grep rg                                # muscle memory -> ripgrep
 # man -> tldr (falls back to Get-Help if tldr isn't installed)
@@ -127,3 +158,18 @@ function dce  { docker compose exec @args }
 # --- lazydocker / lazygit ---
 Set-Alias lzd lazydocker
 Set-Alias lg  lazygit
+
+# --- Bun ('bun x' == bunx) ---
+function b   { bun @args }
+function br  { bun run @args }
+function bx  { bun x @args }
+function bi  { bun install @args }
+function ba  { bun add @args }
+function bad { bun add -d @args }
+
+# --- uv ---
+function uvr  { uv run @args }
+function uvs  { uv sync @args }
+function uva  { uv add @args }
+function uvad { uv add --dev @args }
+function uvp  { uv pip @args }
