@@ -1,0 +1,31 @@
+{{- if eq .profile "windows" -}}
+# Point PowerShell's $PROFILE at the chezmoi-managed profile — managed by chezmoi.
+# pwsh only loads $PROFILE from the Documents known folder, which may be
+# redirected off $HOME (D:\Documents, OneDrive) where chezmoi can't deploy. So
+# the real profile lives in ~/.config/powershell and $PROFILE is a one-line stub
+# that dot-sources it. Re-runs only if this script changes.
+# Runs under Windows PowerShell 5.1 (chezmoi's .ps1 interpreter), so keep it 5.1-safe.
+$ErrorActionPreference = 'Stop'
+
+$real   = Join-Path $HOME '.config\powershell\Microsoft.PowerShell_profile.ps1'
+$dir    = Join-Path ([Environment]::GetFolderPath('MyDocuments')) 'PowerShell'
+$stub   = Join-Path $dir 'Microsoft.PowerShell_profile.ps1'
+$marker = '# chezmoi profile stub'
+$content = @"
+$marker (run_onchange_after_powershell-profile-stub.ps1). Don't edit here:
+# the real profile is $real (shedit rc / chezmoi edit).
+. "$real"
+"@
+
+New-Item -ItemType Directory -Force -Path $dir | Out-Null
+
+# Keep a copy of a hand-written profile the first time we replace it.
+if ((Test-Path $stub) -and -not (Select-String -Path $stub -SimpleMatch $marker -Quiet)) {
+  $bak = "$stub.pre-chezmoi.bak"
+  Copy-Item $stub $bak -Force
+  Write-Host "Backed up existing profile to $bak"
+}
+
+Set-Content -Path $stub -Value $content -Encoding ascii
+Write-Host "PowerShell profile stub: $stub -> $real"
+{{- end -}}

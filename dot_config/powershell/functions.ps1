@@ -92,7 +92,7 @@ Set-Alias jqp jqpretty
 function shedit {
   param([ValidateSet('rc', 'aliases', 'funcs', 'env', 'local')][string]$Which)
   $files = @{
-    rc      = $PROFILE
+    rc      = "$PSScriptRoot\Microsoft.PowerShell_profile.ps1"   # $PROFILE is just the stub
     aliases = "$PSScriptRoot\aliases.ps1"
     funcs   = "$PSScriptRoot\functions.ps1"
     env     = "$PSScriptRoot\env.ps1"

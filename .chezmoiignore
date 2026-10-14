@@ -28,7 +28,7 @@ scripts/
 # so they are not listed here ( .chezmoiignore does not reliably skip scripts ).
 {{ if ne .profile "windows" }}
 # Windows-only files — skip on every other profile
-Documents/
+.config/powershell/
 {{ end }}
 
 {{ if eq .profile "windows" }}

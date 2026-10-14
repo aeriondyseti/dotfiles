@@ -114,7 +114,8 @@ Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 Set-Alias chm chezmoi
 
 # --- Shell quick edits ---
-function editshrc      { & $env:EDITOR $PROFILE }
+# $PROFILE is only the stub; the real profile is next to this file.
+function editshrc      { & $env:EDITOR "$PSScriptRoot\Microsoft.PowerShell_profile.ps1" }
 function editshenv     { & $env:EDITOR "$PSScriptRoot\env.ps1" }
 function editshaliases { & $env:EDITOR "$PSScriptRoot\aliases.ps1" }
 function editshfuncs   { & $env:EDITOR "$PSScriptRoot\functions.ps1" }

@@ -37,6 +37,16 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply aeriondyseti/dotfiles
 2. All other tools (Oh My Posh, bat, micro, delta) use standard ANSI color names (0–15).
 3. Changing the Ghostty palette instantly updates the theme for every tool.
 
+### Windows (PowerShell)
+
+The `windows` profile manages PowerShell 7 instead of zsh. The profile and its
+split-out files (`env.ps1`, `aliases.ps1`, `functions.ps1`) live in
+`~/.config/powershell/`. PowerShell only loads `$PROFILE` from the Documents
+folder, which is often redirected off `$HOME` (e.g. `D:\Documents` or OneDrive)
+where chezmoi can't deploy. So `run_onchange_after_powershell-profile-stub.ps1`
+writes a one-line `$PROFILE` there that dot-sources the real profile. Machine-local
+additions go in `~/.config/powershell/local.ps1` (not managed).
+
 ## Maintenance
 
 ### Apply Changes
