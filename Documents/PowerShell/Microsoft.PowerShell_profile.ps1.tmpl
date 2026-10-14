@@ -11,14 +11,27 @@ if (Test-Path "$PSScriptRoot\local.ps1")     { . "$PSScriptRoot\local.ps1" }
 # ── Interactive shell setup (the .zshrc-equivalent layer) ──
 
 # PSReadLine — zsh-like: emacs keys, inline autosuggestions, prefix history,
-# menu completion on Tab.
-Set-PSReadLineOption -EditMode Emacs
-Set-PSReadLineOption -PredictionSource HistoryAndPlugin
-Set-PSReadLineOption -PredictionViewStyle InlineView
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd
-Set-PSReadLineKeyHandler -Key Tab       -Function MenuComplete
-Set-PSReadLineKeyHandler -Key UpArrow   -Function HistorySearchBackward
-Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+# menu completion on Tab. Prediction UI requires a genuinely interactive
+# console; AI/tool shells commonly redirect stdin/stdout even when ConsoleHost
+# and Environment.UserInteractive suggest otherwise.
+$isAI = [bool](
+  $env:CODEX_AGENT -or
+  $env:CLAUDE -or
+  ($env:TERM_PROGRAM -eq "claude-code")
+)
+$hasInteractiveConsole =
+  -not [Console]::IsInputRedirected -and
+  -not [Console]::IsOutputRedirected
+
+if (-not $isAI -and $hasInteractiveConsole) {
+  Set-PSReadLineOption -EditMode Emacs
+  Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+  Set-PSReadLineOption -PredictionViewStyle InlineView
+  Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+  Set-PSReadLineKeyHandler -Key Tab       -Function MenuComplete
+  Set-PSReadLineKeyHandler -Key UpArrow   -Function HistorySearchBackward
+  Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+}
 
 # PSFzf — your fzf keybindings: Ctrl+r history, Ctrl+t files, Alt+c cd.
 # (Set after PSReadLine so fzf's Ctrl+r wins.)
