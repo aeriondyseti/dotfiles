@@ -62,8 +62,14 @@ shedit() {
 }
 
 gbclean() {
-    : "Delete all local branches except master and env/* branches."
-    git branch | grep -v "master" | grep -v "env/.*" | xargs git branch -D
+    : "Delete all local branches except main, master, env/* and the current branch."
+    local branches
+    branches=$(git branch --format='%(refname:short)' \
+        | grep -vxE 'main|master|env/.*' \
+        | grep -vxF "$(git branch --show-current)")
+    if [[ -n "$branches" ]]; then
+        echo "$branches" | xargs git branch -D
+    fi
 }
 
 {{- if ne .profile "server" }}

@@ -102,11 +102,11 @@ function shedit {
   & $env:EDITOR $files[$Which]
 }
 
-# gbclean: delete all local branches except master, env/*, and the current one.
+# gbclean: delete all local branches except main, master, env/*, and the current one.
 function gbclean {
   $current  = git branch --show-current
   $branches = @(git branch --format='%(refname:short)' |
-    Where-Object { $_ -notmatch 'master' -and $_ -notmatch 'env/' -and $_ -ne $current })
+    Where-Object { ($_ -notin 'main', 'master', $current) -and ($_ -notlike 'env/*') })
   if ($branches) { git branch -D @branches }
 }
 
