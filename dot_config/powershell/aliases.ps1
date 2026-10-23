@@ -138,7 +138,9 @@ function man { if (Get-Command tldr -ErrorAction SilentlyContinue) { tldr @args 
 # --- oh-my-posh ---
 Set-Alias omp oh-my-posh
 
-# --- Docker (needs Docker Desktop) ---
+# --- Docker ---
+# The engine runs in WSL (Ubuntu-26.04), listening on 127.0.0.1:2375; Windows'
+# docker reaches it through the 'wsl' context (docker context use wsl).
 Set-Alias d docker
 function dps  { docker ps @args }
 function dls  { docker ps    --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Image}}' @args }
@@ -148,13 +150,33 @@ function dv   { docker volume ls @args }
 function dn   { docker network ls @args }
 
 # --- Docker Compose ---
-function dc   { docker compose @args }
-function dcu  { docker compose up -d @args }
-function dcd  { docker compose down @args }
-function dcl  { docker compose logs -f @args }
-function dcr  { docker compose restart @args }
-function dcb  { docker compose build @args }
-function dce  { docker compose exec @args }
+# dc runs compose inside WSL from the same folder, so bind mounts get Linux paths
+# (/mnt/x/...): Windows' compose would send X:\... paths the WSL engine can't use.
+# Junctions are followed first (D:\Development -> X:\Development), since Docker
+# can't bind-mount through them. Windows env vars reach compose only via WSLENV.
+$script:_dockerDistro = 'Ubuntu-26.04'
+function _realDir {
+  param([string]$Path)
+  $item = Get-Item -LiteralPath $Path -Force
+  $rest = @()
+  while ($item) {
+    if ($item.LinkType -in 'Junction', 'SymbolicLink') {
+      $target = @($item.Target)[0]
+      $real = if ($rest) { Join-Path $target ($rest -join '\') } else { $target }
+      return _realDir $real
+    }
+    $rest = @($item.Name) + $rest
+    $item = $item.Parent
+  }
+  $Path
+}
+function dc   { wsl -d $script:_dockerDistro --cd (_realDir (Get-Location).ProviderPath) -- docker compose @args }
+function dcu  { dc up -d @args }
+function dcd  { dc down @args }
+function dcl  { dc logs -f @args }
+function dcr  { dc restart @args }
+function dcb  { dc build @args }
+function dce  { dc exec @args }
 
 # --- lazydocker / lazygit ---
 Set-Alias lzd lazydocker
