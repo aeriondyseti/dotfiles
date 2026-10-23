@@ -219,12 +219,14 @@ $script:_claudeColor = 'orange'
 
 # --- Claude ---
 # c / cc are functions so '/color' lands AFTER your args. The '!'-variants add
-# --dangerously-skip-permissions (canonical daily form). c! opens the agent view
-# (`claude agents`) scoped to the current directory instead of a direct session.
+# --dangerously-skip-permissions (canonical daily form). cagents! opens the agent
+# view (`claude agents`) across every session on the machine, not just this dir.
 function c   { claude @args /color $script:_claudeColor }
 function cc  { c --continue @args }
-function c!  { claude agents --cwd (Get-Location).Path --dangerously-skip-permissions @args }
+function c!  { c --dangerously-skip-permissions @args }
 function cc! { cc --dangerously-skip-permissions @args }
+function cagents! { claude agents --dangerously-skip-permissions @args }
+Set-Alias ca! cagents!
 
 # helper-prompt: the helper-agent system prompt with today's date stamped in
 # (PowerShell port of ~/.local/bin/helper-prompt, which is a bash script).
