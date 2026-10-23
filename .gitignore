@@ -1,2 +1,4 @@
 result
 .direnv
+# The vector-memory plugin keeps its database at user level now, not per project.
+.vector-memory/
